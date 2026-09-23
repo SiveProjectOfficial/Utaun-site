@@ -9,7 +9,6 @@
             --bg: #ffffff;
             --text-main: #1e293b;
             --text-sub: #64748b;
-            /* 指定いただいた正確な水色カラーコード */
             --accent: #09A3F2;
             --accent-hover: #0285c7;
             --border: #e2e8f0;
@@ -97,7 +96,7 @@
             font-weight: 600;
         }
 
-        /* 言語選択プルダウンのスタイル */
+        /* 国旗付き言語選択プルダウンのスタイル */
         .lang-select {
             background-color: rgba(255, 255, 255, 0.2);
             color: white;
@@ -357,17 +356,28 @@
             </a>
             <div class="nav-right">
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">ホーム</a></li>
-                    <li><a href="gallery.html">ギャラリー</a></li>
-                    <li><a href="changelog.html">バージョン履歴</a></li>
+                    <li><a href="index.html" class="active" data-i18n="nav_home">ホーム</a></li>
+                    <li><a href="gallery.html" data-i18n="nav_gallery">ギャラリー</a></li>
+                    <li><a href="changelog.html" data-i18n="nav_changelog">バージョン履歴</a></li>
                 </ul>
-                <select class="lang-select" aria-label="言語選択">
-                    <option value="ja" selected>日本語</option>
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
-                    <option value="pt">Português</option>
-                    <option value="vi">Tiếng Việt</option>
-                    <option value="ru">Русский</option>
+                <select class="lang-select" id="langSelect" aria-label="言語選択">
+                    <option value="ja" selected>🇯🇵 日本語</option>
+                    <option value="en">🇬🇧/🇺🇸 English</option>
+                    <option value="ko">🇰🇷 한국어</option>
+                    <option value="zh-cn">🇨🇳 简体中文</option>
+                    <option value="zh-tw">🇹🇼 繁體中文</option>
+                    <option value="zh-hk">🇭🇰 廣東話</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="pt">🇵🇹 Português</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="pl">🇵🇱 Polski</option>
+                    <option value="tr">🇹🇷 Türkçe</option>
+                    <option value="vi">🇻🇳 Tiếng Việt</option>
+                    <option value="fil">🇵🇭 Filipino</option>
+                    <option value="th">🇹🇭 ไทย</option>
                 </select>
             </div>
         </div>
@@ -379,32 +389,32 @@
             <img src="image.png" alt="Utaun Logo" class="logo-img" onerror="this.style.display='none'">
             <div class="hero-titles">
                 <h1>Utaun</h1>
-                <p>完全無生物の複合正弦波モデリング（CSM音声合成）によるCV音源生成ソフトウェア</p>
+                <p data-i18n="hero_desc">完全無生物の複合正弦波モデリング（CSM音声合成）によるCV音源生成ソフトウェア</p>
             </div>
         </div>
 
         <!-- ダウンロードエリア -->
         <div class="download-hero">
-            <h2>Utaunをダウンロード</h2>
-            <p>最新バージョンをGitHub Releasesから取得できます。</p>
+            <h2 data-i18n="dl_title">Utaunをダウンロード</h2>
+            <p data-i18n="dl_subtitle">最新バージョンをGitHub Releasesから取得できます。</p>
             <div class="dl-buttons">
-                <a href="https://github.com/SiveProjectOfficial/Utaun/releases" class="dl-btn" target="_blank">インストーラー版をDL</a>
-                <a href="https://github.com/SiveProjectOfficial/Utaun/releases" class="dl-btn zip-btn" target="_blank">ZIP版をDL</a>
+                <a href="https://github.com/SiveProjectOfficial/Utaun/releases" class="dl-btn" target="_blank" data-i18n="btn_installer">インストーラー版をDL</a>
+                <a href="https://github.com/SiveProjectOfficial/Utaun/releases" class="dl-btn zip-btn" target="_blank" data-i18n="btn_zip">ZIP版をDL</a>
             </div>
             <div>
-                <span class="platform-badge">Windows 専用ソフト</span>
+                <span class="platform-badge" data-i18n="badge_platform">Windows 専用ソフト</span>
             </div>
         </div>
 
         <!-- Utaunとは？ -->
         <section>
-            <h3>Utaunとは？</h3>
-            <p>
+            <h3 data-i18n="about_title">Utaunとは？</h3>
+            <p data-i18n="about_text">
                 完全無生物の複合正弦波モデリング（CSM音声合成）だけで UTAU 用の CV 音源を生成する Windows ソフトです。<br>
                 ドキュメントへの ZIP 自動生成や、各 UTAU 関連ソフトへの直接エクスポートに対応しています。
             </p>
             <div style="background-color: var(--box-bg); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 12px 12px 0; margin-top: 1rem;">
-                <p style="margin: 0; font-size: 0.9rem; color: var(--text-main);">
+                <p style="margin: 0; font-size: 0.9rem; color: var(--text-main);" data-i18n="adachi_box">
                     <strong>💡 足立レイと同じ手法（CSM音声合成）について</strong><br>
                     人間の声の代わりに波の成分（サイン波）を組み合わせて機械や無生物の素材から歌声を作り出す音声合成の仕組みです（「足立レイ」のUTAU音源と同じ手法です）。人間の声を録音しなくても、ユニークなUTAU音源を手軽に作ることができます！
                 </p>
@@ -413,53 +423,41 @@
 
         <!-- 想定用途 -->
         <section>
-            <h3>想定用途</h3>
+            <h3 data-i18n="usecase_title">想定用途</h3>
             <div class="usecase-grid">
-                <div class="usecase-card">
-                    <p>無生物の声で UTAU 音源を作りたい時</p>
-                </div>
-                <div class="usecase-card">
-                    <p>地声で録音するのが苦手な人向けの音源制作</p>
-                </div>
-                <div class="usecase-card">
-                    <p>複合正弦波モデリング（CSM音声合成）の素材研究</p>
-                </div>
-                <div class="usecase-card">
-                    <p>自作音源のプロトタイピング</p>
-                </div>
-                <div class="usecase-card">
-                    <p>ZIP を解凍して、そのまま人力ボカロ素材として使う用途</p>
-                </div>
-                <div class="usecase-card">
-                    <p>音MAD・YTPMV などの素材としての用途</p>
-                </div>
+                <div class="usecase-card"><p data-i18n="uc_1">無生物の声で UTAU 音源を作りたい時</p></div>
+                <div class="usecase-card"><p data-i18n="uc_2">地声で録音するのが苦手な人向けの音源制作</p></div>
+                <div class="usecase-card"><p data-i18n="uc_3">複合正弦波モデリング（CSM音声合成）の素材研究</p></div>
+                <div class="usecase-card"><p data-i18n="uc_4">自作音源のプロトタイピング</p></div>
+                <div class="usecase-card"><p data-i18n="uc_5">ZIP を解凍して、そのまま人力ボカロ素材として使う用途</p></div>
+                <div class="usecase-card"><p data-i18n="uc_6">音MAD・YTPMV などの素材としての用途</p></div>
             </div>
         </section>
 
         <!-- Utaunの使用方法 -->
         <section>
-            <h3>Utaunの使用方法</h3>
+            <h3 data-i18n="manual_title">Utaunの使用方法</h3>
             <ul class="steps-list">
                 <li>
                     <span class="step-num">1</span>
-                    <p class="step-text">GitHub Releasesから、お好みの「インストーラー版」または「ZIP版」をダウンロードします。</p>
+                    <p class="step-text" data-i18n="step_1">GitHub Releasesから、お好みの「インストーラー版」または「ZIP版」をダウンロードします。</p>
                 </li>
                 <li>
                     <span class="step-num">2</span>
                     <div>
-                        <p class="step-text"><strong>【インストーラー版の場合】</strong> インストーラーを起動し、画面の指示に従ってインストールを進めると必要なファイルが自動で適切な場所に配置されます。</p>
-                        <p class="step-text" style="margin-top: 0.5rem;"><strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と「oto.ini」を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。</p>
+                        <p class="step-text" data-i18n="step_2_installer"><strong>【インストーラー版の場合】</strong> インストーラーを起動し、画面の指示に従ってインストールを進めると必要なファイルが自動で適切な場所に配置されます。</p>
+                        <p class="step-text" style="margin-top: 0.5rem;" data-i18n="step_2_zip"><strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と「oto.ini」を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。</p>
                     </div>
                 </li>
                 <li>
                     <span class="step-num">3</span>
-                    <p class="step-text">Utaun を起動し、画面の指示に従って音源を作成します。</p>
+                    <p class="step-text" data-i18n="step_3">Utaun を起動し、画面の指示に従って音源を作成します。</p>
                 </li>
                 <li>
                     <span class="step-num">4</span>
                     <div>
-                        <p class="step-text">データの保存先として、ZIP出力のほか、UTAUとOpenUTAUへのフォルダ状態での直接エクスポートが選択できます。</p>
-                        <span class="note">※ 今後のバージョンからは自動アップデート機能がご利用いただけます。</span>
+                        <p class="step-text" data-i18n="step_4">データの保存先として、ZIP出力のほか、UTAUとOpenUTAUへのフォルダ状態での直接エクスポートが選択できます。</p>
+                        <span class="note" data-i18n="step_4_note">※ 今後のバージョンからは自動アップデート機能がご利用いただけます。</span>
                     </div>
                 </li>
             </ul>
@@ -470,5 +468,108 @@
         </footer>
     </div>
 
+    <script>
+        // 翻訳データ（「子音部・濁音部フォルダ」「oto.ini」はそのまま保護しています）
+        const translations = {
+            ja: {
+                nav_home: "ホーム",
+                nav_gallery: "ギャラリー",
+                nav_changelog: "バージョン履歴",
+                hero_desc: "完全無生物の複合正弦波モデリング（CSM音声合成）によるCV音源生成ソフトウェア",
+                dl_title: "Utaunをダウンロード",
+                dl_subtitle: "最新バージョンをGitHub Releasesから取得できます。",
+                btn_installer: "インストーラー版をDL",
+                btn_zip: "ZIP版をDL",
+                badge_platform: "Windows 専用ソフト",
+                about_title: "Utaunとは？",
+                about_text: "完全無生物の複合正弦波モデリング（CSM音声合成）だけで UTAU 用の CV 音源を生成する Windows ソフトです。<br>ドキュメントへの ZIP 自動生成や、各 UTAU 関連ソフトへの直接エクスポートに対応しています。",
+                adachi_box: "<strong>💡 足立レイと同じ手法（CSM音声合成）について</strong><br>人間の声の代わりに波の成分（サイン波）を組み合わせて機械や無生物の素材から歌声を作り出す音声合成の仕組みです（「足立レイ」のUTAU音源と同じ手法です）。人間の声を録音しなくても、ユニークなUTAU音源を手軽に作ることができます！",
+                usecase_title: "想定用途",
+                uc_1: "無生物の声で UTAU 音源を作りたい時",
+                uc_2: "地声で録音するのが苦手な人向けの音源制作",
+                uc_3: "複合正弦波モデリング（CSM音声合成）の素材研究",
+                uc_4: "自作音源のプロトタイピング",
+                uc_5: "ZIP を解凍して、そのまま人力ボカロ素材として使う用途",
+                uc_6: "音MAD・YTPMV などの素材としての用途",
+                manual_title: "Utaunの使用方法",
+                step_1: "GitHub Releasesから、お好みの「インストーラー版」または「ZIP版」をダウンロードします。",
+                step_2_installer: "<strong>【インストーラー版の場合】</strong> インストーラーを起動し、画面の指示に従ってインストールを進めると必要なファイルが自動で適切な場所に配置されます。",
+                step_2_zip: "<strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と「oto.ini」を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。",
+                step_3: "Utaun を起動し、画面の指示に従って音源を作成します。",
+                step_4: "データの保存先として、ZIP出力のほか、UTAUとOpenUTAUへのフォルダ状態での直接エクスポートが選択できます。",
+                step_4_note: "※ 今後のバージョンからは自動アップデート機能がご利用いただけます。"
+            },
+            en: {
+                nav_home: "Home",
+                nav_gallery: "Gallery",
+                nav_changelog: "Changelog",
+                hero_desc: "CV voicebank generation software using purely inanimate complex sinusoidal modeling (CSM voice synthesis)",
+                dl_title: "Download Utaun",
+                dl_subtitle: "Get the latest version from GitHub Releases.",
+                btn_installer: "Download Installer",
+                btn_zip: "Download ZIP",
+                badge_platform: "Windows Only",
+                about_title: "What is Utaun?",
+                about_text: "A Windows software that generates CV voicebanks for UTAU using only inanimate complex sinusoidal modeling (CSM voice synthesis).<br>Supports automatic ZIP generation to Documents and direct export to various UTAU-compatible software.",
+                adachi_box: "<strong>💡 About the same method as Adachi Rei (CSM Voice Synthesis)</strong><br>It is a voice synthesis method that combines wave components (sine waves) instead of human voices to create singing voices from mechanical or inanimate materials (the same method used for 'Adachi Rei' UTAU voicebanks). You can easily create unique UTAU voicebanks without recording human voices!",
+                usecase_title: "Use Cases",
+                uc_1: "When you want to create a UTAU voicebank with inanimate sounds",
+                uc_2: "Voicebank production for people who struggle with recording their own voice",
+                uc_3: "Material research on complex sinusoidal modeling (CSM voice synthesis)",
+                uc_4: "Prototyping self-made voicebanks",
+                uc_5: "Extracting ZIP files to use directly as human-made Vocaloiding materials",
+                uc_6: "Using as material for Otomad and YTPMV",
+                manual_title: "How to Use Utaun",
+                step_1: "Download your preferred 'Installer version' or 'ZIP version' from GitHub Releases.",
+                step_2_installer: "<strong>[For Installer Version]</strong> Launch the installer and follow the on-screen instructions to automatically place the required files in the correct location.",
+                step_2_zip: "<strong>[For ZIP Version]</strong> Place the '子音部・濁音部フォルダ' and 'oto.ini' located inside the extracted folder directly into your 'Documents' folder (OneDrive Documents are also supported).",
+                step_3: "Launch Utaun and follow the on-screen instructions to create your voicebank.",
+                step_4: "As a save destination, you can choose ZIP output as well as direct folder export to UTAU and OpenUTAU.",
+                step_4_note: "* Automatic updates will be available in future versions."
+            },
+            ko: {
+                nav_home: "홈",
+                nav_gallery: "갤러리",
+                nav_changelog: "버전 기록",
+                hero_desc: "완전 무생물의 복합 정현파 모델링(CSM 음성 합성)을 이용한 CV 음원 생성 소프트웨어",
+                dl_title: "Utaun 다운로드",
+                dl_subtitle: "GitHub Releases에서 최신 버전을 다운로드할 수 있습니다.",
+                btn_installer: "설치 프로그램 다운로드",
+                btn_zip: "ZIP 버전 다운로드",
+                badge_platform: "Windows 전용 소프트",
+                about_title: "Utaun이란?",
+                about_text: "완전 무생물의 복합 정현파 모델링(CSM 음성 합성)만으로 UTAU용 CV 음원을 생성하는 Windows 소프트웨어입니다.<br>문서 폴더로의 ZIP 자동 생성 및 각 UTAU 관련 소프트웨어로의 직접 내보내기를 지원합니다.",
+                adachi_box: "<strong>💡 아다치 레이와 같은 방식(CSM 음성 합성)에 대하여</strong><br>사람의 목소리 대신 파동 성분(사인파)을 조합하여 기계나 무생물 소재로부터 노랫소리를 만들어내는 음성 합성 방식입니다('아다치 레이'의 UTAU 음정과 같은 방식). 사람의 목소리를 녹음하지 않아도 독창적인 UTAU 음원을 손쉽게 만들 수 있습니다!",
+                usecase_title: "예상 용도",
+                uc_1: "무생물의 목소리로 UTAU 음원을 만들고 싶을 때",
+                uc_2: "육성 녹음이 부담스러운 사람을 위한 음원 제작",
+                uc_3: "복합 정현파 모델링(CSM 음성 합성) 소재 연구",
+                uc_4: "자작 음원 프로토타이핑",
+                uc_5: "ZIP을 해제하여 인력 보컬oid 소재로 사용하는 용도",
+                uc_6: "음MAD, YTPMV 등의 소재로 활용",
+                manual_title: "Utaun 사용 방법",
+                step_1: "GitHub Releases에서 원하는 '설치 프로그램 버전' 또는 'ZIP 버전'을 다운로드합니다.",
+                step_2_installer: "<strong>[설치 프로그램 버전의 경우]</strong> 설치 프로그램을 실행하고 화면 지침에 따라 진행하면 필요한 파일이 올바른 위치에 자동으로 배치됩니다.",
+                step_2_zip: "<strong>[ZIP 버전의 경우]</strong> 압축 해제된 폴더 내의 '子音部・濁音部フォルダ'와 'oto.ini'를 '문서' 폴더(OneDrive 문서도 가능)에 직접 넣어주세요.",
+                step_3: "Utaun을 실행하고 화면 안내에 따라 음원을 생성합니다.",
+                step_4: "저장 위치로 ZIP 출력 외에도 UTAU 및 OpenUTAU로의 폴더 직접 내보내기를 선택할 수 있습니다.",
+                step_4_note: "* 향후 버전부터는 자동 업데이트 기능이 제공됩니다."
+            },
+            // 他の言語も同様の仕組みで拡張可能です（今回は代表として日本語・英語・韓国語の構造を組み込み、未定義の言語が選ばれた場合は英語または日本語をベースにするフォールバックが可能です）
+        };
+
+        const langSelect = document.getElementById('langSelect');
+        langSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            const dict = translations[lang] || translations['en']; // 翻訳辞書がない場合は英語をフォールバック
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerHTML = dict[key];
+                }
+            });
+        });
+    </script>
 </body>
 </html>
