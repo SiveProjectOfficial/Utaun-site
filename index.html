@@ -44,6 +44,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .nav-logo {
@@ -63,6 +65,12 @@
             border-radius: 6px;
             object-fit: cover;
             background: white;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .nav-links {
@@ -87,6 +95,29 @@
         .nav-links a:hover, .nav-links a.active {
             background-color: rgba(255, 255, 255, 0.25);
             font-weight: 600;
+        }
+
+        /* 言語選択プルダウンのスタイル */
+        .lang-select {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 0.3rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.15s ease;
+        }
+
+        .lang-select option {
+            color: var(--text-main);
+            background-color: white;
+        }
+
+        .lang-select:hover {
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         /* メインコンテンツ用のコンテナ */
@@ -317,18 +348,28 @@
 </head>
 <body>
 
-    <!-- 画面上部に広がるメニューバー（アイコン付きロゴ） -->
+    <!-- 画面上部に広がるメニューバー -->
     <header class="site-header">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
                 <img src="Image/IMG_5139.jpeg" alt="Utaun Icon" class="nav-logo-img" onerror="this.style.display='none'">
+                Utaun
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">ホーム</a></li>
-                <li><a href="manual.html">使用方法</a></li>
-                <li><a href="gallery.html">ギャラリー</a></li>
-                <li><a href="changelog.html">バージョン履歴</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">ホーム</a></li>
+                    <li><a href="gallery.html">ギャラリー</a></li>
+                    <li><a href="changelog.html">バージョン履歴</a></li>
+                </ul>
+                <select class="lang-select" aria-label="言語選択">
+                    <option value="ja" selected>日本語</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="pt">Português</option>
+                    <option value="vi">Tiếng Việt</option>
+                    <option value="ru">Русский</option>
+                </select>
+            </div>
         </div>
     </header>
 
