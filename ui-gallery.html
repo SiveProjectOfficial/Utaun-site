@@ -464,8 +464,9 @@
         };
 
         const langSelect = document.getElementById('langSelect');
-        langSelect.addEventListener('change', (e) => {
-            const lang = e.target.value;
+
+        // 言語を適用して描画する関数
+        function applyLanguage(lang) {
             const targetLang = (lang === 'en-us') ? 'en' : lang;
             const t = translations[targetLang] || translations['ja'];
 
@@ -483,6 +484,18 @@
             document.querySelector('[data-i18n="ui_5"]').innerText = t.ui5;
             document.querySelector('[data-i18n="ui_6"]').innerText = t.ui6;
             document.querySelector('[data-i18n="ui_7"]').innerText = t.ui7;
+        }
+
+        // 1. ページ読み込み時に保存された言語があれば復元する
+        const savedLang = localStorage.getItem('utaun_lang') || 'ja';
+        langSelect.value = savedLang;
+        applyLanguage(savedLang);
+
+        // 2. セレクトボックスが変更されたら保存＆適用する
+        langSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            localStorage.setItem('utaun_lang', lang);
+            applyLanguage(lang);
         });
     </script>
 </body>
