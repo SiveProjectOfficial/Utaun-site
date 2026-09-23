@@ -9,8 +9,10 @@
             --bg: #ffffff;
             --text-main: #1e293b;
             --text-sub: #64748b;
-            --accent: #0ea5e9;
-            --accent-hover: #0284c7;
+            /* アイコンの背景色・文字色に完全に合わせたカラーパレット */
+            --accent: #38bdf8;        /* アイコン背景のスカイブルー */
+            --accent-hover: #0ea5e9;  /* 少し濃いめのホバー用 */
+            --logo-blue: #3b82f6;     /* アイコン内のUtaun文字の青 */
             --border: #e2e8f0;
             --box-bg: #f8fafc;
         }
@@ -30,7 +32,7 @@
             color: white;
             width: 100%;
             margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -46,12 +48,22 @@
         }
 
         .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-weight: 700;
             font-size: 1.15rem;
             color: white;
             text-decoration: none;
-            letter-spacing: -0.01em;
             white-space: nowrap;
+        }
+
+        .nav-logo-img {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            object-fit: cover;
+            background: white;
         }
 
         .nav-links {
@@ -65,12 +77,12 @@
         .nav-links a {
             text-decoration: none;
             color: white;
-            font-size: 0.8rem; /* 少しだけ調整して確実に1行に収める */
+            font-size: 0.8rem;
             font-weight: 500;
             padding: 0.35rem 0.5rem;
             border-radius: 6px;
             transition: background-color 0.15s ease;
-            white-space: nowrap; /* 絶対に折り返させない */
+            white-space: nowrap;
         }
 
         .nav-links a:hover, .nav-links a.active {
@@ -123,7 +135,7 @@
             padding: 3rem 2rem;
             text-align: center;
             margin-bottom: 3.5rem;
-            box-shadow: 0 4px 20px rgba(14, 165, 233, 0.05);
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.1);
         }
 
         .download-hero h2 {
@@ -147,13 +159,13 @@
             border-radius: 9999px;
             text-decoration: none;
             transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.35);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
         }
 
         .dl-btn:hover {
             background-color: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.45);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
         }
 
         .platform-badge {
@@ -288,10 +300,13 @@
 </head>
 <body>
 
-    <!-- 画面上部に広がるメニューバー -->
+    <!-- 画面上部に広がるメニューバー（アイコン付きロゴ） -->
     <header class="site-header">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Utaun</a>
+            <a href="index.html" class="nav-logo">
+                <img src="image.png" alt="Utaun Icon" class="nav-logo-img" onerror="this.style.display='none'">
+                Utaun
+            </a>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">ホーム</a></li>
                 <li><a href="manual.html">使用方法</a></li>
