@@ -331,6 +331,20 @@
             padding-left: 1.2rem;
         }
 
+        /* ミラー配布許可セクションのスタイル（デフォルト非表示） */
+        .mirror-box {
+            background-color: #fffaf0;
+            border: 1px solid #f0a020;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .mirror-box ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.2rem;
+        }
+
         /* 日本語限定リンクのスタイル */
         .sister-site-box {
             margin-bottom: 1.5rem;
@@ -509,6 +523,19 @@
                     <p data-i18n="terms_body_5">（音源・wav・icon.jpg / icon.bmp・<code>oto.ini</code> など）<br>
                     利用規約は、あなた（配布者）が自由に設定できます。<code>readme.txt</code> にお好きな規約を書いてください。</p>
                 </div>
+
+                <!-- ロシア・中国・香港向けのミラー配布特例案内ボックス -->
+                <div class="mirror-box" id="mirrorBox">
+                    <p><strong data-i18n="mirror_title">【ミラー再配布に関する特例】</strong></p>
+                    <p data-i18n="mirror_desc">ネットワーク環境の制限等によりGitHubへのアクセスが困難な地域向けに、以下の条件を満たす場合に限りミラー再配布を許可します：</p>
+                    <ul>
+                        <li data-i18n="m_1"><strong>作者表記:</strong> 作者が Sive Lalala であることを明記してください。</li>
+                        <li data-i18n="m_2"><strong>ドキュメント:</strong> 公式README（またはその翻訳）を必ず同梱してください。</li>
+                        <li data-i18n="m_3"><strong>オリジナルファイルの維持:</strong> プログラムの改造・改変・デコンパイルは禁止です。GitHubのオリジナルファイルのみ配布してください。</li>
+                        <li data-i18n="m_4"><strong>商用利用の禁止:</strong> 営利目的での再配布は固く禁じます。</li>
+                        <li data-i18n="m_5"><strong>報告の義務:</strong> 配布開始後、メール（0329.mth@gmail.com）にてご報告ください（URL・お名前・連絡先メールアドレスを記載）。</li>
+                    </ul>
+                </div>
             </section>
 
             <!-- 日本語表示のときだけ表示される姉妹サイトリンク -->
@@ -557,7 +584,8 @@
                 t1: "加工", t2: "編集", t3: "改造", t4: "商用利用", t5: "再配布", t6: "デコンパイル（分解）",
                 termsBody3: "※オープンソースにした場合は利用規約が変わる可能性があります。",
                 termsBody4: "【生成物について】",
-                termsBody5: "（音源・wav・icon.jpg / icon.bmp・<code>oto.ini</code> など）<br>利用規約は、あなた（配布者）が自由に設定できます。<code>readme.txt</code> にお好きな規約を書いてください。"
+                termsBody5: "（音源・wav・icon.jpg / icon.bmp・<code>oto.ini</code> など）<br>利用規約は、あなた（配布者）が自由に設定できます。<code>readme.txt</code> にお好きな規約を書いてください。",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             en: {
                 title: "Utaun - CV Voicebank Generator for Windows",
@@ -590,7 +618,8 @@
                 t1: "Processing", t2: "Editing", t3: "Modifying", t4: "Commercial use", t5: "Redistribution", t6: "Decompiling",
                 termsBody3: "* Terms of use may change if the software becomes open-source.",
                 termsBody4: "[About Generated Outputs]",
-                termsBody5: "(Voicebanks, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>You (the distributor) are free to set your own terms of use. Please write your preferred terms in <code>readme.txt</code>."
+                termsBody5: "(Voicebanks, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>You (the distributor) are free to set your own terms of use. Please write your preferred terms in <code>readme.txt</code>.",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             ko: {
                 title: "Utaun - Windows용 CV 음원 생성 소프트웨어",
@@ -607,7 +636,7 @@
                 uc1: "무생물의 목소리로 UTAU 음원을 만들고 싶을 때",
                 uc2: "육성 녹음이 부담스러운 사람을 위한 음원 제작",
                 uc3: "복합 정현파 모델링(CSM 음성 합성) 소재 연구",
-                uc4: "자작 음원 프로토타이핑",
+                uc4: "자작 음원 프로토타이ピング",
                 uc5: "ZIP을 해제하여 인력 보컬로이드 소재로 활용",
                 uc6: "음MAD, YTPMV 등 소재로 활용",
                 manualTitle: "Utaun 사용 방법",
@@ -623,7 +652,8 @@
                 t1: "가공", t2: "편집", t3: "개조", t4: "상업적 이용", t5: "재배포", t6: "디컴파일(분해)",
                 termsBody3: "※ 오픈소스화될 경우 이용 약관이 변경될 수 있습니다.",
                 termsBody4: "[생산물 정보]",
-                termsBody5: "(음원, wav, icon.jpg / icon.bmp, <code>oto.ini</code> 등)<br>이용 약관은 귀하(배포자)가 자유롭게 설정할 수 있습니다. <code>readme.txt</code>에 원하는 약관을 작성해 주세요."
+                termsBody5: "(음원, wav, icon.jpg / icon.bmp, <code>oto.ini</code> 등)<br>이용 약관은 귀하(배포자)가 자유롭게 설정할 수 있습니다. <code>readme.txt</code>에 원하는 약관을 작성해 주세요.",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             "zh-cn": {
                 title: "Utaun - Windows CV 语音库生成软件",
@@ -656,7 +686,14 @@
                 t1: "加工", t2: "编辑", t3: "改造", t4: "商用", t5: "再分发", t6: "反编译（分解）",
                 termsBody3: "※如果开源，使用条款可能会发生变化。",
                 termsBody4: "【关于生成物】",
-                termsBody5: "（音源、wav、icon.jpg / icon.bmp、<code>oto.ini</code> 等）<br>使用条款可由您（发布者）自由设定。请在 <code>readme.txt</code> 中写下您喜欢的条款。"
+                termsBody5: "（音源、wav、icon.jpg / icon.bmp、<code>oto.ini</code> 等）<br>使用条款可由您（发布者）自由设定。请在 <code>readme.txt</code> 中写下您喜欢的条款。",
+                mirrorTitle: "【关于镜像分发的特例条款】",
+                mirrorDesc: "由于网络环境限制等原因导致访问 GitHub 困难的地区，在满足以下条件的前提下，允许进行镜像分发：",
+                m1: "<strong>署名要求：</strong> 必须明确标明开发者为 Sive Lalala。",
+                m2: "<strong>文档要求：</strong> 必须随附官方 README（或其翻译版本）。",
+                m3: "<strong>保持原样：</strong> 禁止修改、编辑、改造或反编译程序。仅可分发来自 GitHub 的原始文件。",
+                m4: "<strong>禁止商用：</strong> 严禁用于任何营利性目的。",
+                m5: "<strong>报告义务：</strong> 开始分发后，请通过电子邮件（0329.mth@gmail.com）向我们报告（附上分发网址、您的名称/ID及联系邮箱）。"
             },
             "zh-tw": {
                 title: "Utaun - Windows 專用 CV 語音庫生成軟體",
@@ -689,7 +726,8 @@
                 t1: "加工", t2: "編輯", t3: "改造", t4: "商用", t5: "再散布", t6: "反編譯（分解）",
                 termsBody3: "※若開源，使用條款可能會有所變更。",
                 termsBody4: "【關於生成物】",
-                termsBody5: "（音源、wav、icon.jpg / icon.bmp、<code>oto.ini</code> 等）<br>使用條款可由您（發布者）自由設定。請在 <code>readme.txt</code> 中寫下您喜歡的條款。"
+                termsBody5: "（音源、wav、icon.jpg / icon.bmp、<code>oto.ini</code> 等）<br>使用條款可由您（發布者）自由設定。請在 <code>readme.txt</code> 中寫下您喜歡的條款。",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             "zh-hk": {
                 title: "Utaun - Windows 專用 CV 語音庫生成軟件",
@@ -722,7 +760,14 @@
                 t1: "加工", t2: "編輯", t3: "改造", t4: "商用", t5: "再分發", t6: "反編譯（分解）",
                 termsBody3: "※如果開源，使用條款可能會有所更改。",
                 termsBody4: "【關於生成物】",
-                termsBody5: "（音源、wav、icon.jpg / icon.bmp、<code>oto.ini</code> 等）<br>使用條款可由你（發布者）自由設定。請喺 <code>readme.txt</code> 度寫低你鍾意嘅條款。"
+                termsBody5: "（音源、wav、icon.jpg / icon.bmp、<code>oto.ini</code> 等）<br>使用條款可由你（發布者）自由設定。請喺 <code>readme.txt</code> 度寫低你鍾意嘅條款。",
+                mirrorTitle: "【關於鏡像分發嘅特例條款】",
+                mirrorDesc: "由於網絡環境限制等原因導致去 GitHub 有困難嘅地區，在滿足以下條件嘅情況下，允許進行鏡像分發：",
+                m1: "<strong>署名要求：</strong> 必須明確標明開發者為 Sive Lalala。",
+                m2: "<strong>文檔要求：</strong> 必須隨附官方 README（或其翻譯版本）。",
+                m3: "<strong>保持原樣：</strong> 禁止修改、編輯、改造或反編譯程序。僅可分發來自 GitHub 的原始文件。",
+                m4: "<strong>禁止商用：</strong> 嚴禁用於任何營利性目的。",
+                m5: "<strong>報告義務：</strong> 開始分發後，請通過電子郵件（0329.mth@gmail.com）向我們報告（附上分發網址、您的名稱/ID及聯絡電郵）。"
             },
             ru: {
                 title: "Utaun - Генератор голосовых банков CV для Windows",
@@ -755,7 +800,14 @@
                 t1: "Обработка", t2: "Редактирование", t3: "Модификация", t4: "Коммерческое использование", t5: "Распространение", t6: "Декомпиляция",
                 termsBody3: "* Условия могут измениться при переходе на открытый исходный код.",
                 termsBody4: "[О сгенерированных материалах]",
-                termsBody5: "(Голосовые банки, wav, icon.jpg / icon.bmp, <code>oto.ini</code> и т.д.)<br>Вы (распространитель) можете свободно устанавливать свои правила. Укажите их в файле <code>readme.txt</code>."
+                termsBody5: "(Голосовые банки, wav, icon.jpg / icon.bmp, <code>oto.ini</code> и т.д.)<br>Вы (распространитель) можете свободно устанавливать свои правила. Укажите их в файле <code>readme.txt</code>.",
+                mirrorTitle: "【Разрешение на зеркальное распространение】",
+                mirrorDesc: "Из-за сетевых ограничений, если доступ к GitHub затруднен, мы разрешаем зеркальное распространение при соблюдении следующих условий:",
+                m1: "<strong>Указание авторства:</strong> Необходимо указать, что разработчиком является Sive Lalala.",
+                m2: "<strong>Документация:</strong> Обязательно приложите официальный README (или его перевод).",
+                m3: "<strong>Оригинальные файлы:</strong> Запрещено модифицировать, редактировать, переделывать или декомпилировать программу. Распространяйте только оригинальные файлы с GitHub.",
+                m4: "<strong>Коммерческое использование запрещено.</strong>",
+                m5: "<strong>Обязательство по отчетности:</strong> После начала распространения, пожалуйста, сообщите нам по электронной почте (0329.mth@gmail.com)."
             },
             pt: {
                 title: "Utaun - Gerador de Banco de Voz CV para Windows",
@@ -788,7 +840,8 @@
                 t1: "Processamento", t2: "Edição", t3: "Modificação", t4: "Uso comercial", t5: "Redistribuição", t6: "Descompilação",
                 termsBody3: "* Os termos de uso podem mudar caso o software se torne de código aberto.",
                 termsBody4: "[Sobre as Saídas Geradas]",
-                termsBody5: "(Bancos de voz, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>Você (o distribuidor) é livre para definir seus próprios termos de uso. Escreva-os no arquivo <code>readme.txt</code>."
+                termsBody5: "(Bancos de voz, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>Você (o distribuidor) é livre para definir seus próprios termos de uso. Escreva-os no arquivo <code>readme.txt</code>.",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             es: {
                 title: "Utaun - Generador de bancos de voz CV para Windows",
@@ -821,7 +874,8 @@
                 t1: "Procesamiento", t2: "Edición", t3: "Modificación", t4: "Uso comercial", t5: "Redistribución", t6: "Descompilación",
                 termsBody3: "* Los términos de uso pueden cambiar si el software pasa a ser de código abierto.",
                 termsBody4: "[Sobre los archivos generados]",
-                termsBody5: "(Bancos de voz, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>Usted (el distribuidor) puede establecer libremente sus propias reglas. Escríbalas en el archivo <code>readme.txt</code>."
+                termsBody5: "(Bancos de voz, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>Usted (el distribuidor) puede establecer libremente sus propias reglas. Escríbalas en el archivo <code>readme.txt</code>.",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             fr: {
                 title: "Utaun - Générateur de banques de voix CV pour Windows",
@@ -854,7 +908,8 @@
                 t1: "Transformation", t2: "Édition", t3: "Modification", t4: "Utilisation commerciale", t5: "Redistribution", t6: "Décompilation",
                 termsBody3: "* Les conditions d'utilisation pourront changer si le logiciel devient open source.",
                 termsBody4: "[À propos des éléments générés]",
-                termsBody5: "(Banches de voix, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>Vous (le distributeur) êtes libre de définir vos propres règles. Veuillez les écrire dans <code>readme.txt</code>."
+                termsBody5: "(Banches de voix, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>Vous (le distributeur) êtes libre de définir vos propres règles. Veuillez les écrire dans <code>readme.txt</code>.",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             it: {
                 title: "Utaun - Generatore di banchi vocali CV per Windows",
@@ -887,7 +942,8 @@
                 t1: "Elaborazione", t2: "Modifica", t3: "Alterazione", t4: "Uso commerciale", t5: "Ristribuzione", t6: "Decompilazione",
                 termsBody3: "* I termini di utilizzo potrebbero cambiare se il software diventasse open-source.",
                 termsBody4: "[Informazioni sui file generati]",
-                termsBody5: "(Banchi vocali, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, ecc.)<br>L'utente (il distributore) è libero di impostare le proprie regole d'uso. Si prega di scriverle in <code>readme.txt</code>."
+                termsBody5: "(Banchi vocali, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, ecc.)<br>L'utente (il distributore) è libero di impostare le proprie regole d'uso. Si prega di scriverle in <code>readme.txt</code>.",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             de: {
                 title: "Utaun - CV-Voicebank-Generator für Windows",
@@ -920,7 +976,8 @@
                 t1: "Bearbeitung", t2: "Änderung", t3: "Modifikation", t4: "Kommerzielle Nutzung", t5: "Weitergabe", t6: "Dekompilierung",
                 termsBody3: "* Die Nutzungsbedingungen können sich ändern, wenn die Software Open Source wird.",
                 termsBody4: "[Über erstellte Inhalte]",
-                termsBody5: "(Voicebanks, wav, icon.jpg / icon.bmp, <code>oto.ini</code> etc.)<br>Sie (der Verteiler) können Ihre eigenen Regeln frei festlegen. Bitte schreiben Sie diese in <code>readme.txt</code>."
+                termsBody5: "(Voicebanks, wav, icon.jpg / icon.bmp, <code>oto.ini</code> etc.)<br>Sie (der Verteiler) können Ihre eigenen Regeln frei festlegen. Bitte schreiben Sie diese in <code>readme.txt</code>.",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             pl: {
                 title: "Utaun - Generator banków głosów CV dla Windows",
@@ -953,7 +1010,8 @@
                 t1: "Obróbka", t2: "Edycja", t3: "Modyfikacja", t4: "Wykorzystanie komercyjne", t5: "Redystrybucja", t6: "Dekompilacja",
                 termsBody3: "* Warunki mogą ulec zmianie w przypadku przejścia na open-source.",
                 termsBody4: "[O materiałach wyjściowych]",
-                termsBody5: "(Banki głosów, wav, icon.jpg / icon.bmp, <code>oto.ini</code> itp.)<br>Ty (dystrybutor) możesz dowolnie określić warunki korzystania. Umieść je w pliku <code>readme.txt</code>."
+                termsBody5: "(Banki głosów, wav, icon.jpg / icon.bmp, <code>oto.ini</code> itp.)<br>Ty (dystrybutor) możesz dowolnie określić warunki korzystania. Umieść je w pliku <code>readme.txt</code>.",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             tr: {
                 title: "Utaun - Windows için CV Ses Bankası Oluşturucu",
@@ -986,7 +1044,8 @@
                 t1: "İşleme", t2: "Düzenleme", t3: "Değiştirme", t4: "Ticari kullanım", t5: "Yeniden dağıtım", t6: "Derlemeden çözme (Decompile)",
                 termsBody3: "* Yazılım açık kaynaklı hale gelirse kullanım koşulları değişebilir.",
                 termsBody4: "[Üretilen Çıktılar Hakkında]",
-                termsBody5: "(Ses bankaları, wav, icon.jpg / icon.bmp, <code>oto.ini</code> vb.)<br>Siz (dağıtıcı) kullanım koşullarını özgürce belirleyebilirsiniz. Lütfen tercih ettiğiniz koşulları <code>readme.txt</code> dosyasına yazın."
+                termsBody5: "(Ses bankaları, wav, icon.jpg / icon.bmp, <code>oto.ini</code> vb.)<br>Siz (dağıtıcı) kullanım koşullarını özgürce belirleyebilirsiniz. Lütfen tercih ettiğiniz koşulları <code>readme.txt</code> dosyasına yazın.",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             vi: {
                 title: "Utaun - Trình tạo ngân hàng giọng nói CV cho Windows",
@@ -1019,7 +1078,8 @@
                 t1: "Gia công", t2: "Chỉnh sửa", t3: "Cải tạo", t4: "Sử dụng thương mại", t5: "Phân phối lại", t6: "Biên dịch ngược",
                 termsBody3: "* Điều khoản sử dụng có thể thay đổi nếu phần mềm trở thành mã nguồn mở.",
                 termsBody4: "[Về sản phẩm tạo ra]",
-                termsBody5: "(Ngân hàng giọng nói, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, v.v.)<br>Bạn (nhà phân phối) có thể tự do đặt ra điều khoản sử dụng. Vui lòng ghi điều khoản của bạn vào <code>readme.txt</code>."
+                termsBody5: "(Ngân hàng giọng nói, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, v.v.)<br>Bạn (nhà phân phối) có thể tự do đặt ra điều khoản sử dụng. Vui lòng ghi điều khoản của bạn vào <code>readme.txt</code>.",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             fil: {
                 title: "Utaun - CV Voicebank Generator para sa Windows",
@@ -1052,7 +1112,8 @@
                 t1: "Pagproseso", t2: "Pag-edit", t3: "Pagbabago", t4: "Pang-komersyong paggamit", t5: "Muling pamamahagi", t6: "Decompiling",
                 termsBody3: "* Maaaring magbago ang mga tuntunin kung maging open-source ito.",
                 termsBody4: "[Tungkol sa mga Nalikhang Awput]",
-                termsBody5: "(Voicebanks, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, atbp.)<br>Malaya kang magtakda ng sarili mong tuntunin bilang mamamahagi. Ilagay ito sa <code>readme.txt</code>."
+                termsBody5: "(Voicebanks, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, atbp.)<br>Malaya kang magtakda ng sarili mong tuntunin bilang mamamahagi. Ilagay ito sa <code>readme.txt</code>.",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             },
             th: {
                 title: "Utaun - โปรแกรมสร้างคลังเสียง CV สำหรับ Windows",
@@ -1083,9 +1144,10 @@
                 termsBody1: "[เกี่ยวกับตัวโปรแกรม Utaun]",
                 termsBody2: "ในปัจจุบัน ห้ามกระทำการดังต่อไปนี้กับโปรแกรม Utaun (<code>Utaun.exe</code>) เด็ดขาด:",
                 t1: "การแปรรูป", t2: "การแก้ไข", t3: "การดัดแปลง", t4: "การใช้งานเชิงพาณิชย์", t5: "การแจกจ่ายซ้ำ", t6: "การดีคอมไพล์ (Decompile)",
-                termsBody3: "* เงื่อนไขอาจมีการเปลี่ยนแปลงหากมีการเปลี่ยนเป็นโอเพนน้ำจิ้ม เป็นโอเพนซอร์ส",
+                termsBody3: "* เงื่อนไขอาจมีการเปลี่ยนแปลงหากมีการเปลี่ยนเป็นโอเพนซอร์ส",
                 termsBody4: "[เกี่ยวกับผลลัพธ์ที่สร้างขึ้น]",
-                termsBody5: "(คลังเสียง, wav, icon.jpg / icon.bmp, <code>oto.ini</code> ฯลฯ)<br>คุณ (ผู้แจกจ่าย) สามารถกำหนดเงื่อนไขการใช้งานได้อย่างอิสระ โปรดเขียนเงื่อนไขที่คุณต้องการลงใน <code>readme.txt</code>"
+                termsBody5: "(คลังเสียง, wav, icon.jpg / icon.bmp, <code>oto.ini</code> ฯลฯ)<br>คุณ (ผู้แจกจ่าย) สามารถกำหนดเงื่อนไขการใช้งานได้อย่างอิสระ โปรดเขียนเงื่อนไขที่คุณต้องการลงใน <code>readme.txt</code>",
+                mirrorTitle: "", mirrorDesc: "", m1: "", m2: "", m3: "", m4: "", m5: ""
             }
         };
 
@@ -1134,6 +1196,16 @@
             const termsBody4 = document.querySelector('[data-i18n="terms_body_4"]');
             const termsBody5 = document.querySelector('[data-i18n="terms_body_5"]');
 
+            // ミラー規約用の要素
+            const mirrorBox = document.getElementById('mirrorBox');
+            const mirrorTitle = document.querySelector('[data-i18n="mirror_title"]');
+            const mirrorDesc = document.querySelector('[data-i18n="mirror_desc"]');
+            const m1 = document.querySelector('[data-i18n="m_1"]');
+            const m2 = document.querySelector('[data-i18n="m_2"]');
+            const m3 = document.querySelector('[data-i18n="m_3"]');
+            const m4 = document.querySelector('[data-i18n="m_4"]');
+            const m5 = document.querySelector('[data-i18n="m_5"]');
+
             if (navHome) navHome.innerText = t.navHome;
             if (navGuide) navGuide.innerText = t.navGuide;
             if (navHistory) navHistory.innerText = t.navHistory;
@@ -1173,6 +1245,22 @@
             if (termsBody3) termsBody3.innerText = t.termsBody3;
             if (termsBody4) termsBody4.innerText = t.termsBody4;
             if (termsBody5) termsBody5.innerHTML = t.termsBody5;
+
+            // ミラー規約部分の反映 ＆ ロシア・簡体字・広東語のときだけ表示
+            if (mirrorBox) {
+                if (['ru', 'zh-cn', 'zh-hk'].includes(targetLang) && t.mirrorTitle) {
+                    mirrorBox.style.display = 'block';
+                    if (mirrorTitle) mirrorTitle.innerText = t.mirrorTitle;
+                    if (mirrorDesc) mirrorDesc.innerText = t.mirrorDesc;
+                    if (m1) m1.innerHTML = t.m1;
+                    if (m2) m2.innerHTML = t.m2;
+                    if (m3) m3.innerHTML = t.m3;
+                    if (m4) m4.innerHTML = t.m4;
+                    if (m5) m5.innerHTML = t.m5;
+                } else {
+                    mirrorBox.style.display = 'none';
+                }
+            }
 
             // ▼ 日本語（ja）のときだけ姉妹サイトのボックスを表示する処理
             const sisterSiteBox = document.getElementById('sisterSiteBox');
