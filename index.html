@@ -26,6 +26,11 @@
             display: flex;
             justify-content: center;
             min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         .retro-window {
@@ -58,11 +63,15 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .window-controls {
             display: flex;
             gap: 2px;
+            flex-shrink: 0;
         }
 
         .win-btn {
@@ -103,6 +112,7 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -113,6 +123,7 @@
             border: 1px solid;
             border-color: #ffffff #09A3F2 #09A3F2 #ffffff;
             background-color: #ffffff;
+            white-space: nowrap;
         }
 
         .nav-links a:hover, .nav-links a.active {
@@ -129,6 +140,9 @@
             font-size: 0.8rem;
             color: #333333;
             flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .lang-select {
@@ -138,6 +152,7 @@
             border-color: #ffffff #09A3F2 #09A3F2 #ffffff;
             padding: 3px;
             font-size: 0.8rem;
+            max-width: 100%;
         }
 
         /* メインコンテンツ */
@@ -145,6 +160,7 @@
             padding: 1.5rem;
             background-color: #ffffff;
             overflow-y: auto;
+            word-break: break-word; /* 長い単語がはみ出さないように折り返しを強制 */
         }
 
         .hero-header {
@@ -154,6 +170,7 @@
             margin-bottom: 2rem;
             border-bottom: 1px dashed #09A3F2;
             padding-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .logo-img {
@@ -161,6 +178,12 @@
             height: 64px;
             border: 2px solid #09A3F2;
             object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .hero-titles {
+            flex: 1;
+            min-width: 200px;
         }
 
         .hero-titles h1 {
@@ -208,6 +231,7 @@
             text-decoration: none;
             border: 2px solid;
             border-color: #ffffff #09A3F2 #09A3F2 #ffffff;
+            white-space: nowrap;
         }
 
         .dl-btn:active {
@@ -283,6 +307,7 @@
 
         .step-text {
             margin: 0;
+            flex: 1;
         }
 
         .note {
@@ -408,9 +433,9 @@
                     </li>
                     <li>
                         <span class="step-num">2</span>
-                        <div>
-                            <p class="step-text" data-i18n="step_2_installer"><strong>【インストーラー版の場合】</strong> インストーラーを起動し、画面の指示に従ってインストールを進めると必要なファイルが自動で適切な場所に配置されます。</p>
-                            <p class="step-text" style="margin-top: 0.5rem;" data-i18n="step_2_zip"><strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と「oto.ini」を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。</p>
+                        <div class="step-text">
+                            <p style="margin: 0;" data-i18n="step_2_installer"><strong>【インストーラー版の場合】</strong> インストーラーを起動し、画面の指示に従ってインストールを進めると必要なファイルが自動で適切な場所に配置されます。</p>
+                            <p style="margin: 0.5rem 0 0 0;" data-i18n="step_2_zip"><strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と「oto.ini」を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。</p>
                         </div>
                     </li>
                     <li>
@@ -419,8 +444,8 @@
                     </li>
                     <li>
                         <span class="step-num">4</span>
-                        <div>
-                            <p class="step-text" data-i18n="step_4">データの保存先として、ZIP出力のほか、UTAUとOpenUTAUへのフォルダ状態での直接エクスポートが選択できます。</p>
+                        <div class="step-text">
+                            <p style="margin: 0;" data-i18n="step_4">データの保存先として、ZIP出力のほか、UTAUとOpenUTAUへのフォルダ状態での直接エクスポートが選択できます。</p>
                             <span class="note" data-i18n="step_4_note">※ 今後のバージョンからは自動アップデート機能がご利用いただけます。</span>
                         </div>
                     </li>
@@ -878,39 +903,40 @@
                 step4Note: "* คุณสมบัติอัปเดตอัตโนมัติจะมีให้ใช้งานในเวอร์ชันถัดไป"
             }
         };
-
         const langSelect = document.getElementById('langSelect');
-        langSelect.addEventListener('change', (e) => {
-            const lang = e.target.value;
-            const t = translations[lang] || translations['ja'];
-
-            document.getElementById('page-title').innerText = t.title;
-            document.querySelector('[data-i18n="nav-home"]').innerText = t.navHome;
-            document.querySelector('[data-i18n="nav-guide"]').innerText = t.navGuide;
-            document.querySelector('[data-i18n="nav-history"]').innerText = t.navHistory;
-            document.querySelector('[data-i18n="hero_desc"]').innerText = t.heroDesc;
-            document.querySelector('[data-i18n="dl_title"]').innerText = t.dlTitle;
-            document.querySelector('[data-i18n="btn_zip"]').innerText = t.btnZip;
-            document.querySelector('[data-i18n="btn_installer"]').innerText = t.btnInstaller;
-            document.querySelector('[data-i18n="badge_platform"]').innerText = t.badgePlatform;
-            document.querySelector('[data-i18n="about_title"]').innerText = t.aboutTitle;
-            document.querySelector('[data-i18n="about_text"]').innerHTML = t.aboutText;
-            document.querySelector('[data-i18n="adachi_box"]').innerHTML = t.adachiBox;
-            document.querySelector('[data-i18n="usecase_title"]').innerText = t.usecaseTitle;
-            document.querySelector('[data-i18n="uc_1"]').innerText = t.uc1;
-            document.querySelector('[data-i18n="uc_2"]').innerText = t.uc2;
-            document.querySelector('[data-i18n="uc_3"]').innerText = t.uc3;
-            document.querySelector('[data-i18n="uc_4"]').innerText = t.uc4;
-            document.querySelector('[data-i18n="uc_5"]').innerText = t.uc5;
-            document.querySelector('[data-i18n="uc_6"]').innerText = t.uc6;
-            document.querySelector('[data-i18n="manual_title"]').innerText = t.manualTitle;
-            document.querySelector('[data-i18n="step_1"]').innerText = t.step1;
-            document.querySelector('[data-i18n="step_2_installer"]').innerHTML = t.step2Installer;
-            document.querySelector('[data-i18n="step_2_zip"]').innerHTML = t.step2Zip;
-            document.querySelector('[data-i18n="step_3"]').innerText = t.step3;
-            document.querySelector('[data-i18n="step_4"]').innerText = t.step4;
-            document.querySelector('[data-i18n="step_4_note"]').innerText = t.step4Note;
-        });
+                langSelect.addEventListener('change', (e) => {
+                    const lang = e.target.value;
+                    // 'en-us' が選ばれた場合は 'en' のデータを流用するフォールバック処理を追加
+                    const targetLang = (lang === 'en-us') ? 'en' : lang;
+                    const t = translations[targetLang] || translations['ja'];
+        
+                    document.getElementById('page-title').innerText = t.title;
+                    document.querySelector('[data-i18n="nav-home"]').innerText = t.navHome;
+                    document.querySelector('[data-i18n="nav-guide"]').innerText = t.navGuide;
+                    document.querySelector('[data-i18n="nav-history"]').innerText = t.navHistory;
+                    document.querySelector('[data-i18n="hero_desc"]').innerText = t.heroDesc;
+                    document.querySelector('[data-i18n="dl_title"]').innerText = t.dlTitle;
+                    document.querySelector('[data-i18n="btn_zip"]').innerText = t.btnZip;
+                    document.querySelector('[data-i18n="btn_installer"]').innerText = t.btnInstaller;
+                    document.querySelector('[data-i18n="badge_platform"]').innerText = t.badgePlatform;
+                    document.querySelector('[data-i18n="about_title"]').innerText = t.aboutTitle;
+                    document.querySelector('[data-i18n="about_text"]').innerHTML = t.aboutText;
+                    document.querySelector('[data-i18n="adachi_box"]').innerHTML = t.adachiBox;
+                    document.querySelector('[data-i18n="usecase_title"]').innerText = t.usecaseTitle;
+                    document.querySelector('[data-i18n="uc_1"]').innerText = t.uc1;
+                    document.querySelector('[data-i18n="uc_2"]').innerText = t.uc2;
+                    document.querySelector('[data-i18n="uc_3"]').innerText = t.uc3;
+                    document.querySelector('[data-i18n="uc_4"]').innerText = t.uc4;
+                    document.querySelector('[data-i18n="uc_5"]').innerText = t.uc5;
+                    document.querySelector('[data-i18n="uc_6"]').innerText = t.uc6;
+                    document.querySelector('[data-i18n="manual_title"]').innerText = t.manualTitle;
+                    document.querySelector('[data-i18n="step_1"]').innerText = t.step1;
+                    document.querySelector('[data-i18n="step_2_installer"]').innerHTML = t.step2Installer;
+                    document.querySelector('[data-i18n="step_2_zip"]').innerHTML = t.step2Zip;
+                    document.querySelector('[data-i18n="step_3"]').innerText = t.step3;
+                    document.querySelector('[data-i18n="step_4"]').innerText = t.step4;
+                    document.querySelector('[data-i18n="step_4_note"]').innerText = t.step4Note;
+                });
+        
     </script>
 </body>
-</html>
