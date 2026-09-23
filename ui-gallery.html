@@ -4,241 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">Utaun - UI Gallery</title>
-    <!-- レトロ日本語ドットフォント（DotGothic16）をGoogle Fontsから読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <style>
-        /* すべての要素でレトロドットフォントを強制＆アンチエイリアスを完全にオフ */
         body, * {
             font-family: "DotGothic16", "MS UI Gothic", "MS Gothic", monospace !important;
             -webkit-font-smoothing: none !important;
             -moz-osx-font-smoothing: grayscale !important;
             text-rendering: optimizeSpeed !important;
         }
-
-        body {
-            background-color: #ffffff;
-            color: #000000;
-            margin: 0;
-            padding: 1rem;
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        .retro-window {
-            width: 100%;
-            max-width: 800px;
-            background-color: #f0f8ff;
-            border: 2px solid;
-            border-color: #ffffff #09A3F2 #09A3F2 #ffffff;
-            box-shadow: 4px 4px 0px #09A3F2;
-            border-radius: 0px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* ウィンドウタイトルバー */
-        .window-header {
-            background: linear-gradient(90deg, #026ca7, #09A3F2);
-            color: #ffffff;
-            padding: 6px 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-        }
-
-        .window-title {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .window-controls {
-            display: flex;
-            gap: 2px;
-            flex-shrink: 0;
-        }
-
-        .win-btn {
-            width: 16px;
-            height: 15px;
-            background-color: #c0c0c0;
-            border: 1px solid;
-            border-color: #ffffff #404040 #404040 #ffffff;
-            font-size: 10px;
-            line-height: 12px;
-            text-align: center;
-            color: #000000;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* ツールバーエリア */
-        .browser-toolbar {
-            background-color: #e2f4fd;
-            border-bottom: 2px solid #09A3F2;
-            padding: 6px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .toolbar-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #000000;
-            font-size: 0.85rem;
-            padding: 2px 8px;
-            border: 1px solid;
-            border-color: #ffffff #09A3F2 #09A3F2 #ffffff;
-            background-color: #ffffff;
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            background-color: #09A3F2;
-            color: #ffffff;
-            border-color: #09A3F2 #ffffff #ffffff #09A3F2;
-        }
-
-        .address-bar {
-            background: #ffffff;
-            border: 1px solid;
-            border-color: #09A3F2 #ffffff #ffffff #09A3F2;
-            padding: 3px 6px;
-            font-size: 0.8rem;
-            color: #333333;
-            flex-grow: 1;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .lang-select {
-            background-color: #ffffff;
-            color: #000000;
-            border: 1px solid;
-            border-color: #ffffff #09A3F2 #09A3F2 #ffffff;
-            padding: 3px;
-            font-size: 0.8rem;
-            max-width: 100%;
-        }
-
-        /* メインコンテンツ */
-        .container {
-            padding: 1.5rem;
-            background-color: #ffffff;
-            overflow-y: auto;
-            word-break: break-word;
-        }
-
-        h3 {
-            font-size: 1.1rem;
-            background-color: #09A3F2;
-            color: #ffffff;
-            padding: 4px 8px;
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-        }
-
-        /* 画像ギャラリーのスタイル */
-        .ui-gallery {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .ui-item {
-            background-color: #f7fbff;
-            border: 1px solid #09A3F2;
-            padding: 12px;
-        }
-
-        .ui-item h4 {
-            font-size: 0.95rem;
-            color: #026ca7;
-            margin: 0 0 8px 0;
-            border-bottom: 1px dashed #09A3F2;
-            padding-bottom: 4px;
-        }
-
-        .image-frame {
-            background-color: #000000;
-            border: 2px inset #09A3F2;
-            padding: 4px;
-            text-align: center;
-        }
-
-        .image-frame img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        footer {
-            border-top: 1px solid #09A3F2;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #555555;
-        }
+        body { background-color: #ffffff; color: #000000; margin: 0; padding: 1rem; line-height: 1.6; display: flex; justify-content: center; min-height: 100vh; box-sizing: border-box; }
+        * { box-sizing: border-box; }
+        .retro-window { width: 100%; max-width: 800px; background-color: #f0f8ff; border: 2px solid; border-color: #ffffff #09A3F2 #09A3F2 #ffffff; box-shadow: 4px 4px 0px #09A3F2; border-radius: 0px; overflow: hidden; display: flex; flex-direction: column; }
+        .window-header { background: linear-gradient(90deg, #026ca7, #09A3F2); color: #ffffff; padding: 6px 8px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 0.9rem; letter-spacing: 0.05em; }
+        .window-title { display: flex; align-items: center; gap: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .window-controls { display: flex; gap: 2px; flex-shrink: 0; }
+        .win-btn { width: 16px; height: 15px; background-color: #c0c0c0; border: 1px solid; border-color: #ffffff #404040 #404040 #ffffff; font-size: 10px; line-height: 12px; text-align: center; color: #000000; font-weight: bold; cursor: pointer; }
+        .browser-toolbar { background-color: #e2f4fd; border-bottom: 2px solid #09A3F2; padding: 6px; display: flex; flex-direction: column; gap: 6px; }
+        .toolbar-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
+        .nav-links { display: flex; gap: 2px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: #000000; font-size: 0.85rem; padding: 2px 8px; border: 1px solid; border-color: #ffffff #09A3F2 #09A3F2 #ffffff; background-color: #ffffff; white-space: nowrap; }
+        .nav-links a:hover, .nav-links a.active { background-color: #09A3F2; color: #ffffff; border-color: #09A3F2 #ffffff #ffffff #09A3F2; }
+        .address-bar { background: #ffffff; border: 1px solid; border-color: #09A3F2 #ffffff #ffffff #09A3F2; padding: 3px 6px; font-size: 0.8rem; color: #333333; flex-grow: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .lang-select { background-color: #ffffff; color: #000000; border: 1px solid; border-color: #ffffff #09A3F2 #09A3F2 #ffffff; padding: 3px; font-size: 0.8rem; max-width: 100%; }
+        .container { padding: 1.5rem; background-color: #ffffff; overflow-y: auto; word-break: break-word; }
+        h3 { font-size: 1.1rem; background-color: #09A3F2; color: #ffffff; padding: 4px 8px; margin-top: 0; margin-bottom: 1.5rem; }
+        .ui-gallery { display: flex; flex-direction: column; gap: 2rem; }
+        .ui-item { background-color: #f7fbff; border: 1px solid #09A3F2; padding: 12px; }
+        .ui-item h4 { font-size: 0.95rem; color: #026ca7; margin: 0 0 8px 0; border-bottom: 1px dashed #09A3F2; padding-bottom: 4px; }
+        .image-frame { background-color: #000000; border: 2px inset #09A3F2; padding: 4px; text-align: center; }
+        .image-frame img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        footer { border-top: 1px solid #09A3F2; margin-top: 2rem; padding-top: 1rem; text-align: center; font-size: 0.8rem; color: #555555; }
     </style>
 </head>
 <body>
-
     <div class="retro-window">
-        <!-- ウィンドウタイトルバー -->
         <div class="window-header">
-            <div class="window-title">
-                <span id="win-title-text" data-i18n="win-title">Utaun.exe - [UI Gallery]</span>
-            </div>
-            <div class="window-controls">
-                <div class="win-btn">_</div>
-                <div class="win-btn">□</div>
-                <div class="win-btn">×</div>
-            </div>
+            <div class="window-title"><span id="win-title-text" data-i18n="win-title">Utaun.exe - [UI Gallery]</span></div>
+            <div class="window-controls"><div class="win-btn">_</div><div class="win-btn">□</div><div class="win-btn">×</div></div>
         </div>
-
-        <!-- ツールバー -->
         <div class="browser-toolbar">
             <div class="toolbar-row">
                 <ul class="nav-links">
-                    <li><a href="index.html" data-i18n="nav-home">ホーム</a></li>
-                    <li><a href="ui-gallery.html" class="active" data-i18n="nav-guide">UI画面</a></li>
-                    <li><a href="history.html" data-i18n="nav-history">履歴</a></li>
+                    <li><a href="index.html" data-i18n="navHome">ホーム</a></li>
+                    <li><a href="ui-gallery.html" class="active" data-i18n="navGuide">UI画面</a></li>
+                    <li><a href="history.html" data-i18n="navHistory">履歴</a></li>
                 </ul>
                 <select class="lang-select" id="langSelect">
                     <option value="ja" selected>🇯🇵 日本語</option>
@@ -261,220 +72,141 @@
                     <option value="th">🇹🇭 ไทย</option>
                 </select>
             </div>
-            <div class="toolbar-row">
-                <div class="address-bar">
-                    A:\Utaun\ui-gallery.html
-                </div>
-            </div>
+            <div class="toolbar-row"><div class="address-bar">A:\Utaun\ui-gallery.html</div></div>
         </div>
 
-        <!-- メインコンテンツ -->
         <div class="container">
             <h3 data-i18n="gallery_main_title">UI（画面一覧ギャラリー）</h3>
-
             <div class="ui-gallery">
-                <div class="ui-item">
-                    <h4 data-i18n="ui_1">UI（操作画面Light）</h4>
-                    <div class="image-frame">
-                        <img src="UI/IMG_5542.jpeg" alt="UI Operation Light">
-                    </div>
-                </div>
-                <div class="ui-item">
-                    <h4 data-i18n="ui_2">UI（設定画面Light）</h4>
-                    <div class="image-frame">
-                        <img src="UI/IMG_5538.jpeg" alt="UI Settings Light">
-                    </div>
-                </div>
-                <div class="ui-item">
-                    <h4 data-i18n="ui_3">UI（操作画面Dark）</h4>
-                    <div class="image-frame">
-                        <img src="UI/IMG_5540.jpeg" alt="UI Operation Dark">
-                    </div>
-                </div>
-                <div class="ui-item">
-                    <h4 data-i18n="ui_4">UI（設定画面Dark）</h4>
-                    <div class="image-frame">
-                        <img src="UI/IMG_5541.jpeg" alt="UI Settings Dark">
-                    </div>
-                </div>
-                <div class="ui-item">
-                    <h4 data-i18n="ui_5">UI（エクスポート中画面）</h4>
-                    <div class="image-frame">
-                        <img src="UI/IMG_5536.jpeg" alt="UI Exporting">
-                    </div>
-                </div>
-                <div class="ui-item">
-                    <h4 data-i18n="ui_6">UI（アップデート内容確認画面）</h4>
-                    <div class="image-frame">
-                        <img src="UI/IMG_5539.jpeg" alt="UI Update Details">
-                    </div>
-                </div>
-                <div class="ui-item">
-                    <h4 data-i18n="ui_7">UI（アップデート画面）</h4>
-                    <div class="image-frame">
-                        <img src="UI/IMG_5537.jpeg" alt="UI Update">
-                    </div>
-                </div>
+                <div class="ui-item"><h4 data-i18n="ui_1">UI（操作画面Light）</h4><div class="image-frame"><img src="UI/IMG_5542.jpeg" alt="UI Operation Light"></div></div>
+                <div class="ui-item"><h4 data-i18n="ui_2">UI（設定画面Light）</h4><div class="image-frame"><img src="UI/IMG_5538.jpeg" alt="UI Settings Light"></div></div>
+                <div class="ui-item"><h4 data-i18n="ui_3">UI（操作画面Dark）</h4><div class="image-frame"><img src="UI/IMG_5540.jpeg" alt="UI Operation Dark"></div></div>
+                <div class="ui-item"><h4 data-i18n="ui_4">UI（設定画面Dark）</h4><div class="image-frame"><img src="UI/IMG_5541.jpeg" alt="UI Settings Dark"></div></div>
+                <div class="ui-item"><h4 data-i18n="ui_5">UI（エクスポート中画面）</h4><div class="image-frame"><img src="UI/IMG_5536.jpeg" alt="UI Exporting"></div></div>
+                <div class="ui-item"><h4 data-i18n="ui_6">UI（アップデート内容確認画面）</h4><div class="image-frame"><img src="UI/IMG_5539.jpeg" alt="UI Update Details"></div></div>
+                <div class="ui-item"><h4 data-i18n="ui_7">UI（アップデート画面）</h4><div class="image-frame"><img src="UI/IMG_5537.jpeg" alt="UI Update"></div></div>
             </div>
-
-            <footer>
-                <p>&copy; Sive All Rights Reserved.</p>
-            </footer>
+            <footer><p>&copy; Sive All Rights Reserved.</p></footer>
         </div>
     </div>
 
     <script>
         const translations = {
             ja: {
-                title: "Utaun - UI Gallery",
-                winTitle: "Utaun.exe - [UI Gallery]",
+                title: "Utaun - UI Gallery", winTitle: "Utaun.exe - [UI Gallery]",
                 navHome: "ホーム", navGuide: "UI画面", navHistory: "履歴",
                 galleryMainTitle: "UI（画面一覧ギャラリー）",
-                ui1: "UI（操作画面Light）", ui2: "UI（設定画面Light）", ui3: "UI（操作画面Dark）", ui4: "UI（設定画面Dark）",
-                ui5: "UI（エクスポート中画面）", ui6: "UI（アップデート内容確認画面）", ui7: "UI（アップデート画面）"
+                ui1: "UI（操作画面Light）", ui2: "UI（設定画面Light）", ui3: "UI（操作画面Dark）", ui4: "UI（設定画面Dark）", ui5: "UI（エクスポート中画面）", ui6: "UI（アップデート内容確認画面）", ui7: "UI（アップデート画面）"
             },
             en: {
-                title: "Utaun - UI Gallery",
-                winTitle: "Utaun.exe - [UI Gallery]",
+                title: "Utaun - UI Gallery", winTitle: "Utaun.exe - [UI Gallery]",
                 navHome: "Home", navGuide: "UI Screen", navHistory: "History",
                 galleryMainTitle: "UI (Screens Gallery)",
-                ui1: "UI (Operation Screen Light)", ui2: "UI (Settings Screen Light)", ui3: "UI (Operation Screen Dark)", ui4: "UI (Settings Screen Dark)",
-                ui5: "UI (Exporting Screen)", ui6: "UI (Update Details Screen)", ui7: "UI (Update Screen)"
+                ui1: "UI (Operation Screen Light)", ui2: "UI (Settings Screen Light)", ui3: "UI (Operation Screen Dark)", ui4: "UI (Settings Screen Dark)", ui5: "UI (Exporting Screen)", ui6: "UI (Update Details Screen)", ui7: "UI (Update Screen)"
             },
             ko: {
-                title: "Utaun - UI 갤러리",
-                winTitle: "Utaun.exe - [UI 갤러리]",
+                title: "Utaun - UI 갤러리", winTitle: "Utaun.exe - [UI 갤러리]",
                 navHome: "홈", navGuide: "UI 화면", navHistory: "내역",
                 galleryMainTitle: "UI (화면 목록 갤러리)",
-                ui1: "UI (조작 화면 Light)", ui2: "UI (설정 화면 Light)", ui3: "UI (조작 화면 Dark)", ui4: "UI (설정 화면 Dark)",
-                ui5: "UI (내보내기 중 화면)", ui6: "UI (업데이트 내용 확인 화면)", ui7: "UI (업데이트 화면)"
+                ui1: "UI (조작 화면 Light)", ui2: "UI (설정 화면 Light)", ui3: "UI (조작 화면 Dark)", ui4: "UI (설정 화면 Dark)", ui5: "UI (내보내기 중 화면)", ui6: "UI (업데이트 내용 확인 화면)", ui7: "UI (업데이트 화면)"
             },
             "zh-cn": {
-                title: "Utaun - UI 图库",
-                winTitle: "Utaun.exe - [UI 图库]",
+                title: "Utaun - UI 图库", winTitle: "Utaun.exe - [UI 图库]",
                 navHome: "首页", navGuide: "UI界面", navHistory: "历史",
                 galleryMainTitle: "UI（界面截图一览）",
-                ui1: "UI (操作界面 Light)", ui2: "UI (设置界面 Light)", ui3: "UI (操作界面 Dark)", ui4: "UI (设置界面 Dark)",
-                ui5: "UI (导出中界面)", ui6: "UI (更新内容确认界面)", ui7: "UI (更新界面)"
+                ui1: "UI (操作界面 Light)", ui2: "UI (设置界面 Light)", ui3: "UI (操作界面 Dark)", ui4: "UI (设置界面 Dark)", ui5: "UI (导出中界面)", ui6: "UI (更新内容确认界面)", ui7: "UI (更新界面)"
             },
             "zh-tw": {
-                title: "Utaun - UI 圖庫",
-                winTitle: "Utaun.exe - [UI 圖庫]",
+                title: "Utaun - UI 圖庫", winTitle: "Utaun.exe - [UI 圖庫]",
                 navHome: "首頁", navGuide: "UI介面", navHistory: "歷史",
                 galleryMainTitle: "UI（介面截圖一覽）",
-                ui1: "UI (操作介面 Light)", ui2: "UI (設定介面 Light)", ui3: "UI (操作介面 Dark)", ui4: "UI (設定介面 Dark)",
-                ui5: "UI (匯出中介面)", ui6: "UI (更新內容確認介面)", ui7: "UI (更新介面)"
+                ui1: "UI (操作介面 Light)", ui2: "UI (設定介面 Light)", ui3: "UI (操作介面 Dark)", ui4: "UI (設定介面 Dark)", ui5: "UI (匯出中介面)", ui6: "UI (更新內容確認介面)", ui7: "UI (更新介面)"
             },
             "zh-hk": {
-                title: "Utaun - UI 圖庫",
-                winTitle: "Utaun.exe - [UI 圖庫]",
+                title: "Utaun - UI 圖庫", winTitle: "Utaun.exe - [UI 圖庫]",
                 navHome: "主頁", navGuide: "UI介面", navHistory: "歷史",
                 galleryMainTitle: "UI（界面截圖一覽）",
-                ui1: "UI (操作界面 Light)", ui2: "UI (設置界面 Light)", ui3: "UI (操作界面 Dark)", ui4: "UI (設置界面 Dark)",
-                ui5: "UI (導出中界面)", ui6: "UI (更新內容確認界面)", ui7: "UI (更新界面)"
+                ui1: "UI (操作界面 Light)", ui2: "UI (設置界面 Light)", ui3: "UI (操作界面 Dark)", ui4: "UI (設置界面 Dark)", ui5: "UI (導出中界面)", ui6: "UI (更新內容確認界面)", ui7: "UI (更新界面)"
             },
             ru: {
-                title: "Utaun - Галерея интерфейса",
-                winTitle: "Utaun.exe - [Галерея интерфейса]",
+                title: "Utaun - Галерея интерфейса", winTitle: "Utaun.exe - [Галерея интерфейса]",
                 navHome: "Главная", navGuide: "Интерфейс", navHistory: "История",
                 galleryMainTitle: "UI (Галерея скриншотов)",
-                ui1: "UI (Светлый экран управления)", ui2: "UI (Светлый экран настроек)", ui3: "UI (Темный экран управления)", ui4: "UI (Темный экран настроек)",
-                ui5: "UI (Экран экспорта)", ui6: "UI (Детали обновления)", ui7: "UI (Экран обновления)"
+                ui1: "UI (Светлый экран управления)", ui2: "UI (Светлый экран настроек)", ui3: "UI (Темный экран управления)", ui4: "UI (Темный экран настроек)", ui5: "UI (Экран экспорта)", ui6: "UI (Детали обновления)", ui7: "UI (Экран обновления)"
             },
             pt: {
-                title: "Utaun - Galeria de UI",
-                winTitle: "Utaun.exe - [Galeria de UI]",
+                title: "Utaun - Galeria de UI", winTitle: "Utaun.exe - [Galeria de UI]",
                 navHome: "Início", navGuide: "Interface", navHistory: "Histórico",
                 galleryMainTitle: "UI (Galeria de Telas)",
-                ui1: "UI (Tela de Operação Light)", ui2: "UI (Tela de Configurações Light)", ui3: "UI (Tela de Operação Dark)", ui4: "UI (Tela de Configurações Dark)",
-                ui5: "UI (Tela de Exportação)", ui6: "UI (Detalhes da Atualização)", ui7: "UI (Tela de Atualização)"
+                ui1: "UI (Tela de Operação Light)", ui2: "UI (Tela de Configurações Light)", ui3: "UI (Tela de Operação Dark)", ui4: "UI (Tela de Configurações Dark)", ui5: "UI (Tela de Exportação)", ui6: "UI (Detalhes da Atualização)", ui7: "UI (Tela de Atualização)"
             },
             es: {
-                title: "Utaun - Galería de UI",
-                winTitle: "Utaun.exe - [Galería de UI]",
+                title: "Utaun - Galería de UI", winTitle: "Utaun.exe - [Galería de UI]",
                 navHome: "Inicio", navGuide: "Interfaz", navHistory: "Historial",
                 galleryMainTitle: "UI (Galería de Pantallas)",
-                ui1: "UI (Pantalla de Operación Light)", ui2: "UI (Pantalla de Ajustes Light)", ui3: "UI (Pantalla de Operación Dark)", ui4: "UI (Pantalla de Ajustes Dark)",
-                ui5: "UI (Pantalla de Exportación)", ui6: "UI (Detalles de Actualización)", ui7: "UI (Pantalla de Actualización)"
+                ui1: "UI (Pantalla de Operación Light)", ui2: "UI (Pantalla de Ajustes Light)", ui3: "UI (Pantalla de Operación Dark)", ui4: "UI (Pantalla de Ajustes Dark)", ui5: "UI (Pantalla de Exportación)", ui6: "UI (Detalles de Actualización)", ui7: "UI (Pantalla de Actualización)"
             },
             fr: {
-                title: "Utaun - Galerie UI",
-                winTitle: "Utaun.exe - [Galerie UI]",
+                title: "Utaun - Galerie UI", winTitle: "Utaun.exe - [Galerie UI]",
                 navHome: "Accueil", navGuide: "Interface", navHistory: "Historique",
                 galleryMainTitle: "UI (Galerie des écrans)",
-                ui1: "UI (Écran d'opération Light)", ui2: "UI (Écran des paramètres Light)", ui3: "UI (Écran d'opération Dark)", ui4: "UI (Écran des paramètres Dark)",
-                ui5: "UI (Écran d'exportation)", ui6: "UI (Détails de la mise à jour)", ui7: "UI (Écran de mise à jour)"
+                ui1: "UI (Écran d'opération Light)", ui2: "UI (Écran des paramètres Light)", ui3: "UI (Écran d'opération Dark)", ui4: "UI (Écran des paramètres Dark)", ui5: "UI (Écran d'exportation)", ui6: "UI (Détails de la mise à jour)", ui7: "UI (Écran de mise à jour)"
             },
             it: {
-                title: "Utaun - Galleria UI",
-                winTitle: "Utaun.exe - [Galleria UI]",
+                title: "Utaun - Galleria UI", winTitle: "Utaun.exe - [Galleria UI]",
                 navHome: "Home", navGuide: "Interfaccia", navHistory: "Cronologia",
                 galleryMainTitle: "UI (Galleria delle schermate)",
-                ui1: "UI (Schermata Operativa Light)", ui2: "UI (Schermata Impostazioni Light)", ui3: "UI (Schermata Operativa Dark)", ui4: "UI (Schermata Impostazioni Dark)",
-                ui5: "UI (Schermata di Esportazione)", ui6: "UI (Dettagli Aggiornamento)", ui7: "UI (Schermata Aggiornamento)"
+                ui1: "UI (Schermata Operativa Light)", ui2: "UI (Schermata Impostazioni Light)", ui3: "UI (Schermata Operativa Dark)", ui4: "UI (Schermata Impostazioni Dark)", ui5: "UI (Schermata di Esportazione)", ui6: "UI (Dettagli Aggiornamento)", ui7: "UI (Schermata Aggiornamento)"
             },
             de: {
-                title: "Utaun - UI-Galerie",
-                winTitle: "Utaun.exe - [UI-Galerie]",
+                title: "Utaun - UI-Galerie", winTitle: "Utaun.exe - [UI-Galerie]",
                 navHome: "Startseite", navGuide: "Benutzeroberfläche", navHistory: "Verlauf",
                 galleryMainTitle: "UI (Bildschirmgalerie)",
-                ui1: "UI (Bedienungsbildschirm Light)", ui2: "UI (Einstellungsbildschirm Light)", ui3: "UI (Bedienungsbildschirm Dark)", ui4: "UI (Einstellungsbildschirm Dark)",
-                ui5: "UI (Exportbildschirm)", ui6: "UI (Update-Details)", ui7: "UI (Update-Bildschirm)"
+                ui1: "UI (Bedienungsbildschirm Light)", ui2: "UI (Einstellungsbildschirm Light)", ui3: "UI (Bedienungsbildschirm Dark)", ui4: "UI (Einstellungsbildschirm Dark)", ui5: "UI (Exportbildschirm)", ui6: "UI (Update-Details)", ui7: "UI (Update-Bildschirm)"
             },
             pl: {
-                title: "Utaun - Galeria UI",
-                winTitle: "Utaun.exe - [Galeria UI]",
+                title: "Utaun - Galeria UI", winTitle: "Utaun.exe - [Galeria UI]",
                 navHome: "Strona główna", navGuide: "Interfejs", navHistory: "Historia",
                 galleryMainTitle: "UI (Galeria ekranów)",
-                ui1: "UI (Ekran operacyjny Light)", ui2: "UI (Ekran ustawień Light)", ui3: "UI (Ekran operacyjny Dark)", ui4: "UI (Ekran ustawień Dark)",
-                ui5: "UI (Ekran eksportu)", ui6: "UI (Szczegóły aktualizacji)", ui7: "UI (Ekran aktualizacji)"
+                ui1: "UI (Ekran operacyjny Light)", ui2: "UI (Ekran ustawień Light)", ui3: "UI (Ekran operacyjny Dark)", ui4: "UI (Ekran ustawień Dark)", ui5: "UI (Ekran eksportu)", ui6: "UI (Szczegóły aktualizacji)", ui7: "UI (Ekran aktualizacji)"
             },
             tr: {
-                title: "Utaun - UI Galerisi",
-                winTitle: "Utaun.exe - [UI Galerisi]",
+                title: "Utaun - UI Galerisi", winTitle: "Utaun.exe - [UI Galerisi]",
                 navHome: "Ana Sayfa", navGuide: "Arayüz", navHistory: "Geçmiş",
                 galleryMainTitle: "UI (Ekran Galerisi)",
-                ui1: "UI (İşlem Ekranı Light)", ui2: "UI (Ayarlar Ekranı Light)", ui3: "UI (İşlem Ekranı Dark)", ui4: "UI (Ayarlar Ekranı Dark)",
-                ui5: "UI (Dışa Aktarma Ekranı)", ui6: "UI (Güncelleme Detayları)", ui7: "UI (Güncelleme Ekranı)"
+                ui1: "UI (İşlem Ekranı Light)", ui2: "UI (Ayarlar Ekranı Light)", ui3: "UI (İşlem Ekranı Dark)", ui4: "UI (Ayarlar Ekranı Dark)", ui5: "UI (Dışa Aktarma Ekranı)", ui6: "UI (Güncelleme Detayları)", ui7: "UI (Güncelleme Ekranı)"
             },
             vi: {
-                title: "Utaun - Thư viện giao diện",
-                winTitle: "Utaun.exe - [Thư viện giao diện]",
+                title: "Utaun - Thư viện giao diện", winTitle: "Utaun.exe - [Thư viện giao diện]",
                 navHome: "Trang chủ", navGuide: "Giao diện", navHistory: "Lịch sử",
                 galleryMainTitle: "UI (Thư viện màn hình)",
-                ui1: "UI (Màn hình thao tác Light)", ui2: "UI (Màn hình cài đặt Light)", ui3: "UI (Màn hình thao tác Dark)", ui4: "UI (Màn hình cài đặt Dark)",
-                ui5: "UI (Màn hình xuất file)", ui6: "UI (Chi tiết cập nhật)", ui7: "UI (Màn hình cập nhật)"
+                ui1: "UI (Màn hình thao tác Light)", ui2: "UI (Màn hình cài đặt Light)", ui3: "UI (Màn hình thao tác Dark)", ui4: "UI (Màn hình cài đặt Dark)", ui5: "UI (Màn hình xuất file)", ui6: "UI (Chi tiết cập nhật)", ui7: "UI (Màn hình cập nhật)"
             },
             fil: {
-                title: "Utaun - UI Gallery",
-                winTitle: "Utaun.exe - [UI Gallery]",
+                title: "Utaun - UI Gallery", winTitle: "Utaun.exe - [UI Gallery]",
                 navHome: "Tahanan", navGuide: "UI Screen", navHistory: "Kasaysayan",
                 galleryMainTitle: "UI (Gallery ng mga Screen)",
-                ui1: "UI (Operation Screen Light)", ui2: "UI (Settings Screen Light)", ui3: "UI (Operation Screen Dark)", ui4: "UI (Settings Screen Dark)",
-                ui5: "UI (Exporting Screen)", ui6: "UI (Update Details Screen)", ui7: "UI (Update Screen)"
+                ui1: "UI (Operation Screen Light)", ui2: "UI (Settings Screen Light)", ui3: "UI (Operation Screen Dark)", ui4: "UI (Settings Screen Dark)", ui5: "UI (Exporting Screen)", ui6: "UI (Update Details Screen)", ui7: "UI (Update Screen)"
             },
             th: {
-                title: "Utaun - แกลเลอรี UI",
-                winTitle: "Utaun.exe - [แกลเลอรี UI]",
+                title: "Utaun - แกลเลอรี UI", winTitle: "Utaun.exe - [แกลเลอรี UI]",
                 navHome: "หน้าแรก", navGuide: "หน้าจอ UI", navHistory: "ประวัติ",
                 galleryMainTitle: "UI (แกลเลอรีภาพหน้าจอ)",
-                ui1: "UI (หน้าจอการทำงาน Light)", ui2: "UI (หน้าจอการตั้งค่า Light)", ui3: "UI (หน้าจอการทำงาน Dark)", ui4: "UI (หน้าจอการตั้งค่า Dark)",
-                ui5: "UI (หน้าจอกำลังส่งออก)", ui6: "UI (หน้าจอรายละเอียดการอัปเดต)", ui7: "UI (หน้าจออัปเดต)"
+                ui1: "UI (หน้าจอการทำงาน Light)", ui2: "UI (หน้าจอการตั้งค่า Light)", ui3: "UI (หน้าจอการทำงาน Dark)", ui4: "UI (หน้าจอการตั้งค่า Dark)", ui5: "UI (หน้าจอกำลังส่งออก)", ui6: "UI (หน้าจอรายละเอียดการอัปเดต)", ui7: "UI (หน้าจออัปเดต)"
             }
         };
 
         const langSelect = document.getElementById('langSelect');
 
-        // 言語を適用して描画する関数
         function applyLanguage(lang) {
             const targetLang = (lang === 'en-us') ? 'en' : lang;
             const t = translations[targetLang] || translations['ja'];
 
             document.getElementById('page-title').innerText = t.title;
             document.querySelector('[data-i18n="win-title"]').innerText = t.winTitle;
-            document.querySelector('[data-i18n="nav-home"]').innerText = t.navHome;
-            document.querySelector('[data-i18n="nav-guide"]').innerText = t.navGuide;
-            document.querySelector('[data-i18n="nav-history"]').innerText = t.navHistory;
+            document.querySelector('[data-i18n="navHome"]').innerText = t.navHome;
+            document.querySelector('[data-i18n="navGuide"]').innerText = t.navGuide;
+            document.querySelector('[data-i18n="navHistory"]').innerText = t.navHistory;
             document.querySelector('[data-i18n="gallery_main_title"]').innerText = t.galleryMainTitle;
             
             document.querySelector('[data-i18n="ui_1"]').innerText = t.ui1;
@@ -486,12 +218,10 @@
             document.querySelector('[data-i18n="ui_7"]').innerText = t.ui7;
         }
 
-        // 1. ページ読み込み時に保存された言語があれば復元する
         const savedLang = localStorage.getItem('utaun_lang') || 'ja';
         langSelect.value = savedLang;
         applyLanguage(savedLang);
 
-        // 2. セレクトボックスが変更されたら保存＆適用する
         langSelect.addEventListener('change', (e) => {
             const lang = e.target.value;
             localStorage.setItem('utaun_lang', lang);
