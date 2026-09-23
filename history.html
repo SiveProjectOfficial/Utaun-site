@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Utaun - リリース履歴</title>
+    <!-- レトロ日本語ドットフォント（DotGothic16）をGoogle Fontsから読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <style>
+        /* すべての要素でレトロドットフォントを強制＆アンチエイリアスを完全にオフ */
+        body, * {
+            font-family: "DotGothic16", "MS UI Gothic", "MS Gothic", monospace !important;
+            -webkit-font-smoothing: none !important;
+            -moz-osx-font-smoothing: grayscale !important;
+            text-rendering: optimizeSpeed !important;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 1rem;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .retro-window {
+            width: 100%;
+            max-width: 800px;
+            background-color: #f0f8ff;
+            border: 2px solid;
+            border-color: #ffffff #09A3F2 #09A3F2 #ffffff;
+            box-shadow: 4px 4px 0px #09A3F2;
+            border-radius: 0px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ウィンドウタイトルバー */
+        .window-header {
+            background: linear-gradient(90deg, #026ca7, #09A3F2);
+            color: #ffffff;
+            padding: 6px 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .window-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 2px;
+            flex-shrink: 0;
+        }
+
+        .win-btn {
+            width: 16px;
+            height: 15px;
+            background-color: #c0c0c0;
+            border: 1px solid;
+            border-color: #ffffff #404040 #404040 #ffffff;
+            font-size: 10px;
+            line-height: 12px;
+            text-align: center;
+            color: #000000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* ツールバーエリア */
+        .browser-toolbar {
+            background-color: #e2f4fd;
+            border-bottom: 2px solid #09A3F2;
+            padding: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .toolbar-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 0.85rem;
+            padding: 2px 8px;
+            border: 1px solid;
+            border-color: #ffffff #09A3F2 #09A3F2 #ffffff;
+            background-color: #ffffff;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background-color: #09A3F2;
+            color: #ffffff;
+            border-color: #09A3F2 #ffffff #ffffff #09A3F2;
+        }
+
+        .address-bar {
+            background: #ffffff;
+            border: 1px solid;
+            border-color: #09A3F2 #ffffff #ffffff #09A3F2;
+            padding: 3px 6px;
+            font-size: 0.8rem;
+            color: #333333;
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .lang-select {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid;
+            border-color: #ffffff #09A3F2 #09A3F2 #ffffff;
+            padding: 3px;
+            font-size: 0.8rem;
+            max-width: 100%;
+        }
+
+        /* メインコンテンツ */
+        .container {
+            padding: 1.5rem;
+            background-color: #ffffff;
+            overflow-y: auto;
+            word-break: break-word;
+        }
+
+        .hero-header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px dashed #09A3F2;
+            padding-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            width: 64px;
+            height: 64px;
+            border: 2px solid #09A3F2;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .hero-titles {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .hero-titles h1 {
+            font-size: 2rem;
+            margin: 0 0 0.2rem 0;
+            color: #026ca7;
+        }
+
+        .hero-titles p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #333333;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            background-color: #09A3F2;
+            color: #ffffff;
+            padding: 4px 8px;
+            margin-bottom: 1rem;
+        }
+
+        p, li {
+            font-size: 0.9rem;
+        }
+
+        /* バージョン履歴固有のスタイル */
+        .version-block {
+            margin-bottom: 1.5rem;
+            border: 1px solid #09A3F2;
+            background-color: #f7fbff;
+            padding: 1rem;
+        }
+
+        .version-block h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1rem;
+            color: #026ca7;
+            border-bottom: 1px dashed #09A3F2;
+            padding-bottom: 0.3rem;
+        }
+
+        .version-block ul {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+
+        .version-block li {
+            margin-bottom: 0.3rem;
+        }
+
+        footer {
+            border-top: 1px solid #09A3F2;
+            padding-top: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #555555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="retro-window">
+        <!-- ウィンドウタイトルバー -->
+        <div class="window-header">
+            <div class="window-title">
+                <span id="win-title-text">Utaun.exe - [history]</span>
+            </div>
+            <div class="window-controls">
+                <div class="win-btn">_</div>
+                <div class="win-btn">□</div>
+                <div class="win-btn">×</div>
+            </div>
+        </div>
+
+        <!-- ツールバー -->
+        <div class="browser-toolbar">
+            <div class="toolbar-row">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-i18n="navHome">ホーム</a></li>
+                    <li><a href="ui-gallery.html" data-i18n="navGuide">UI画面</a></li>
+                    <li><a href="history.html" class="active" data-i18n="navHistory">履歴</a></li>
+                </ul>
+                <select class="lang-select" id="langSelect">
+                    <option value="ja">🇯🇵 日本語</option>
+                    <option value="en">🇬🇧 English (UK)</option>
+                    <option value="en-us">🇺🇸 English (US)</option>
+                    <option value="ko">🇰🇷 한국어</option>
+                    <option value="zh-cn">🇨🇳 简体中文</option>
+                    <option value="zh-tw">🇹🇼 繁體中文</option>
+                    <option value="zh-hk">🇭🇰 繁體中文 (香港)</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="pt">🇵🇹 Português</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="pl">🇵🇱 Polski</option>
+                    <option value="tr">🇹🇷 Türkçe</option>
+                    <option value="vi">🇻🇳 Tiếng Việt</option>
+                    <option value="fil">🇵🇭 Filipino</option>
+                    <option value="th">🇹🇭 ไทย</option>
+                </select>
+            </div>
+            <div class="toolbar-row">
+                <div class="address-bar">
+                    A:\Utaun\history.html
+                </div>
+            </div>
+        </div>
+
+        <!-- メインコンテンツ -->
+        <div class="container">
+            <div class="hero-header">
+                <img src="Image/無題272_20260924010445.png" alt="Utaun Logo" class="logo-img" onerror="this.style.display='none'">
+                <div class="hero-titles">
+                    <h1 data-i18n="historyMainTitle">リリース履歴</h1>
+                    <p data-i18n="historyMainDesc">Utaun のこれまでのアップデートと変更の記録です。</p>
+                </div>
+            </div>
+
+            <section>
+                <h3 data-i18n="historySectionTitle">バージョン更新情報</h3>
+
+                <!-- v1.0.7 -->
+                <div class="version-block">
+                    <h4>v1.0.7</h4>
+                    <ul>
+                        <li data-i18n="v107_1">ライトモード/ダークモードが選択可能に！</li>
+                        <li data-i18n="v107_2">OpenUTAUやUTAUへの直エクスポート出来るようになりました！</li>
+                        <li data-i18n="v107_3">アプリ内アプデ機能実装！</li>
+                        <li data-i18n="v107_4">上限ヘルツを400から600に変更</li>
+                        <li data-i18n="v107_5">エンコードをShift-JISとUTF-8で選択可能に！</li>
+                        <li data-i18n="v107_6">UIを変更</li>
+                    </ul>
+                </div>
+
+                <!-- v1.0.6 -->
+                <div class="version-block">
+                    <h4>v1.0.6</h4>
+                    <ul>
+                        <li data-i18n="v106_1">子音部の発音強化</li>
+                        <li data-i18n="v106_2">母音の発音強化</li>
+                        <li data-i18n="v106_3">32bitPCの対応開始！</li>
+                        <li data-i18n="v106_4">インストーラー版リリース開始！</li>
+                    </ul>
+                </div>
+
+                <!-- v1.0.5 -->
+                <div class="version-block">
+                    <h4>v1.0.5</h4>
+                    <ul>
+                        <li data-i18n="v105_1">濁音・半濁音が生成されない問題を修正</li>
+                    </ul>
+                </div>
+
+                <!-- v1.0.4 -->
+                <div class="version-block">
+                    <h4>v1.0.4</h4>
+                    <ul>
+                        <li data-i18n="v104_1">OpenUTAU準拠の多言語対応開始！</li>
+                    </ul>
+                </div>
+
+                <!-- v1.0.3 -->
+                <div class="version-block">
+                    <h4>v1.0.3</h4>
+                    <ul>
+                        <li data-i18n="v103_1">OneDrive設定オンのPCに対応！</li>
+                    </ul>
+                </div>
+
+                <!-- v1.0.2 -->
+                <div class="version-block">
+                    <h4>v1.0.2</h4>
+                    <ul>
+                        <li data-i18n="v102_1">細かなバグの修正</li>
+                    </ul>
+                </div>
+
+                <!-- v1.0.1 -->
+                <div class="version-block">
+                    <h4>v1.0.1</h4>
+                    <ul>
+                        <li data-i18n="v101_1">セキュリティブロック対策に「子音部・濁音部フォルダ」と「oto.ini」の閲覧先を「ドキュメント」フォルダに変更</li>
+                    </ul>
+                </div>
+
+                <!-- v1.0.0 -->
+                <div class="version-block">
+                    <h4>v1.0.0</h4>
+                    <ul>
+                        <li data-i18n="v100_1"><strong>Utaun初リリース！</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <footer>
+                <p>&copy; Sive All Rights Reserved.</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // 共通の翻訳テンプレート（英語ベース）
+        const enBase = {
+            title: "Utaun - Release History",
+            navHome: "Home", navGuide: "UI Screen", navHistory: "History",
+            historyMainTitle: "Release History",
+            historyMainDesc: "Record of past updates and changes for Utaun.",
+            historySectionTitle: "Version Updates",
+            v107_1: "Light mode / Dark mode selection now available!",
+            v107_2: "Direct export to OpenUTAU and UTAU is now supported!",
+            v107_3: "In-app update feature implemented!",
+            v107_4: "Changed upper Hz limit from 400 to 600",
+            v107_5: "Added choice between Shift-JIS and UTF-8 encoding!",
+            v107_6: "Redesigned UI",
+            v106_1: "Enhanced consonant pronunciation",
+            v106_2: "Enhanced vowel pronunciation",
+            v106_3: "Started support for 32-bit PCs!",
+            v106_4: "Started releasing installer version!",
+            v105_1: "Fixed an issue where voiced/semi-voiced sounds were not generated",
+            v104_1: "Started OpenUTAU-compliant multi-language support!",
+            v103_1: "Supported PCs with OneDrive settings turned on!",
+            v102_1: "Fixed minor bugs",
+            v101_1: "Changed the destination of 'Consonant/Voiced folders' and 'oto.ini' to the 'Documents' folder to prevent security blocks",
+            v100_1: "<strong>Utaun Initial Release!</strong>"
+        };
+
+        const translations = {
+            ja: {
+                title: "Utaun - リリース履歴",
+                navHome: "ホーム", navGuide: "UI画面", navHistory: "履歴",
+                historyMainTitle: "リリース履歴",
+                historyMainDesc: "Utaun のこれまでのアップデートと変更の記録です。",
+                historySectionTitle: "バージョン更新情報",
+                v107_1: "ライトモード/ダークモードが選択可能に！",
+                v107_2: "OpenUTAUやUTAUへの直エクスポート出来るようになりました！",
+                v107_3: "アプリ内アプデ機能実装！",
+                v107_4: "上限ヘルツを400から600に変更",
+                v107_5: "エンコードをShift-JISとUTF-8で選択可能に！",
+                v107_6: "UIを変更",
+                v106_1: "子音部の発音強化",
+                v106_2: "母音の発音強化",
+                v106_3: "32bitPCの対応開始！",
+                v106_4: "インストーラー版リリース開始！",
+                v105_1: "濁音・半濁音が生成されない問題を修正",
+                v104_1: "OpenUTAU準拠の多言語対応開始！",
+                v103_1: "OneDrive設定オンのPCに対応！",
+                v102_1: "細かなバグの修正",
+                v101_1: "セキュリティブロック対策に「子音部・濁音部フォルダ」と「oto.ini」の閲覧先を「ドキュメント」フォルダに変更",
+                v100_1: "<strong>Utaun初リリース！</strong>"
+            },
+            en: enBase,
+            "en-us": enBase,
+            ko: {
+                title: "Utaun - 릴리스 기록",
+                navHome: "홈", navGuide: "UI 화면", navHistory: "기록",
+                historyMainTitle: "릴리스 기록",
+                historyMainDesc: "Utaun의 지금까지의 업데이트 및 변경 기록입니다.",
+                historySectionTitle: "버전 업데이트 정보",
+                v107_1: "라이트 모드/다크 모드 선택 가능!",
+                v107_2: "OpenUTAU나 UTAU로 직접 내보내기 가능!",
+                v107_3: "앱 내 업데이트 기능 구현!",
+                v107_4: "상한 헤르츠를 400에서 600으로 변경",
+                v107_5: "인코딩을 Shift-JIS와 UTF-8 중에서 선택 가능!",
+                v107_6: "UI 변경",
+                v106_1: "자음부 발음 강화",
+                v106_2: "모음 발음 강화",
+                v106_3: "32bit PC 지원 개시!",
+                v106_4: "인스톨러 버전 배포 개시!",
+                v105_1: "탁음·반탁음이 생성되지 않는 문제 수정",
+                v104_1: "OpenUTAU 준거 다국어 지원 개시!",
+                v103_1: "OneDrive 설정이 켜진 PC 지원!",
+                v102_1: "사소한 버그 수정",
+                v101_1: "보안 차단 대책으로 '자음·탁음 폴더'와 'oto.ini'의 참조처를 '문서' 폴더로 변경",
+                v100_1: "<strong>Utaun 첫 릴리스!</strong>"
+            },
+            "zh-cn": {
+                title: "Utaun - 版本历史",
+                navHome: "主页", navGuide: "UI界面", navHistory: "历史",
+                historyMainTitle: "版本历史",
+                historyMainDesc: "Utaun 以往的更新和更改记录。",
+                historySectionTitle: "版本更新信息",
+                v107_1: "现已支持浅色/深色模式切换！",
+                v107_2: "现已支持直接导出到 OpenUTAU 或 UTAU！",
+                v107_3: "实装应用内更新功能！",
+                v107_4: "将上限赫兹从 400 更改为 600",
+                v107_5: "现可在 Shift-JIS 与 UTF-8 编码间进行选择！",
+                v107_6: "重新设计了 UI",
+                v106_1: "强化辅音部分发音",
+                v106_2: "强化元音发音",
+                v106_3: "开始支持 32 位电脑！",
+                v106_4: "开始发布安装程序版本！",
+                v105_1: "修复了浊音、半浊音无法生成的问题",
+                v104_1: "开始支持符合 OpenUTAU 标准的多语言！",
+                v103_1: "兼容开启了 OneDrive 设置的电脑！",
+                v102_1: "修复了若干小错误",
+                v101_1: "为防止安全阻止，将“辅音/浊音文件夹”和“oto.ini”的浏览路径更改为“文档”文件夹",
+                v100_1: "<strong>Utaun 首次发布！</strong>"
+            },
+            "zh-tw": {
+                title: "Utaun - 版本歷史",
+                navHome: "首頁", navGuide: "UI介面", navHistory: "歷史",
+                historyMainTitle: "版本歷史",
+                historyMainDesc: "Utaun 以往的更新與變更記錄。",
+                historySectionTitle: "版本更新資訊",
+                v107_1: "現已支援淺色/深色模式切換！",
+                v107_2: "現已支援直接匯出至 OpenUTAU 或 UTAU！",
+                v107_3: "實裝應用程式內更新功能！",
+                v107_4: "將上限赫茲從 400 變更為 600",
+                v107_5: "現可於 Shift-JIS 與 UTF-8 編碼間進行選擇！",
+                v107_6: "重新設計 UI",
+                v106_1: "強化子音部分發音",
+                v106_2: "強化母音發音",
+                v106_3: "開始支援 32 位元電腦！",
+                v106_4: "開始釋出安裝程式版本！",
+                v105_1: "修正了濁音、半濁音無法產生的問題",
+                v104_1: "開始支援符合 OpenUTAU 標準的多語言！",
+                v103_1: "相容開啟 OneDrive 設定的電腦！",
+                v102_1: "修正微小錯誤",
+                v101_1: "為防止安全性封鎖，將「子音/濁音資料夾」與「oto.ini」的瀏覽路徑變更為「文件」資料夾",
+                v100_1: "<strong>Utaun 初次發布！</strong>"
+            },
+            "zh-hk": {
+                title: "Utaun - 版本歷史",
+                navHome: "首頁", navGuide: "UI介面", navHistory: "歷史",
+                historyMainTitle: "版本歷史",
+                historyMainDesc: "Utaun 過往嘅更新同變更紀錄。",
+                historySectionTitle: "版本更新資訊",
+                v107_1: "現已支援淺色/深色模式切換！",
+                v107_2: "現已支援直接匯出到 OpenUTAU 或 UTAU！",
+                v107_3: "實裝應用程式內更新功能！",
+                v107_4: "將上限赫茲由 400 改為 600",
+                v107_5: "現可於 Shift-JIS 同 UTF-8 編碼中選擇！",
+                v107_6: "重新設計 UI",
+                v106_1: "強化輔音部分發音",
+                v106_2: "強化元音發音",
+                v106_3: "開始支援 32 位元電腦！",
+                v106_4: "開始推出安裝程式版本！",
+                v105_1: "修正咗濁音、半濁音無法生成嘅問題",
+                v104_1: "開始支援符合 OpenUTAU 標準嘅多語言！",
+                v103_1: "相容開咗 OneDrive 設定嘅電腦！",
+                v102_1: "修正咗一啲細微錯誤",
+                v101_1: "為咗防止安全封鎖，將「輔音/濁音資料夾」同「oto.ini」嘅瀏覽路徑改為「文件」資料夾",
+                v100_1: "<strong>Utaun 首次發布！</strong>"
+            },
+            ru: {
+                title: "Utaun - История релизов",
+                navHome: "Главная", navGuide: "Интерфейс", navHistory: "История",
+                historyMainTitle: "История релизов",
+                historyMainDesc: "Запись прошлых обновлений и изменений Utaun.",
+                historySectionTitle: "Обновления версий",
+                v107_1: "Теперь доступен выбор светлой/темной темы!",
+                v107_2: "Добавлен прямой экспорт в OpenUTAU и UTAU!",
+                v107_3: "Реализована функция обновления в приложении!",
+                v107_4: "Верхний предел Hz изменен с 400 на 600",
+                v107_5: "Добавлен выбор между кодировками Shift-JIS и UTF-8!",
+                v107_6: "Изменен интерфейс",
+                v106_1: "Улучшено произношение согласных",
+                v106_2: "Улучшено произношение гласных",
+                v106_3: "Добавлена поддержка 32-битных ПК!",
+                v106_4: "Начат выпуск версии с установщиком!",
+                v105_1: "Исправлена ошибка, из-за которой не генерировались звонкие/полузвонкие звуки",
+                v104_1: "Запущена многоязычная поддержка, совместимая с OpenUTAU!",
+                v103_1: "Добавлена поддержка ПК с включенным OneDrive!",
+                v102_1: "Исправлены мелкие ошибки",
+                v101_1: "Путь к папкам согласных/звонких звуков и oto.ini изменен на папку «Документы» во избежание блокировок безопасности",
+                v100_1: "<strong>Первый релиз Utaun!</strong>"
+            },
+            pt: {
+                title: "Utaun - Histórico de Lançamentos",
+                navHome: "Início", navGuide: "Interface", navHistory: "Histórico",
+                historyMainTitle: "Histórico de Lançamentos",
+                historyMainDesc: "Registro de atualizações e alterações anteriores do Utaun.",
+                historySectionTitle: "Atualizações de Versão",
+                v107_1: "Seleção de modo claro/escuro agora disponível!",
+                v107_2: "Exportação direta para OpenUTAU e UTAU suportada!",
+                v107_3: "Recurso de atualização no aplicativo implementado!",
+                v107_4: "Limite máximo de Hz alterado de 400 para 600",
+                v107_5: "Adicionada escolha entre codificação Shift-JIS e UTF-8!",
+                v107_6: "Interface redesenhada",
+                v106_1: "Pronúncia de consoantes aprimorada",
+                v106_2: "Pronúncia de vogais aprimorada",
+                v106_3: "Suporte iniciado para PCs de 32 bits!",
+                v106_4: "Iniciado o lançamento da versão com instalador!",
+                v105_1: "Corrigido um problema onde sons oclusivos sonoros/semi-sonoros não eram gerados",
+                v104_1: "Iniciado suporte multilíngue compatível com OpenUTAU!",
+                v103_1: "Compatível com PCs com configurações do OneDrive ativadas!",
+                v102_1: "Correção de pequenos bugs",
+                v101_1: "O destino das pastas de consoantes/vozeadas e 'oto.ini' foi alterado para a pasta 'Documentos' para evitar bloqueios de segurança",
+                v100_1: "<strong>Lançamento inicial do Utaun!</strong>"
+            },
+            es: {
+                title: "Utaun - Historial de Versiones",
+                navHome: "Inicio", navGuide: "Interfaz", navHistory: "Historial",
+                historyMainTitle: "Historial de Versiones",
+                historyMainDesc: "Registro de actualizaciones y cambios anteriores de Utaun.",
+                historySectionTitle: "Actualizaciones de Versión",
+                v107_1: "¡Selección de modo claro/oscuro ahora disponible!",
+                v107_2: "¡Exportación directa a OpenUTAU y UTAU compatible!",
+                v107_3: "¡Funcionalidad de actualización dentro de la aplicación implementada!",
+                v107_4: "Límite superior de Hz cambiado de 400 a 600",
+                v107_5: "¡Se agregó la opción entre codificación Shift-JIS y UTF-8!",
+                v107_6: "Interfaz rediseñada",
+                v106_1: "Pronunciación de consonantes mejorada",
+                v106_2: "Pronunciación de vocales mejorada",
+                v106_3: "¡Soporte para PC de 32 bits iniciado!",
+                v106_4: "¡Lanzamiento de versión con instalador iniciado!",
+                v105_1: "Se corrigió un problema por el cual no se generaban sonidos sonoros/semi-sonoros",
+                v104_1: "¡Soporte multilingüe compatible con OpenUTAU iniciado!",
+                v103_1: "¡Compatible con PC con configuración de OneDrive activada!",
+                v102_1: "Corrección de errores menores",
+                v101_1: "El destino de las carpetas de consonantes/sonoras y 'oto.ini' se cambió a la carpeta 'Documentos' para evitar bloqueos de seguridad",
+                v100_1: "<strong>¡Primer lanzamiento de Utaun!</strong>"
+            },
+            fr: {
+                title: "Utaun - Historique des versions",
+                navHome: "Accueil", navGuide: "Interface", navHistory: "Historique",
+                historyMainTitle: "Historique des versions",
+                historyMainDesc: "Enregistrement des mises à jour et des modifications d'Utaun.",
+                historySectionTitle: "Mises à jour des versions",
+                v107_1: "Sélection du mode clair / mode sombre désormais disponible !",
+                v107_2: "Exportation directe vers OpenUTAU et UTAU prise en charge !",
+                v107_3: "Fonction de mise à jour intégrée à l'application implémentée !",
+                v107_4: "Limite supérieure de Hz modifiée de 400 à 600",
+                v107_5: "Ajout du choix entre l'encodage Shift-JIS et UTF-8 !",
+                v107_6: "Interface redessinée",
+                v106_1: "Prononciation des consonnes améliorée",
+                v106_2: "Prononciation des voyelles améliorée",
+                v106_3: "Début de la prise en charge des PC 32 bits !",
+                v106_4: "Début de la version avec installateur !",
+                v105_1: "Correction d'un problème où les sons voisés/semi-voisés n'étaient pas générés",
+                v104_1: "Lancement du support multilingue compatible OpenUTAU !",
+                v103_1: "Compatible avec les PC dotés de paramètres OneDrive activés !",
+                v102_1: "Correction de bugs mineurs",
+                v101_1: "La destination des dossiers de consonnes/sons voisés et de 'oto.ini' a été modifiée vers le dossier 'Documents' pour éviter les blocages de sécurité",
+                v100_1: "<strong>Première version d'Utaun !</strong>"
+            },
+            it: {
+                title: "Utaun - Cronologia delle versioni",
+                navHome: "Home", navGuide: "Interfaccia", navHistory: "Cronologia",
+                historyMainTitle: "Cronologia delle versioni",
+                historyMainDesc: "Registro di aggiornamenti e modifiche precedenti per Utaun.",
+                historySectionTitle: "Aggiornamenti di versione",
+                v107_1: "Ora è possibile selezionare la modalità chiaro/scuro!",
+                v107_2: "Supportata l'esportazione diretta in OpenUTAU e UTAU!",
+                v107_3: "Implementata la funzione di aggiornamento in-app!",
+                v107_4: "Limite superiore di Hz modificato da 400 a 600",
+                v107_5: "Aggiunta la scelta tra codifica Shift-JIS e UTF-8!",
+                v107_6: "Interfaccia ridisegnata",
+                v106_1: "Pronuncia delle consonanti migliorata",
+                v106_2: "Pronuncia delle vocali migliorata",
+                v106_3: "Iniziato il supporto per PC a 32 bit!",
+                v106_4: "Iniziato il rilascio della versione con programma di installazione!",
+                v105_1: "Risolto un problema per cui i suoni sonori/semisonori non venivano generati",
+                v104_1: "Avviato il supporto multilingue compatibile con OpenUTAU!",
+                v103_1: "Compatibile con PC con impostazioni OneDrive attivate!",
+                v102_1: "Risoluzione di piccoli bug",
+                v101_1: "La destinazione delle cartelle di consonanti/suoni sonori e di 'oto.ini' è stata spostata nella cartella 'Documenti' per prevenire blocchi di sicurezza",
+                v100_1: "<strong>Primo rilascio di Utaun!</strong>"
+            },
+            de: {
+                title: "Utaun - Versionsverlauf",
+                navHome: "Startseite", navGuide: "UI-Bildschirm", navHistory: "Verlauf",
+                historyMainTitle: "Versionsverlauf",
+                historyMainDesc: "Aufzeichnung vergangener Updates und Änderungen für Utaun.",
+                historySectionTitle: "Versionsupdates",
+                v107_1: "Auswahl zwischen Hell- und Dunkelmodus jetzt verfügbar!",
+                v107_2: "Direkter Export nach OpenUTAU und UTAU wird jetzt unterstützt!",
+                v107_3: "In-App-Update-Funktion implementiert!",
+                v107_4: "Obere Hz-Grenze von 400 auf 600 geändert",
+                v107_5: "Auswahl zwischen Shift-JIS- und UTF-8-Codierung hinzugefügt!",
+                v107_6: "UI neu gestaltet",
+                v106_1: "Konsonanten-Aussprache verbessert",
+                v106_2: "Vokalan-Aussprache verbessert",
+                v106_3: "Unterstützung für 32-Bit-PCs gestartet!",
+                v106_4: "Veröffentlichung der Installer-Version gestartet!",
+                v105_1: "Fehler behoben, bei dem stimmhafte/halbstimmhafte Laute nicht generiert wurden",
+                v104_1: "OpenUTAU-kompatible mehrsprachige Unterstützung gestartet!",
+                v103_1: "Unterstützung für PCs mit aktivierten OneDrive-Einstellungen!",
+                v102_1: "Kleinere Fehler behoben",
+                v101_1: "Zielort für 'Konsonanten-/Stimmhafte Ordner' und 'oto.ini' zum Schutz vor Sicherheitssperren in den Ordner 'Dokumente' geändert",
+                v100_1: "<strong>Utaun Erstveröffentlichung!</strong>"
+            },
+            pl: {
+                title: "Utaun - Historia wersji",
+                navHome: "Strona główna", navGuide: "Interfejs", navHistory: "Historia",
+                historyMainTitle: "Historia wersji",
+                historyMainDesc: "Zapis poprzednich aktualizacji i zmian w Utaun.",
+                historySectionTitle: "Aktualizacje wersji",
+                v107_1: "Teraz dostępny wybór trybu jasnego/ciemnego!",
+                v107_2: "Obsługa bezpośredniego eksportu do OpenUTAU i UTAU!",
+                v107_3: "Zaimplementowano funkcję aktualizacji w aplikacji!",
+                v107_4: "Zmieniono górny limit Hz z 400 na 600",
+                v107_5: "Dodano wyboru między kodowaniem Shift-JIS a UTF-8!",
+                v107_6: "Przeprojektowano interfejs",
+                v106_1: "Ulepszono wymowę spółgłosek",
+                v106_2: "Ulepszono wymowę samogłosek",
+                v106_3: "Rozpoczęto wsparcie dla komputerów 32-bitowych!",
+                v106_4: "Rozpoczęto wydawanie wersji instalatora!",
+                v105_1: "Naprawiono błąd polegający na tym, że dźwięki dźwięczne/półdźwięczne nie były generowane",
+                v104_1: "Uruchomiono wielojęzyczne wsparcie zgodne z OpenUTAU!",
+                v103_1: "Obsługa komputerów z włączonymi ustawieniami OneDrive!",
+                v102_1: "Naprawiono drobne błędy",
+                v101_1: "Zmieniono lokalizację folderów spółgłosek/dźwięcznych oraz pliku 'oto.ini' na folder 'Dokumenty', aby zapobiec blokadom bezpieczeństwa",
+                v100_1: "<strong>Pierwsze wydanie Utaun!</strong>"
+            },
+            tr: {
+                title: "Utaun - Sürüm Geçmişi",
+                navHome: "Ana Sayfa", navGuide: "Arayüz", navHistory: "Geçmiş",
+                historyMainTitle: "Sürüm Geçmişi",
+                historyMainDesc: "Utaun için geçmiş güncellemelerin ve değişikliklerin kaydı.",
+                historySectionTitle: "Sürüm Güncellemeleri",
+                v107_1: "Açık mod / Koyu mod seçimi artık mevcut!",
+                v107_2: "OpenUTAU ve UTAU'ya doğrudan dışa aktarım destekleniyor!",
+                v107_3: "Uygulama içi güncelleme özelliği eklendi!",
+                v107_4: "Üst Hz sınırı 400'den 600'e çıkarıldı",
+                v107_5: "Shift-JIS ve UTF-8 kodlamaları arasında seçim eklendi!",
+                v107_6: "Arayüz değiştirildi",
+                v106_1: "Ünsüz telaffuzu geliştirildi",
+                v106_2: "Ünlü telaffuzu geliştirildi",
+                v106_3: "32-bit PC desteği başlatıldı!",
+                v106_4: "Yükleyici (Installer) sürümü yayınlanmaya başlandı!",
+                v105_1: "Tırt/ötümlü seslerin üretilememesi sorunu düzeltildi",
+                v104_1: "OpenUTAU uyumlu çok dilli destek başlatıldı!",
+                v103_1: "OneDrive ayarları açık olan PC'ler desteklendi!",
+                v102_1: "Küçük hatalar giderildi",
+                v101_1: "Güvenlik engellerini önlemek için 'Ünsüz/Ötümlü klasörleri' and 'oto.ini' dosyasının konumu 'Belgeler' (Documents) klasörü olarak değiştirildi",
+                v100_1: "<strong>Utaun İlk Sürümü!</strong>"
+            },
+            vi: {
+                title: "Utaun - Lịch sử phiên bản",
+                navHome: "Trang chủ", navGuide: "Giao diện", navHistory: "Lịch sử",
+                historyMainTitle: "Lịch sử phiên bản",
+                historyMainDesc: "Ghi chép về các bản cập nhật và thay đổi trước đây của Utaun.",
+                historySectionTitle: "Cập nhật phiên bản",
+                v107_1: "Bây giờ có thể chọn chế độ sáng/tối!",
+                v107_2: "Đã hỗ trợ xuất trực tiếp sang OpenUTAU và UTAU!",
+                v107_3: "Đã tích hợp tính năng cập nhật trong ứng dụng!",
+                v107_4: "Thay đổi giới hạn Hz tối đa từ 400 thành 600",
+                v107_5: "Đã thêm lựa chọn mã hóa Shift-JIS và UTF-8!",
+                v107_6: "Thiết kế lại giao diện",
+                v106_1: "Cải thiện phát âm phụ âm",
+                v106_2: "Cải thiện phát âm nguyên âm",
+                v106_3: "Bắt đầu hỗ trợ máy tính 32-bit!",
+                v106_4: "Bắt đầu phát hành phiên bản trình cài đặt!",
+                v105_1: "Đã sửa lỗi không tạo ra được âm có thanh/bán thanh",
+                v104_1: "Bắt đầu hỗ trợ đa ngôn ngữ tương thích với OpenUTAU!",
+                v103_1: "Hỗ trợ máy tính có bật cài đặt OneDrive!",
+                v102_1: "Đã sửa các lỗi nhỏ",
+                v101_1: "Đã đổi thư mục xem 'Thư mục phụ âm/thanh' và 'oto.ini' thành thư mục 'Tài liệu' (Documents) để tránh bị chặn bảo mật",
+                v100_1: "<strong>Bản phát hành đầu tiên của Utaun!</strong>"
+            },
+            fil: {
+                title: "Utaun - Kasaysayan ng Bersyon",
+                navHome: "Tahanan", navGuide: "UI Screen", navHistory: "Kasaysayan",
+                historyMainTitle: "Kasaysayan ng Bersyon",
+                historyMainDesc: "Tala ng mga nakaraang update at pagbabago para sa Utaun.",
+                historySectionTitle: "Mga Update ng Bersyon",
+                v107_1: "Maaari nang pumili ng light mode / dark mode!",
+                v107_2: "Sinusuportahan na ang direktang pag-export sa OpenUTAU at UTAU!",
+                v107_3: "Naipatupad na ang in-app update feature!",
+                v107_4: "Binago ang upper Hz limit mula 400 patungong 600",
+                v107_5: "Nagdagdag ng pagpipilian sa pagitan ng Shift-JIS at UTF-8 encoding!",
+                v107_6: "Binago ang UI",
+                v106_1: "Pinahusay ang pagbigkas ng katinig",
+                v106_2: "Pinahusay ang pagbigkas ng patinig",
+                v106_3: "Sinimulan na ang suporta para sa 32-bit PCs!",
+                v106_4: "Sinimulan na ang paglabas ng installer version!",
+                v105_1: "Naayos ang isyu kung saan hindi nabubuo ang mga voiced/semi-voiced sounds",
+                v104_1: "Sinimulan ang OpenUTAU-compliant multi-language support!",
+                v103_1: "Sinusuportahan na ang mga PC na may naka-on na OneDrive settings!",
+                v102_1: "Naayos ang mga maliliit na bug",
+                v101_1: "Binago ang destinasyon ng 'Consonant/Voiced folders' at 'oto.ini' patungong 'Documents' folder upang maiwasan ang security blocks",
+                v100_1: "<strong>Unang Paglabas ng Utaun!</strong>"
+            },
+            th: {
+                title: "Utaun - ประวัติการปล่อยเวอร์ชัน",
+                navHome: "หน้าแรก", navGuide: "หน้าจอ UI", navHistory: "ประวัติ",
+                historyMainTitle: "ประวัติการปล่อยเวอร์ชัน",
+                historyMainDesc: "บันทึกการอัปเดตและการเปลี่ยนแปลงที่ผ่านมาของ Utaun",
+                historySectionTitle: "ข้อมูลอัปเดตเวอร์ชัน",
+                v107_1: "สามารถเลือกโหมดสว่าง / โหมดมืดได้แล้ว!",
+                v107_2: "รองรับการส่งออกโดยตรงไปยัง OpenUTAU และ UTAU แล้ว!",
+                v107_3: "ใช้งานฟีเจอร์อัปเดตในแอปพลิเคชันได้แล้ว!",
+                v107_4: "เปลี่ยนขีดจำกัด Hz สูงสุดจาก 400 เป็น 600",
+                v107_5: "เพิ่มตัวเลือกระหว่างการเข้ารหัส Shift-JIS และ UTF-8!",
+                v107_6: "เปลี่ยน UI ใหม่",
+                v106_1: "ปรับปรุงการออกเสียงพยัญชนะ",
+                v106_2: "ปรับปรุงการออกเสียงสระ",
+                v106_3: "เริ่มรองรับพีซีแบบ 32-bit แล้ว!",
+                v106_4: "เริ่มปล่อยเวอร์ชันตัวติดตั้ง (Installer) แล้ว!",
+                v105_1: "แก้ไขปัญหาเสียงโฆษะ/กึ่งโฆษะไม่ถูกสร้างขึ้น",
+                v104_1: "เริ่มรองรับหลายภาษาที่สอดคล้องกับ OpenUTAU!",
+                v103_1: "รองรับพีซีที่เปิดใช้งานการตั้งค่า OneDrive แล้ว!",
+                v102_1: "แก้ไขข้อผิดพลาดเล็กๆ น้อยๆ",
+                v101_1: "เปลี่ยนปลายทางของ 'โฟลเดอร์พยัญชนะ/เสียงโฆษะ' และ 'oto.ini' ไปที่โฟลเดอร์ 'Documents' เพื่อป้องกันการบล็อกความปลอดภัย",
+                v100_1: "<strong>การปล่อยเวอร์ชันแรกของ Utaun!</strong>"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const targetLang = translations[lang] ? lang : 'ja';
+            const t = translations[targetLang];
+
+            // data-i18n 属性を持つすべての要素を走査して一括翻訳
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t && t[key]) {
+                    el.innerHTML = t[key];
+                }
+            });
+
+            // ページ全体のタイトル
+            if (t && t.title) {
+                document.title = t.title;
+            }
+        }
+
+        const savedLang = localStorage.getItem('utaun_lang') || 'ja';
+        const langSelect = document.getElementById('langSelect');
+        langSelect.value = savedLang;
+        changeLanguage(savedLang);
+
+        langSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            localStorage.setItem('utaun_lang', lang);
+            changeLanguage(lang);
+        });
+    </script>
+</body>
+</html>
