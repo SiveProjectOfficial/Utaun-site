@@ -318,6 +318,29 @@
             margin-top: 0.25rem;
         }
 
+        /* 日本語限定リンクのスタイル */
+        .sister-site-box {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            display: none; /* デフォルトは非表示 */
+        }
+
+        .sister-site-link {
+            display: inline-block;
+            background-color: #f7fbff;
+            color: #026ca7;
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border: 1px solid #09A3F2;
+            border-radius: 0px;
+        }
+
+        .sister-site-link:hover {
+            background-color: #09A3F2;
+            color: #ffffff;
+        }
+
         footer {
             border-top: 1px solid #09A3F2;
             padding-top: 1rem;
@@ -408,7 +431,7 @@
                 <div style="background-color: #f7fbff; border-left: 4px solid #09A3F2; padding: 1rem 1.25rem; margin-top: 1rem;">
                     <p style="margin: 0; font-size: 0.9rem; color: #000000;" data-i18n="adachi_box">
                         <strong>💡 <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a>と同じ手法（CSM音声合成）について</strong><br>
-                        人間の声の代わりに波の成分（サイン波）を組み合わせて機械や無生物の素材から歌声を作り出す音声合成の仕組みです（「<a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a>」のUTAU音源と同じ手法です）。人間の声を録音しなくても、ユニークなUTAU音源を手軽に作ることができます！
+                        人間の声の代わりに波の成分（サイン波）を組み合わせて機械や無生物の素材から歌声を作り出す音声合成の仕組みです（ファイルの構成などは「<a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a>」のUTAU音源と同じ手法です）。人間の声を録音しなくても、ユニークなUTAU音源を手軽に作ることができます！
                     </p>
                 </div>
             </section>
@@ -452,6 +475,13 @@
                     </li>
                 </ul>
             </section>
+
+            <!-- 日本語表示のときだけ表示される姉妹サイトリンク -->
+            <div class="sister-site-box" id="sisterSiteBox">
+                <a href="https://siveprojectofficial.github.io/lalala/index.html" target="_blank" class="sister-site-link">
+                 【Sive】らららの作った姉妹サイトを見る
+                </a>
+            </div>
 
             <footer>
                 <p>&copy; Sive All Rights Reserved.</p>
@@ -961,6 +991,12 @@
             if (step3) step3.innerText = t.step3;
             if (step4) step4.innerText = t.step4;
             if (step4Note) step4Note.innerText = t.step4Note;
+
+            // ▼ 日本語（ja）のときだけ姉妹サイトのボックスを表示する処理
+            const sisterSiteBox = document.getElementById('sisterSiteBox');
+            if (sisterSiteBox) {
+                sisterSiteBox.style.display = (targetLang === 'ja') ? 'block' : 'none';
+            }
         }
 
         // ページ読み込み時の処理（'utaun_lang' に統一）
