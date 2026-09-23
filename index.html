@@ -345,12 +345,12 @@
         <div class="browser-toolbar">
             <div class="toolbar-row">
                 <ul class="nav-links">
-                    <li><a href="#" class="active" data-i18n="nav-home">ホーム</a></li>
-                    <li><a href="ui-gallery.html" data-i18n="nav-ui-gallery">UI画面</a></li>
+                    <li><a href="index.html" class="active" data-i18n="nav-home">ホーム</a></li>
+                    <li><a href="ui-gallery.html" data-i18n="nav-guide">UI画面</a></li>
                     <li><a href="#" data-i18n="nav-history">履歴</a></li>
                 </ul>
                 <select class="lang-select" id="langSelect">
-                    <option value="ja" selected>🇯🇵 日本語</option>
+                    <option value="ja">🇯🇵 日本語</option>
                     <option value="en">🇬🇧 English</option>
                     <option value="en-us">🇺🇸 English</option>
                     <option value="ko">🇰🇷 한국어</option>
@@ -895,7 +895,7 @@
                 uc5: "แตกไฟล์ ZIP และใช้เป็นวัสดุสไตล์ Vocaloid ทันที",
                 uc6: "ใช้เป็นวัสดุสำหรับ OtoMAD / YTPMV",
                 manualTitle: "วิธีใช้งาน Utaun",
-                step1: "ดาวน์โหลดเวอร์ชัน 'ตัวติดตั้ง' หรือ 'ZIP' ที่คุณต้องการ",
+                step1: "ดาวน์โหลดเวอร์ชัน 'ตัวติดตั้ง' أو 'ZIP' ที่คุณต้องการ",
                 step2Installer: "<strong>[สำหรับตัวติดตั้ง]</strong> เปิดตัวติดตั้งและทำตามคำแนะนำบนหน้าจอ",
                 step2Zip: "<strong>[สำหรับเวอร์ชัน ZIP]</strong> วาง '子音部・濁音部フォルダ' และไฟล์ 'oto.ini' ไว้ในโฟลเดอร์ 'Documents' ของคุณโดยตรง",
                 step3: "เปิด Utaun และทำตามคำแนะนำเพื่อสร้างคลังเสียง",
@@ -904,38 +904,75 @@
             }
         };
 
-        const langSelect = document.getElementById('langSelect');
-        langSelect.addEventListener('change', (e) => {
-            const lang = e.target.value;
+        function changeLanguage(lang) {
             const targetLang = (lang === 'en-us') ? 'en' : lang;
             const t = translations[targetLang] || translations['ja'];
 
             document.getElementById('page-title').innerText = t.title;
-            document.querySelector('[data-i18n="nav-home"]').innerText = t.navHome;
-            document.querySelector('[data-i18n="nav-guide"]').innerText = t.navGuide;
-            document.querySelector('[data-i18n="nav-history"]').innerText = t.navHistory;
-            document.querySelector('[data-i18n="hero_desc"]').innerText = t.heroDesc;
-            document.querySelector('[data-i18n="dl_title"]').innerText = t.dlTitle;
-            document.querySelector('[data-i18n="btn_zip"]').innerText = t.btnZip;
-            document.querySelector('[data-i18n="btn_installer"]').innerText = t.btnInstaller;
-            document.querySelector('[data-i18n="badge_platform"]').innerText = t.badgePlatform;
-            document.querySelector('[data-i18n="about_title"]').innerText = t.aboutTitle;
-            document.querySelector('[data-i18n="about_text"]').innerHTML = t.aboutText;
-            document.querySelector('[data-i18n="adachi_box"]').innerHTML = t.adachiBox;
-            document.querySelector('[data-i18n="usecase_title"]').innerText = t.usecaseTitle;
-            document.querySelector('[data-i18n="uc_1"]').innerText = t.uc1;
-            document.querySelector('[data-i18n="uc_2"]').innerText = t.uc2;
-            document.querySelector('[data-i18n="uc_3"]').innerText = t.uc3;
-            document.querySelector('[data-i18n="uc_4"]').innerText = t.uc4;
-            document.querySelector('[data-i18n="uc_5"]').innerText = t.uc5;
-            document.querySelector('[data-i18n="uc_6"]').innerText = t.uc6;
-            document.querySelector('[data-i18n="manual_title"]').innerText = t.manualTitle;
-            document.querySelector('[data-i18n="step_1"]').innerText = t.step1;
-            document.querySelector('[data-i18n="step_2_installer"]').innerHTML = t.step2Installer;
-            document.querySelector('[data-i18n="step_2_zip"]').innerHTML = t.step2Zip;
-            document.querySelector('[data-i18n="step_3"]').innerText = t.step3;
-            document.querySelector('[data-i18n="step_4"]').innerText = t.step4;
-            document.querySelector('[data-i18n="step_4_note"]').innerText = t.step4Note;
+            const navHome = document.querySelector('[data-i18n="nav-home"]');
+            const navGuide = document.querySelector('[data-i18n="nav-guide"]');
+            const navHistory = document.querySelector('[data-i18n="nav-history"]');
+            const heroDesc = document.querySelector('[data-i18n="hero_desc"]');
+            const dlTitle = document.querySelector('[data-i18n="dl_title"]');
+            const btnZip = document.querySelector('[data-i18n="btn_zip"]');
+            const btnInstaller = document.querySelector('[data-i18n="btn_installer"]');
+            const badgePlatform = document.querySelector('[data-i18n="badge_platform"]');
+            const aboutTitle = document.querySelector('[data-i18n="about_title"]');
+            const aboutText = document.querySelector('[data-i18n="about_text"]');
+            const adachiBox = document.querySelector('[data-i18n="adachi_box"]');
+            const usecaseTitle = document.querySelector('[data-i18n="usecase_title"]');
+            const uc1 = document.querySelector('[data-i18n="uc_1"]');
+            const uc2 = document.querySelector('[data-i18n="uc_2"]');
+            const uc3 = document.querySelector('[data-i18n="uc_3"]');
+            const uc4 = document.querySelector('[data-i18n="uc_4"]');
+            const uc5 = document.querySelector('[data-i18n="uc_5"]');
+            const uc6 = document.querySelector('[data-i18n="uc_6"]');
+            const manualTitle = document.querySelector('[data-i18n="manual_title"]');
+            const step1 = document.querySelector('[data-i18n="step_1"]');
+            const step2Installer = document.querySelector('[data-i18n="step_2_installer"]');
+            const step2Zip = document.querySelector('[data-i18n="step_2_zip"]');
+            const step3 = document.querySelector('[data-i18n="step_3"]');
+            const step4 = document.querySelector('[data-i18n="step_4"]');
+            const step4Note = document.querySelector('[data-i18n="step_4_note"]');
+
+            if (navHome) navHome.innerText = t.navHome;
+            if (navGuide) navGuide.innerText = t.navGuide;
+            if (navHistory) navHistory.innerText = t.navHistory;
+            if (heroDesc) heroDesc.innerText = t.heroDesc;
+            if (dlTitle) dlTitle.innerText = t.dlTitle;
+            if (btnZip) btnZip.innerText = t.btnZip;
+            if (btnInstaller) btnInstaller.innerText = t.btnInstaller;
+            if (badgePlatform) badgePlatform.innerText = t.badgePlatform;
+            if (aboutTitle) aboutTitle.innerText = t.aboutTitle;
+            if (aboutText) aboutText.innerHTML = t.aboutText;
+            if (adachiBox) adachiBox.innerHTML = t.adachiBox;
+            if (usecaseTitle) usecaseTitle.innerText = t.usecaseTitle;
+            if (uc1) uc1.innerText = t.uc1;
+            if (uc2) uc2.innerText = t.uc2;
+            if (uc3) uc3.innerText = t.uc3;
+            if (uc4) uc4.innerText = t.uc4;
+            if (uc5) uc5.innerText = t.uc5;
+            if (uc6) uc6.innerText = t.uc6;
+            if (manualTitle) manualTitle.innerText = t.manualTitle;
+            if (step1) step1.innerText = t.step1;
+            if (step2Installer) step2Installer.innerHTML = t.step2Installer;
+            if (step2Zip) step2Zip.innerHTML = t.step2Zip;
+            if (step3) step3.innerText = t.step3;
+            if (step4) step4.innerText = t.step4;
+            if (step4Note) step4Note.innerText = t.step4Note;
+        }
+
+        // ページ読み込み時の処理
+        const savedLang = localStorage.getItem('utau_lang') || 'ja';
+        const langSelect = document.getElementById('langSelect');
+        langSelect.value = savedLang;
+        changeLanguage(savedLang);
+
+        // 言語が変更されたときの処理
+        langSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            localStorage.setItem('utau_lang', lang);
+            changeLanguage(lang);
         });
     </script>
 </body>
