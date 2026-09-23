@@ -895,7 +895,7 @@
                 uc5: "แตกไฟล์ ZIP และใช้เป็นวัสดุสไตล์ Vocaloid ทันที",
                 uc6: "ใช้เป็นวัสดุสำหรับ OtoMAD / YTPMV",
                 manualTitle: "วิธีใช้งาน Utaun",
-                step1: "ดาวน์โหลดเวอร์ชัน 'ตัวติดตั้ง' أو 'ZIP' ที่คุณต้องการ",
+                step1: "ดาวน์โหลดเวอร์ชัน 'ตัวติดตั้ง' หรือ 'ZIP' ที่คุณต้องการ",
                 step2Installer: "<strong>[สำหรับตัวติดตั้ง]</strong> เปิดตัวติดตั้งและทำตามคำแนะนำบนหน้าจอ",
                 step2Zip: "<strong>[สำหรับเวอร์ชัน ZIP]</strong> วาง '子音部・濁音部フォルダ' และไฟล์ 'oto.ini' ไว้ในโฟลเดอร์ 'Documents' ของคุณโดยตรง",
                 step3: "เปิด Utaun และทำตามคำแนะนำเพื่อสร้างคลังเสียง",
@@ -962,17 +962,25 @@
             if (step4Note) step4Note.innerText = t.step4Note;
         }
 
-        // ページ読み込み時の処理
-        const savedLang = localStorage.getItem('utau_lang') || 'ja';
+        // ページ読み込み時の処理（'utaun_lang' に統一）
+        const savedLang = localStorage.getItem('utaun_lang') || 'ja';
         const langSelect = document.getElementById('langSelect');
         langSelect.value = savedLang;
         changeLanguage(savedLang);
 
-        // 言語が変更されたときの処理
+        // セレクトボックス変更時の処理
         langSelect.addEventListener('change', (e) => {
             const lang = e.target.value;
-            localStorage.setItem('utau_lang', lang);
+            localStorage.setItem('utaun_lang', lang);
             changeLanguage(lang);
+        });
+
+        // 別タブや別画面でストレージが変更されたときの同期
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'utaun_lang' && e.newValue) {
+                langSelect.value = e.newValue;
+                changeLanguage(e.newValue);
+            }
         });
     </script>
 </body>
