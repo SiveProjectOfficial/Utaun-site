@@ -318,6 +318,19 @@
             margin-top: 0.25rem;
         }
 
+        /* 規約ボックスのスタイル */
+        .terms-box {
+            background-color: #f7fbff;
+            border: 1px solid #09A3F2;
+            padding: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .terms-box ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.2rem;
+        }
+
         /* 日本語限定リンクのスタイル */
         .sister-site-box {
             margin-bottom: 1.5rem;
@@ -476,11 +489,32 @@
                 </ul>
             </section>
 
+            <!-- 利用規約セクション -->
+            <section>
+                <h3 data-i18n="terms_title">利用規約 (Terms of Use)</h3>
+                <div class="terms-box">
+                    <p><strong data-i18n="terms_body_1">【Utaun 本体について】</strong></p>
+                    <p data-i18n="terms_body_2">Utaun 本体（<code>Utaun.exe</code>）では現時点、以下の行為は禁止されています。</p>
+                    <ul>
+                        <li data-i18n="t_1">加工</li>
+                        <li data-i18n="t_2">編集</li>
+                        <li data-i18n="t_3">改造</li>
+                        <li data-i18n="t_4">商用利用</li>
+                        <li data-i18n="t_5">再配布</li>
+                        <li data-i18n="t_6">デコンパイル（分解）</li>
+                    </ul>
+                    <p style="font-size: 0.8rem; color: #666666; margin-top: 0.5rem;" data-i18n="terms_body_3">※オープンソースにした場合は利用規約が変わる可能性があります。</p>
+
+                    <p style="margin-top: 1rem;"><strong data-i18n="terms_body_4">【生成物について】</strong></p>
+                    <p data-i18n="terms_body_5">（音源・wav・icon.jpg / icon.bmp・<code>oto.ini</code> など）<br>
+                    利用規約は、あなた（配布者）が自由に設定できます。<code>readme.txt</code> にお好きな規約を書いてください。</p>
+                </div>
+            </section>
+
             <!-- 日本語表示のときだけ表示される姉妹サイトリンク -->
             <div class="sister-site-box" id="sisterSiteBox">
                 <a href="https://siveprojectofficial.github.io/lalala/index.html" target="_blank">
-    <img src="Image/無題277_20260924053913.png" alt"姉妹サイトSive" style="max-width:100%; height:auto;">
-  </a>
+                    <img src="Image/無題277_20260924053913.png" alt="姉妹サイトSive" style="max-width:100%; height:auto;">
                 </a>
             </div>
 
@@ -513,10 +547,17 @@
                 manualTitle: "Utaunの使用方法",
                 step1: "お好みの「インストーラー版」または「ZIP版」をダウンロードします。",
                 step2Installer: "<strong>【インストーラー版の場合】</strong> インストーラーを起動し、画面の指示に従ってインストールを進めると必要なファイルが自動で適切な場所に配置されます。",
-                step2Zip: "<strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と「oto.ini」を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。",
+                step2Zip: "<strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と<code>oto.ini</code>を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。",
                 step3: "Utaun を起動し、画面の指示に従って音源を作成します。",
                 step4: "データの保存先として、ZIP出力のほか、UTAUとOpenUTAUへのフォルダ状態での直接エクスポートが選択できます。",
-                step4Note: "※ 今後のバージョンからは自動アップデート機能がご利用いただけます。"
+                step4Note: "※ 今後のバージョンからは自動アップデート機能がご利用いただけます。",
+                termsTitle: "利用規約 (Terms of Use)",
+                termsBody1: "【Utaun 本体について】",
+                termsBody2: "Utaun 本体（<code>Utaun.exe</code>）では現時点、以下の行為は禁止されています。",
+                t1: "加工", t2: "編集", t3: "改造", t4: "商用利用", t5: "再配布", t6: "デコンパイル（分解）",
+                termsBody3: "※オープンソースにした場合は利用規約が変わる可能性があります。",
+                termsBody4: "【生成物について】",
+                termsBody5: "（音源・wav・icon.jpg / icon.bmp・<code>oto.ini</code> など）<br>利用規約は、あなた（配布者）が自由に設定できます。<code>readme.txt</code> にお好きな規約を書いてください。"
             },
             en: {
                 title: "Utaun - CV Voicebank Generator for Windows",
@@ -539,10 +580,17 @@
                 manualTitle: "How to Use Utaun",
                 step1: "Download your preferred 'Installer' or 'ZIP' version.",
                 step2Installer: "<strong>[For Installer version]</strong> Launch the installer and follow the on-screen instructions to automatically place files in the correct location.",
-                step2Zip: "<strong>[For ZIP version]</strong> Place the '子音部・濁音部フォルダ' and 'oto.ini' directly inside your 'Documents' folder (OneDrive documents are also fine).",
+                step2Zip: "<strong>[For ZIP version]</strong> Place the '子音部・濁音部フォルダ' and <code>oto.ini</code> directly inside your 'Documents' folder (OneDrive documents are also fine).",
                 step3: "Launch Utaun and follow the on-screen instructions to create your voicebank.",
                 step4: "Choose between ZIP output or direct folder export to UTAU and OpenUTAU.",
-                step4Note: "* Auto-update features will be available in future versions."
+                step4Note: "* Auto-update features will be available in future versions.",
+                termsTitle: "Terms of Use",
+                termsBody1: "[About Utaun Core]",
+                termsBody2: "For the Utaun core software (<code>Utaun.exe</code>), the following actions are currently prohibited:",
+                t1: "Processing", t2: "Editing", t3: "Modifying", t4: "Commercial use", t5: "Redistribution", t6: "Decompiling",
+                termsBody3: "* Terms of use may change if the software becomes open-source.",
+                termsBody4: "[About Generated Outputs]",
+                termsBody5: "(Voicebanks, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>You (the distributor) are free to set your own terms of use. Please write your preferred terms in <code>readme.txt</code>."
             },
             ko: {
                 title: "Utaun - Windows용 CV 음원 생성 소프트웨어",
@@ -565,10 +613,17 @@
                 manualTitle: "Utaun 사용 방법",
                 step1: "선호하는 '설치 버전' 또는 'ZIP 버전'을 다운로드합니다.",
                 step2Installer: "<strong>[설치 버전의 경우]</strong> 설치 프로그램을 실행하고 화면 지침에 따라 진행합니다.",
-                step2Zip: "<strong>[ZIP 버전의 경우]</strong> 압축 해제된 폴더 내의 '子音部・濁音部フォルダ'와 'oto.ini'를 '문서' 폴더에 직접 넣습니다.",
+                step2Zip: "<strong>[ZIP 버전의 경우]</strong> 압축 해제된 폴더 내의 '子音部・濁音部フォルダ'와 <code>oto.ini</code>를 '문서' 폴더에 직접 넣습니다.",
                 step3: "Utaun을 실행하고 화면 안내에 따라 음원을 생성합니다.",
                 step4: "ZIP 출력 외에도 UTAU 및 OpenUTAU로의 직접 폴더 내보내기가 가능합니다.",
-                step4Note: "* 향후 버전부터 자동 업데이트 기능을 이용할 수 있습니다."
+                step4Note: "* 향후 버전부터 자동 업데이트 기능을 이용할 수 있습니다.",
+                termsTitle: "이용 약관 (Terms of Use)",
+                termsBody1: "[Utaun 본체 정보]",
+                termsBody2: "Utaun 본체(<code>Utaun.exe</code>)는 현재 다음 행위가 금지되어 있습니다.",
+                t1: "가공", t2: "편집", t3: "개조", t4: "상업적 이용", t5: "재배포", t6: "디컴파일(분해)",
+                termsBody3: "※ 오픈소스화될 경우 이용 약관이 변경될 수 있습니다.",
+                termsBody4: "[생산물 정보]",
+                termsBody5: "(음원, wav, icon.jpg / icon.bmp, <code>oto.ini</code> 등)<br>이용 약관은 귀하(배포자)가 자유롭게 설정할 수 있습니다. <code>readme.txt</code>에 원하는 약관을 작성해 주세요."
             },
             "zh-cn": {
                 title: "Utaun - Windows CV 语音库生成软件",
@@ -591,10 +646,17 @@
                 manualTitle: "Utaun 使用方法",
                 step1: "下载您喜欢的“安装程序版”或“ZIP版”。",
                 step2Installer: "<strong>【安装程序版】</strong> 启动安装程序并按照提示操作，文件将自动放置在正确位置。",
-                step2Zip: "<strong>【ZIP版】</strong> 将解压文件夹中的 '子音部・濁音部フォルダ' 和 'oto.ini' 直接放入“文档”文件夹中。",
+                step2Zip: "<strong>【ZIP版】</strong> 将解压文件夹中的 '子音部・濁音部フォルダ' 和 <code>oto.ini</code> 直接放入“文档”文件夹中。",
                 step3: "启动 Utaun 并按提示创建语音库。",
                 step4: "除 ZIP 输出外，还可选择直接导出到 UTAU 和 OpenUTAU 文件夹。",
-                step4Note: "※ 后续版本将支持自动更新功能。"
+                step4Note: "※ 后续版本将支持自动更新功能。",
+                termsTitle: "使用条款 (Terms of Use)",
+                termsBody1: "【关于 Utaun 本体】",
+                termsBody2: "目前，严禁对 Utaun 本体（<code>Utaun.exe</code>）进行以下行为：",
+                t1: "加工", t2: "编辑", t3: "改造", t4: "商用", t5: "再分发", t6: "反编译（分解）",
+                termsBody3: "※如果开源，使用条款可能会发生变化。",
+                termsBody4: "【关于生成物】",
+                termsBody5: "（音源、wav、icon.jpg / icon.bmp、<code>oto.ini</code> 等）<br>使用条款可由您（发布者）自由设定。请在 <code>readme.txt</code> 中写下您喜欢的条款。"
             },
             "zh-tw": {
                 title: "Utaun - Windows 專用 CV 語音庫生成軟體",
@@ -617,10 +679,17 @@
                 manualTitle: "Utaun 使用方法",
                 step1: "下載您喜歡的「安裝程式版」或「ZIP版」。",
                 step2Installer: "<strong>【安裝程式版】</strong> 啟動安裝程式並依照指示完成安裝。",
-                step2Zip: "<strong>【ZIP版】</strong> 將解壓後的資料夾內的 '子音部・濁音部フォルダ' 與 'oto.ini' 直接放入「文件」資料夾中。",
+                step2Zip: "<strong>【ZIP版】</strong> 將解壓後的資料夾內的 '子音部・濁音部フォルダ' 與 <code>oto.ini</code> 直接放入「文件」資料夾中。",
                 step3: "啟動 Utaun 並依照畫面指示建立語音庫。",
                 step4: "除 ZIP 輸出外，還可選擇直接匯出至 UTAU 與 OpenUTAU 資料夾。",
-                step4Note: "※ 未來版本將提供自動更新功能。"
+                step4Note: "※ 未來版本將提供自動更新功能。",
+                termsTitle: "使用條款 (Terms of Use)",
+                termsBody1: "【關於 Utaun 本體】",
+                termsBody2: "目前嚴禁對 Utaun 本體（<code>Utaun.exe</code>）進行以下行為：",
+                t1: "加工", t2: "編輯", t3: "改造", t4: "商用", t5: "再散布", t6: "反編譯（分解）",
+                termsBody3: "※若開源，使用條款可能會有所變更。",
+                termsBody4: "【關於生成物】",
+                termsBody5: "（音源、wav、icon.jpg / icon.bmp、<code>oto.ini</code> 等）<br>使用條款可由您（發布者）自由設定。請在 <code>readme.txt</code> 中寫下您喜歡的條款。"
             },
             "zh-hk": {
                 title: "Utaun - Windows 專用 CV 語音庫生成軟件",
@@ -643,10 +712,17 @@
                 manualTitle: "Utaun 使用方法",
                 step1: "下載你鍾意嘅「安裝程式版」或「ZIP版」。",
                 step2Installer: "<strong>【安裝程式版】</strong> 啟動安裝程式並跟住指示安装。",
-                step2Zip: "<strong>【ZIP版】</strong> 將解壓後嘅資料夾入面嘅 '子音部・濁音部フォルダ' 同 'oto.ini' 直接放入「文件」資料夾度。",
+                step2Zip: "<strong>【ZIP版】</strong> 將解壓後嘅資料夾入面嘅 '子音部・濁音部フォルダ' 同 <code>oto.ini</code> 直接放入「文件」資料夾度。",
                 step3: "啟動 Utaun 並跟住畫面指示建立語音庫。",
                 step4: "除咗 ZIP 輸出之外，仲可以選擇直接匯出到 UTAU 同 OpenUTAU 資料夾。",
-                step4Note: "※ 未來版本將會提供自動更新功能。"
+                step4Note: "※ 未來版本將會提供自動更新功能。",
+                termsTitle: "使用條款 (Terms of Use)",
+                termsBody1: "【關於 Utaun 本體】",
+                termsBody2: "現時嚴禁對 Utaun 本體（<code>Utaun.exe</code>）進行以下行為：",
+                t1: "加工", t2: "編輯", t3: "改造", t4: "商用", t5: "再分發", t6: "反編譯（分解）",
+                termsBody3: "※如果開源，使用條款可能會有所更改。",
+                termsBody4: "【關於生成物】",
+                termsBody5: "（音源、wav、icon.jpg / icon.bmp、<code>oto.ini</code> 等）<br>使用條款可由你（發布者）自由設定。請喺 <code>readme.txt</code> 度寫低你鍾意嘅條款。"
             },
             ru: {
                 title: "Utaun - Генератор голосовых банков CV для Windows",
@@ -669,10 +745,17 @@
                 manualTitle: "Как использовать Utaun",
                 step1: "Скачайте версию 'Установщик' или 'ZIP'.",
                 step2Installer: "<strong>[Установщик]</strong> Запустите установщик и следуйте инструкциям.",
-                step2Zip: "<strong>[ZIP]</strong> Поместите '子音部・濁音部フォルダ' и 'oto.ini' прямо в папку 'Documents'.",
+                step2Zip: "<strong>[ZIP]</strong> Поместите '子音部・濁音部フォルダ' и <code>oto.ini</code> прямо в папку 'Documents'.",
                 step3: "Запустите Utaun и следуйте инструкциям.",
                 step4: "Выберите экспорт в ZIP или прямо в UTAU / OpenUTAU.",
-                step4Note: "* Функция автообновления появится в будущих версиях."
+                step4Note: "* Функция автообновления появится в будущих версиях.",
+                termsTitle: "Условия использования (Terms of Use)",
+                termsBody1: "[О программе Utaun]",
+                termsBody2: "В настоящее время для программы Utaun (<code>Utaun.exe</code>) запрещены следующие действия:",
+                t1: "Обработка", t2: "Редактирование", t3: "Модификация", t4: "Коммерческое использование", t5: "Распространение", t6: "Декомпиляция",
+                termsBody3: "* Условия могут измениться при переходе на открытый исходный код.",
+                termsBody4: "[О сгенерированных материалах]",
+                termsBody5: "(Голосовые банки, wav, icon.jpg / icon.bmp, <code>oto.ini</code> и т.д.)<br>Вы (распространитель) можете свободно устанавливать свои правила. Укажите их в файле <code>readme.txt</code>."
             },
             pt: {
                 title: "Utaun - Gerador de Banco de Voz CV para Windows",
@@ -695,10 +778,17 @@
                 manualTitle: "Como Usar o Utaun",
                 step1: "Baixe a versão 'Instalador' ou 'ZIP'.",
                 step2Installer: "<strong>[Versão Instalador]</strong> Execute o instalador e siga as instruções.",
-                step2Zip: "<strong>[Versão ZIP]</strong> Coloque '子音部・濁音部フォルダ' e 'oto.ini' diretamente na pasta 'Documentos'.",
+                step2Zip: "<strong>[Versão ZIP]</strong> Coloque '子音部・濁音部フォルダ' e <code>oto.ini</code> diretamente na pasta 'Documentos'.",
                 step3: "Inicie o Utaun e siga as instruções para criar seu banco de voz.",
                 step4: "Escolha entre saída ZIP ou exportação direta para UTAU e OpenUTAU.",
-                step4Note: "* O recurso de atualização automática estará disponível em versões futuras."
+                step4Note: "* O recurso de atualização automática estará disponível em versões futuras.",
+                termsTitle: "Termos de Uso (Terms of Use)",
+                termsBody1: "[Sobre o Utaun Core]",
+                termsBody2: "Atualmente, as seguintes ações são estritamente proibidas para o Utaun (<code>Utaun.exe</code>):",
+                t1: "Processamento", t2: "Edição", t3: "Modificação", t4: "Uso comercial", t5: "Redistribuição", t6: "Descompilação",
+                termsBody3: "* Os termos de uso podem mudar caso o software se torne de código aberto.",
+                termsBody4: "[Sobre as Saídas Geradas]",
+                termsBody5: "(Bancos de voz, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>Você (o distribuidor) é livre para definir seus próprios termos de uso. Escreva-os no arquivo <code>readme.txt</code>."
             },
             es: {
                 title: "Utaun - Generador de bancos de voz CV para Windows",
@@ -721,10 +811,17 @@
                 manualTitle: "Cómo Usar Utaun",
                 step1: "Descarga la versión 'Instalador' o 'ZIP'.",
                 step2Installer: "<strong>[Versión Instalador]</strong> Ejecuta el instalador y sigue las instrucciones.",
-                step2Zip: "<strong>[Versión ZIP]</strong> Coloca '子音部・濁音部フォルダ' y 'oto.ini' directamente en tu carpeta de 'Documentos'.",
+                step2Zip: "<strong>[Versión ZIP]</strong> Coloca '子音部・濁音部フォルダ' y <code>oto.ini</code> directamente en tu carpeta de 'Documentos'.",
                 step3: "Inicia Utaun y sigue las instrucciones para crear tu banco de voz.",
                 step4: "Elige salida ZIP o exportación directa a UTAU y OpenUTAU.",
-                step4Note: "* Las funciones de actualización automática estarán disponibles próximamente."
+                step4Note: "* Las funciones de actualización automática estarán disponibles próximamente.",
+                termsTitle: "Términos de uso (Terms of Use)",
+                termsBody1: "[Sobre el software Utaun]",
+                termsBody2: "Actualmente están prohibidas las siguientes acciones en el software Utaun (<code>Utaun.exe</code>):",
+                t1: "Procesamiento", t2: "Edición", t3: "Modificación", t4: "Uso comercial", t5: "Redistribución", t6: "Descompilación",
+                termsBody3: "* Los términos de uso pueden cambiar si el software pasa a ser de código abierto.",
+                termsBody4: "[Sobre los archivos generados]",
+                termsBody5: "(Bancos de voz, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>Usted (el distribuidor) puede establecer libremente sus propias reglas. Escríbalas en el archivo <code>readme.txt</code>."
             },
             fr: {
                 title: "Utaun - Générateur de banques de voix CV pour Windows",
@@ -747,10 +844,17 @@
                 manualTitle: "Comment utiliser Utaun",
                 step1: "Téléchargez la version 'Installateur' ou 'ZIP'.",
                 step2Installer: "<strong>[Version Installateur]</strong> Lancez l'installateur et suivez les instructions.",
-                step2Zip: "<strong>[Version ZIP]</strong> Placez '子音部・濁音部フォルダ' et 'oto.ini' directement dans votre dossier 'Documents'.",
+                step2Zip: "<strong>[Version ZIP]</strong> Placez '子音部・濁音部フォルダ' et <code>oto.ini</code> directement dans votre dossier 'Documents'.",
                 step3: "Lancez Utaun et suivez les instructions pour créer votre banque de voix.",
                 step4: "Choisissez la sortie ZIP ou l'exportation directe de dossiers vers UTAU et OpenUTAU.",
-                step4Note: "* Les fonctions de mise à jour automatique seront bientôt disponibles."
+                step4Note: "* Les fonctions de mise à jour automatique seront bientôt disponibles.",
+                termsTitle: "Conditions d'utilisation (Terms of Use)",
+                termsBody1: "[À propos du logiciel Utaun]",
+                termsBody2: "Actuellement, les actions suivantes sont strictement interdites pour Utaun (<code>Utaun.exe</code>) :",
+                t1: "Transformation", t2: "Édition", t3: "Modification", t4: "Utilisation commerciale", t5: "Redistribution", t6: "Décompilation",
+                termsBody3: "* Les conditions d'utilisation pourront changer si le logiciel devient open source.",
+                termsBody4: "[À propos des éléments générés]",
+                termsBody5: "(Banches de voix, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, etc.)<br>Vous (le distributeur) êtes libre de définir vos propres règles. Veuillez les écrire dans <code>readme.txt</code>."
             },
             it: {
                 title: "Utaun - Generatore di banchi vocali CV per Windows",
@@ -773,10 +877,17 @@
                 manualTitle: "Come usare Utaun",
                 step1: "Scarica la versione 'Installer' o 'ZIP'.",
                 step2Installer: "<strong>[Versione Installer]</strong> Avvia il programma di installazione e segui le istruzioni.",
-                step2Zip: "<strong>[Versione ZIP]</strong> Posiziona '子音部・濁音部フォルダ' e 'oto.ini' direttamente nella cartella 'Documenti'.",
+                step2Zip: "<strong>[Versione ZIP]</strong> Posiziona '子音部・濁音部フォルダ' e <code>oto.ini</code> direttamente nella cartella 'Documenti'.",
                 step3: "Avvia Utaun e segui le istruzioni per creare il tuo banco vocale.",
                 step4: "Scegli tra l'output ZIP o l'esportazione diretta in UTAU e OpenUTAU.",
-                step4Note: "* Le funzioni di aggiornamento automatico saranno disponibili nelle versioni future."
+                step4Note: "* Le funzioni di aggiornamento automatico saranno disponibili nelle versioni future.",
+                termsTitle: "Termini di utilizzo (Terms of Use)",
+                termsBody1: "[Informazioni su Utaun]",
+                termsBody2: "Attualmente, le seguenti azioni sono severamente vietate per Utaun (<code>Utaun.exe</code>):",
+                t1: "Elaborazione", t2: "Modifica", t3: "Alterazione", t4: "Uso commerciale", t5: "Ristribuzione", t6: "Decompilazione",
+                termsBody3: "* I termini di utilizzo potrebbero cambiare se il software diventasse open-source.",
+                termsBody4: "[Informazioni sui file generati]",
+                termsBody5: "(Banchi vocali, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, ecc.)<br>L'utente (il distributore) è libero di impostare le proprie regole d'uso. Si prega di scriverle in <code>readme.txt</code>."
             },
             de: {
                 title: "Utaun - CV-Voicebank-Generator für Windows",
@@ -799,10 +910,17 @@
                 manualTitle: "Wie man Utaun benutzt",
                 step1: "Laden Sie die 'Installer'- oder 'ZIP'-Version herunter.",
                 step2Installer: "<strong>[Installer-Version]</strong> Starten Sie den Installer und folgen Sie den Anweisungen.",
-                step2Zip: "<strong>[ZIP-Version]</strong> Legen Sie '子音部・濁音部フォルダ' und 'oto.ini' direkt in Ihren 'Dokumente'-Ordner.",
+                step2Zip: "<strong>[ZIP-Version]</strong> Legen Sie '子音部・濁音部フォルダ' und <code>oto.ini</code> direkt in Ihren 'Dokumente'-Ordner.",
                 step3: "Starten Sie Utaun und folgen Sie den Anweisungen zur Erstellung Ihrer Voicebank.",
                 step4: "Wählen Sie zwischen ZIP-Ausgabe und direktem Ordner-Export für UTAU und OpenUTAU.",
-                step4Note: "* Automatische Update-Funktionen werden in zukünftigen Versionen verfügbar sein."
+                step4Note: "* Automatische Update-Funktionen werden in zukünftigen Versionen verfügbar sein.",
+                termsTitle: "Nutzungsbedingungen (Terms of Use)",
+                termsBody1: "[Über Utaun Core]",
+                termsBody2: "Für Utaun (<code>Utaun.exe</code>) sind derzeit folgende Handlungen untersagt:",
+                t1: "Bearbeitung", t2: "Änderung", t3: "Modifikation", t4: "Kommerzielle Nutzung", t5: "Weitergabe", t6: "Dekompilierung",
+                termsBody3: "* Die Nutzungsbedingungen können sich ändern, wenn die Software Open Source wird.",
+                termsBody4: "[Über erstellte Inhalte]",
+                termsBody5: "(Voicebanks, wav, icon.jpg / icon.bmp, <code>oto.ini</code> etc.)<br>Sie (der Verteiler) können Ihre eigenen Regeln frei festlegen. Bitte schreiben Sie diese in <code>readme.txt</code>."
             },
             pl: {
                 title: "Utaun - Generator banków głosów CV dla Windows",
@@ -825,10 +943,17 @@
                 manualTitle: "Jak używać Utaun",
                 step1: "Pobierz wersję 'Installer' lub 'ZIP'.",
                 step2Installer: "<strong>[Wersja Installer]</strong> Uruchom instalator i postępuj zgodnie z instrukcjami.",
-                step2Zip: "<strong>[Wersja ZIP]</strong> Umieść '子音部・濁音部フォルダ' i 'oto.ini' bezpośrednio w folderze 'Dokumenty'.",
+                step2Zip: "<strong>[Wersja ZIP]</strong> Umieść '子音部・濁音部フォルダ' i <code>oto.ini</code> bezpośrednio w folderze 'Dokumenty'.",
                 step3: "Uruchom Utaun i postępuj zgodnie z instrukcjami, aby utworzyć bank głosów.",
                 step4: "Wybierz eksport do ZIP lub bezpośredni eksport folderu do UTAU i OpenUTAU.",
-                step4Note: "* Funkcje automatycznej aktualizacji pojawią się w przyszłych wersjach."
+                step4Note: "* Funkcje automatycznej aktualizacji pojawią się w przyszłych wersjach.",
+                termsTitle: "Warunki korzystania (Terms of Use)",
+                termsBody1: "[Informacje o programie Utaun]",
+                termsBody2: "Obecnie dla programu Utaun (<code>Utaun.exe</code>) zabronione są następujące działania:",
+                t1: "Obróbka", t2: "Edycja", t3: "Modyfikacja", t4: "Wykorzystanie komercyjne", t5: "Redystrybucja", t6: "Dekompilacja",
+                termsBody3: "* Warunki mogą ulec zmianie w przypadku przejścia na open-source.",
+                termsBody4: "[O materiałach wyjściowych]",
+                termsBody5: "(Banki głosów, wav, icon.jpg / icon.bmp, <code>oto.ini</code> itp.)<br>Ty (dystrybutor) możesz dowolnie określić warunki korzystania. Umieść je w pliku <code>readme.txt</code>."
             },
             tr: {
                 title: "Utaun - Windows için CV Ses Bankası Oluşturucu",
@@ -851,10 +976,17 @@
                 manualTitle: "Utaun Nasıl Kullanılır?",
                 step1: "Tercih ettiğiniz 'Installer' veya 'ZIP' sürümünü indirin.",
                 step2Installer: "<strong>[Yükleyici sürümü için]</strong> Yükleyiciyi çalıştırın ve talimatları izleyin.",
-                step2Zip: "<strong>[ZIP sürümü için]</strong> '子音部・濁音部フォルダ' ve 'oto.ini' dosyasını doğrudan 'Belgeler' (Documents) klasörünüze yerleştirin.",
+                step2Zip: "<strong>[ZIP sürümü için]</strong> '子音部・濁音部フォルダ' ve <code>oto.ini</code> dosyasını doğrudan 'Belgeler' (Documents) klasörünüze yerleştirin.",
                 step3: "Utaun'u başlatın ve ses bankanızı oluşturmak için ekrandaki talimatları izleyin.",
                 step4: "ZIP çıktısı veya UTAU ile OpenUTAU'ya doğrudan klasör dışa aktarımı arasında seçim yapın.",
-                step4Note: "* Otomatik güncelleme özellikleri sonraki sürümlerde sunulacaktır."
+                step4Note: "* Otomatik güncelleme özellikleri sonraki sürümlerde sunulacaktır.",
+                termsTitle: "Kullanım Koşulları (Terms of Use)",
+                termsBody1: "[Utaun Yazılımı Hakkında]",
+                termsBody2: "Utaun (<code>Utaun.exe</code>) için şu anda aşağıdaki eylemler kesinlikle yasaktır:",
+                t1: "İşleme", t2: "Düzenleme", t3: "Değiştirme", t4: "Ticari kullanım", t5: "Yeniden dağıtım", t6: "Derlemeden çözme (Decompile)",
+                termsBody3: "* Yazılım açık kaynaklı hale gelirse kullanım koşulları değişebilir.",
+                termsBody4: "[Üretilen Çıktılar Hakkında]",
+                termsBody5: "(Ses bankaları, wav, icon.jpg / icon.bmp, <code>oto.ini</code> vb.)<br>Siz (dağıtıcı) kullanım koşullarını özgürce belirleyebilirsiniz. Lütfen tercih ettiğiniz koşulları <code>readme.txt</code> dosyasına yazın."
             },
             vi: {
                 title: "Utaun - Trình tạo ngân hàng giọng nói CV cho Windows",
@@ -877,10 +1009,17 @@
                 manualTitle: "Cách sử dụng Utaun",
                 step1: "Tải phiên bản 'Cài đặt' hoặc 'ZIP' mà bạn muốn.",
                 step2Installer: "<strong>[Bản cài đặt]</strong> Chạy trình cài đặt và làm theo hướng dẫn.",
-                step2Zip: "<strong>[Bản ZIP]</strong> Đặt '子音部・濁音部フォルダ' và 'oto.ini' trực tiếp vào thư mục 'Documents'.",
+                step2Zip: "<strong>[Bản ZIP]</strong> Đặt '子音部・濁音部フォルダ' và <code>oto.ini</code> trực tiếp vào thư mục 'Documents'.",
                 step3: "Khởi chạy Utaun và làm theo hướng dẫn để tạo ngân hàng giọng nói.",
                 step4: "Chọn xuất ZIP hoặc xuất trực tiếp sang UTAU và OpenUTAU.",
-                step4Note: "* Tính năng tự động cập nhật sẽ có trong các phiên bản sau."
+                step4Note: "* Tính năng tự động cập nhật sẽ có trong các phiên bản sau.",
+                termsTitle: "Điều khoản sử dụng (Terms of Use)",
+                termsBody1: "[Về phần mềm Utaun]",
+                termsBody2: "Hiện tại, các hành vi sau bị nghiêm cấm đối với Utaun (<code>Utaun.exe</code>):",
+                t1: "Gia công", t2: "Chỉnh sửa", t3: "Cải tạo", t4: "Sử dụng thương mại", t5: "Phân phối lại", t6: "Biên dịch ngược",
+                termsBody3: "* Điều khoản sử dụng có thể thay đổi nếu phần mềm trở thành mã nguồn mở.",
+                termsBody4: "[Về sản phẩm tạo ra]",
+                termsBody5: "(Ngân hàng giọng nói, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, v.v.)<br>Bạn (nhà phân phối) có thể tự do đặt ra điều khoản sử dụng. Vui lòng ghi điều khoản của bạn vào <code>readme.txt</code>."
             },
             fil: {
                 title: "Utaun - CV Voicebank Generator para sa Windows",
@@ -903,10 +1042,17 @@
                 manualTitle: "Paano Gamitin ang Utaun",
                 step1: "I-download ang 'Installer' o 'ZIP' na bersyon.",
                 step2Installer: "<strong>[Para sa Installer]</strong> Patakbuhin ang installer at sundin ang mga tagubilin.",
-                step2Zip: "<strong>[Para sa ZIP]</strong> Ilagay ang '子音部・濁音部フォルダ' at 'oto.ini' nang direkta sa iyong folder na 'Documents'.",
+                step2Zip: "<strong>[Para sa ZIP]</strong> Ilagay ang '子音部・濁音部フォルダ' at <code>oto.ini</code> nang direkta sa iyong folder na 'Documents'.",
                 step3: "Ilunsad ang Utaun at sundin ang mga tagubilin upang lumikha ng voicebank.",
                 step4: "Pumili sa pagitan ng ZIP output o direktang pag-export ng folder sa UTAU at OpenUTAU.",
-                step4Note: "* Magiging available ang auto-update sa mga susunod na bersyon."
+                step4Note: "* Magiging available ang auto-update sa mga susunod na bersyon.",
+                termsTitle: "Mga Tuntunin sa Paggamit (Terms of Use)",
+                termsBody1: "[Tungkol sa Utaun Core]",
+                termsBody2: "Sa kasalukuyan, mahigpit na ipinagbabawal ang mga sumusunod sa Utaun (<code>Utaun.exe</code>):",
+                t1: "Pagproseso", t2: "Pag-edit", t3: "Pagbabago", t4: "Pang-komersyong paggamit", t5: "Muling pamamahagi", t6: "Decompiling",
+                termsBody3: "* Maaaring magbago ang mga tuntunin kung maging open-source ito.",
+                termsBody4: "[Tungkol sa mga Nalikhang Awput]",
+                termsBody5: "(Voicebanks, wav, icon.jpg / icon.bmp, <code>oto.ini</code>, atbp.)<br>Malaya kang magtakda ng sarili mong tuntunin bilang mamamahagi. Ilagay ito sa <code>readme.txt</code>."
             },
             th: {
                 title: "Utaun - โปรแกรมสร้างคลังเสียง CV สำหรับ Windows",
@@ -929,10 +1075,17 @@
                 manualTitle: "วิธีใช้งาน Utaun",
                 step1: "ดาวน์โหลดเวอร์ชัน 'ตัวติดตั้ง' หรือ 'ZIP' ที่คุณต้องการ",
                 step2Installer: "<strong>[สำหรับตัวติดตั้ง]</strong> เปิดตัวติดตั้งและทำตามคำแนะนำบนหน้าจอ",
-                step2Zip: "<strong>[สำหรับเวอร์ชัน ZIP]</strong> วาง '子音部・濁音部フォルダ' และไฟล์ 'oto.ini' ไว้ในโฟลเดอร์ 'Documents' ของคุณโดยตรง",
+                step2Zip: "<strong>[สำหรับเวอร์ชัน ZIP]</strong> วาง '子音部・濁音部フォルダ' และไฟล์ <code>oto.ini</code> ไว้ในโฟลเดอร์ 'Documents' ของคุณโดยตรง",
                 step3: "เปิด Utaun และทำตามคำแนะนำเพื่อสร้างคลังเสียง",
                 step4: "เลือกการส่งออกเป็น ZIP หรือส่งออกโฟลเดอร์ไปยัง UTAU และ OpenUTAU โดยตรง",
-                step4Note: "* คุณสมบัติอัปเดตอัตโนมัติจะมีให้ใช้งานในเวอร์ชันถัดไป"
+                step4Note: "* คุณสมบัติอัปเดตอัตโนมัติจะมีให้ใช้งานในเวอร์ชันถัดไป",
+                termsTitle: "เงื่อนไขการใช้งาน (Terms of Use)",
+                termsBody1: "[เกี่ยวกับตัวโปรแกรม Utaun]",
+                termsBody2: "ในปัจจุบัน ห้ามกระทำการดังต่อไปนี้กับโปรแกรม Utaun (<code>Utaun.exe</code>) เด็ดขาด:",
+                t1: "การแปรรูป", t2: "การแก้ไข", t3: "การดัดแปลง", t4: "การใช้งานเชิงพาณิชย์", t5: "การแจกจ่ายซ้ำ", t6: "การดี컴파일 (Decompile)",
+                termsBody3: "* เงื่อนไขอาจมีการเปลี่ยนแปลงหากมีการเปลี่ยนเป็นโอเพน소스",
+                termsBody4: "[เกี่ยวกับผลลัพธ์ที่สร้างขึ้น]",
+                termsBody5: "(คลังเสียง, wav, icon.jpg / icon.bmp, <code>oto.ini</code> ฯลฯ)<br>คุณ (ผู้แจกจ่าย) สามารถกำหนดเงื่อนไขการใช้งานได้อย่างอิสระ โปรดเขียนเงื่อนไขที่คุณต้องการลงใน <code>readme.txt</code>"
             }
         };
 
@@ -967,6 +1120,20 @@
             const step4 = document.querySelector('[data-i18n="step_4"]');
             const step4Note = document.querySelector('[data-i18n="step_4_note"]');
 
+            // 規約用の要素
+            const termsTitle = document.querySelector('[data-i18n="terms_title"]');
+            const termsBody1 = document.querySelector('[data-i18n="terms_body_1"]');
+            const termsBody2 = document.querySelector('[data-i18n="terms_body_2"]');
+            const t1 = document.querySelector('[data-i18n="t_1"]');
+            const t2 = document.querySelector('[data-i18n="t_2"]');
+            const t3 = document.querySelector('[data-i18n="t_3"]');
+            const t4 = document.querySelector('[data-i18n="t_4"]');
+            const t5 = document.querySelector('[data-i18n="t_5"]');
+            const t6 = document.querySelector('[data-i18n="t_6"]');
+            const termsBody3 = document.querySelector('[data-i18n="terms_body_3"]');
+            const termsBody4 = document.querySelector('[data-i18n="terms_body_4"]');
+            const termsBody5 = document.querySelector('[data-i18n="terms_body_5"]');
+
             if (navHome) navHome.innerText = t.navHome;
             if (navGuide) navGuide.innerText = t.navGuide;
             if (navHistory) navHistory.innerText = t.navHistory;
@@ -992,6 +1159,20 @@
             if (step3) step3.innerText = t.step3;
             if (step4) step4.innerText = t.step4;
             if (step4Note) step4Note.innerText = t.step4Note;
+
+            // 規約部分の反映
+            if (termsTitle) termsTitle.innerText = t.termsTitle;
+            if (termsBody1) termsBody1.innerText = t.termsBody1;
+            if (termsBody2) termsBody2.innerHTML = t.termsBody2;
+            if (t1) t1.innerText = t.t1;
+            if (t2) t2.innerText = t.t2;
+            if (t3) t3.innerText = t.t3;
+            if (t4) t4.innerText = t.t4;
+            if (t5) t5.innerText = t.t5;
+            if (t6) t6.innerText = t.t6;
+            if (termsBody3) termsBody3.innerText = t.termsBody3;
+            if (termsBody4) termsBody4.innerText = t.termsBody4;
+            if (termsBody5) termsBody5.innerHTML = t.termsBody5;
 
             // ▼ 日本語（ja）のときだけ姉妹サイトのボックスを表示する処理
             const sisterSiteBox = document.getElementById('sisterSiteBox');
