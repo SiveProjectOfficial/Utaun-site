@@ -30,26 +30,29 @@
             padding: 2.5rem 1.5rem 5rem 1.5rem;
         }
 
-        /* 共通ナビゲーション */
+        /* スカイブルーメインのナビゲーションバー */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1rem;
+            background-color: var(--accent);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
             margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
         }
 
         .nav-logo {
             font-weight: 700;
             font-size: 1.25rem;
-            color: var(--text-main);
+            color: white;
             text-decoration: none;
+            letter-spacing: -0.01em;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 0.5rem;
             list-style: none;
             margin: 0;
             padding: 0;
@@ -57,14 +60,16 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.15s ease;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: background-color 0.15s ease;
         }
 
         .nav-links a:hover, .nav-links a.active {
-            color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         /* ヘッダービジュアル */
@@ -177,6 +182,9 @@
                 gap: 1rem;
                 align-items: flex-start;
             }
+            .nav-links {
+                flex-wrap: wrap;
+            }
             .hero-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -187,7 +195,7 @@
 <body>
 
     <div class="container">
-        <!-- 共通ナビゲーション -->
+        <!-- スカイブルーの共通ナビゲーション -->
         <nav>
             <a href="index.html" class="nav-logo">Utaun</a>
             <ul class="nav-links">
@@ -207,10 +215,9 @@
             </div>
         </div>
 
-        <!-- ダウンロードエリア（Audacity風） -->
+        <!-- ダウンロードエリア -->
         <div class="download-hero">
             <h2>Utaun をダウンロード</h2>
-            <p>最新のリリースをGitHubから直接取得できます</p>
             <a href="https://github.com/SiveProjectOfficial/Utaun/releases" class="dl-btn" target="_blank">無料ダウンロード (GitHub)</a>
             <div>
                 <span class="platform-badge">Windows 専用ソフト</span>
@@ -222,12 +229,12 @@
             <h3>概要</h3>
             <p>
                 完全無生物の複合正弦波モデリング（CSM音声合成）だけで UTAU 用の CV 音源を生成する Windows 専用ソフトです。<br>
-                子音部・濁音部のフォルダを配置して実行するだけで、ドキュメントへの ZIP 自動生成や各ソフトへのエクスポートをスマートに行えます。
+                子音部・濁音部のフォルダを配置して実行するだけで、ドキュメントへの ZIP 自動生成やUTAU等、各ソフトへのエクスポートをスマートに行えます。
             </p>
         </section>
 
         <footer>
-            <p>&copy; Sive. All Rights Reserved.</p>
+            <p>&copy; Sive All Rights Reserved.</p>
         </footer>
     </div>
 
