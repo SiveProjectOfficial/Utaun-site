@@ -148,28 +148,46 @@
             margin-bottom: 1.75rem;
         }
 
+        .dl-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
         .dl-btn {
             display: inline-block;
             background-color: var(--accent);
             color: white;
             font-weight: 700;
-            font-size: 1.15rem;
-            padding: 0.95rem 2.8rem;
+            font-size: 1.05rem;
+            padding: 0.85rem 2.2rem;
             border-radius: 9999px;
             text-decoration: none;
             transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-            box-shadow: 0 6px 20px rgba(9, 163, 242, 0.35);
+            box-shadow: 0 4px 15px rgba(9, 163, 242, 0.3);
         }
 
         .dl-btn:hover {
             background-color: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(9, 163, 242, 0.45);
+            box-shadow: 0 6px 20px rgba(9, 163, 242, 0.4);
+        }
+
+        .dl-btn.zip-btn {
+            background-color: #64748b;
+            box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3);
+        }
+
+        .dl-btn.zip-btn:hover {
+            background-color: #475569;
+            box-shadow: 0 6px 20px rgba(100, 116, 139, 0.4);
         }
 
         .platform-badge {
             display: inline-block;
-            margin-top: 1.25rem;
+            margin-top: 0.75rem;
             font-size: 0.85rem;
             background: #bae6fd;
             padding: 0.25rem 0.85rem;
@@ -327,7 +345,11 @@
         <!-- ダウンロードエリア -->
         <div class="download-hero">
             <h2>Utaunをダウンロード</h2>
-            <a href="https://github.com/SiveProjectOfficial/Utaun/releases" class="dl-btn" target="_blank">ダウンロード</a>
+            <p>最新バージョンをGitHub Releasesから取得できます。</p>
+            <div class="dl-buttons">
+                <a href="https://github.com/SiveProjectOfficial/Utaun/releases" class="dl-btn" target="_blank">インストーラー版をDL</a>
+                <a href="https://github.com/SiveProjectOfficial/Utaun/releases" class="dl-btn zip-btn" target="_blank">ZIP版をDL</a>
+            </div>
             <div>
                 <span class="platform-badge">Windows 専用ソフト</span>
             </div>
@@ -379,27 +401,23 @@
             <ul class="steps-list">
                 <li>
                     <span class="step-num">1</span>
-                    <p class="step-text">GitHub Releasesから最新の Utaun をダウンロードします。</p>
+                    <p class="step-text">GitHub Releasesから、お好みの「インストーラー版」または「ZIP版」をダウンロードします。</p>
                 </li>
                 <li>
                     <span class="step-num">2</span>
                     <div>
-                        <p class="step-text">ZIPフォルダをダウンロードされる場合は、「子音部・濁音部フォルダ」と「oto.ini」を「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。</p>
-                        <span class="note">※インストーラー版をご利用の場合は自動で配置されます</span>
+                        <p class="step-text"><strong>【インストーラー版の場合】</strong> インストーラーを起動し、画面の指示に従ってインストールを進めると必要なファイルが自動で適切な場所に配置されます。</p>
+                        <p class="step-text" style="margin-top: 0.5rem;"><strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と「oto.ini」を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。</p>
                     </div>
                 </li>
                 <li>
                     <span class="step-num">3</span>
-                    <p class="step-text">Utaun.exe を任意のフォルダに置きます。</p>
+                    <p class="step-text">Utaun を起動し、画面の指示に従って音源を作成します。</p>
                 </li>
                 <li>
                     <span class="step-num">4</span>
-                    <p class="step-text">Utaun.exe を起動し、画面の指示に従って音源を作成します。</p>
-                </li>
-                <li>
-                    <span class="step-num">5</span>
                     <div>
-                        <p class="step-text">データの保存先として、ZIP出力（ドキュメント等）のほか、UTAUとOpenUTAUへのフォルダ状態での直接エクスポートが選択できます。</p>
+                        <p class="step-text">データの保存先として、ZIP出力のほか、UTAUとOpenUTAUへのフォルダ状態での直接エクスポートが選択できます。</p>
                         <span class="note">※ 今後のバージョンからは自動アップデート機能がご利用いただけます。</span>
                     </div>
                 </li>
