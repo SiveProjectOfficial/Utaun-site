@@ -380,6 +380,8 @@ A:\Utaun\index.html
 <div class="dl-buttons">
 <a href="./Utaun/Utaun.ver-1.0.7.zip" class="dl-btn" target="_blank" data-i18n="btn_zip">ZIP版をDL</a>
 <a href="./Utaun/Utaun_1.0.7_Installer.exe" class="dl-btn" target="_blank" data-i18n="btn_installer">インストーラー版をDL</a>
+<!-- 言語ごとにリンクが切り替わるREADMEダウンロードボタン -->
+<a href="./README.md" class="dl-btn" download="README.md" id="readme-dl-btn" style="display: none;" data-i18n="btn_readme">READMEをDL</a>
 </div>
 <div>
 <span class="platform-badge" data-i18n="badge_platform">Windows 専用ソフト</span>
@@ -489,6 +491,7 @@ hero_desc: "完全無生物の複合正弦波モデリング（CSM音声合成�
 dl_title: "Utaunをダウンロード",
 btn_zip: "ZIP版をDL",
 btn_installer: "インストーラー版をDL",
+btn_readme: "READMEをDL",
 badge_platform: "Windows 専用ソフト",
 about_title: "Utaunとは？",
 about_text: "完全無生物の複合正弦波モデリング（CSM音声合成）だけで UTAU 用の CV 音源を生成する Windows ソフトです。<br>ドキュメントへの ZIP 自動生成や、各 UTAU 関連ソフトへの直接エクスポートに対応しています。",
@@ -506,7 +509,7 @@ step_2_installer: "<strong>【インストーラー版の場合】</strong> イ�
 step_2_zip: "<strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と<code>oto.ini</code>を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。",
 step_3: "Utaun を起動し、画面の指示に従って音源を作成します。",
 step_4: "データの保存先として、ZIP出力のほか、UTAUとOpenUTAUへのフォルダ状態での直接エクスポートが選択できます。",
-step_4_note: "※ 今後のバージョンからは自動アップデート機能がご利用いただけます。",
+step_4_note: "* 今後のバージョンからは自動アップデート機能がご利用いただけます。",
 terms_title: "利用規約 (Terms of Use)",
 terms_body_1: "【Utaun 本体について】",
 terms_body_2: "Utaun 本体（<code>Utaun.exe</code>）では現時点、以下の行為は禁止されています。",
@@ -523,6 +526,7 @@ hero_desc: "CV voicebank generator for UTAU using inanimate composite sine wave 
 dl_title: "Download Utaun",
 btn_zip: "Download ZIP",
 btn_installer: "Download Installer",
+btn_readme: "Download README",
 badge_platform: "Windows Only",
 about_title: "What is Utaun?",
 about_text: "A Windows software that generates UTAU CV voicebanks solely through inanimate composite sine wave modeling (CSM synthesis). Supports automatic ZIP generation and direct export to UTAU-related software.",
@@ -557,6 +561,7 @@ hero_desc: "완전 무생물의 복합 정현파 모델링(CSM 음성 합성)을
 dl_title: "Utaun 다운로드",
 btn_zip: "ZIP 버전 다운로드",
 btn_installer: "설치 버전 다운로드",
+btn_readme: "README 다운로드",
 badge_platform: "Windows 전용 소프트",
 about_title: "Utaun이란?",
 about_text: "완전 무생물의 복합 정현파 모델링(CSM 음성 합성)만으로 UTAU용 CV 음원을 생성하는 Windows 소프트웨어입니다.",
@@ -591,6 +596,7 @@ hero_desc: "通过完全无生命的复合正弦波建模（CSM语音合成）�
 dl_title: "下载 Utaun",
 btn_zip: "下载 ZIP 版",
 btn_installer: "下载安装程序版",
+btn_readme: "下载 README (简体)",
 badge_platform: "仅限 Windows",
 about_title: "什么是 Utaun？",
 about_text: "纯粹通过完全无生命的复合正弦波建模（CSM语音合成）为 UTAU 生成 CV 语音库的 Windows 软件。",
@@ -631,6 +637,7 @@ hero_desc: "透過完全無生命的複合正弦波建模（CSM語音合成）�
 dl_title: "下載 Utaun",
 btn_zip: "下載 ZIP 版",
 btn_installer: "下載安裝程式版",
+btn_readme: "下載 README",
 badgePlatform: "僅限 Windows",
 about_title: "什麼是 Utaun？",
 about_text: "僅透過完全無生命的複合正弦波建模（CSM語音合成）為 UTAU 生成 CV 語音庫的 Windows 軟體。",
@@ -665,6 +672,7 @@ hero_desc: "透過完全無生命嘅複合正弦波建模（CSM語音合成）�
 dl_title: "下載 Utaun",
 btn_zip: "下載 ZIP 版",
 btn_installer: "下載安裝程式版",
+btn_readme: "下載 README (繁/廣)",
 badge_platform: "只限 Windows",
 about_title: "Utaun 係咩嚟？",
 about_text: "單純透過完全無生命嘅複合正弦波建模（CSM語音合成）為 UTAU 生成 CV 語音庫嘅 Windows 軟件。",
@@ -705,6 +713,7 @@ hero_desc: "Генератор голосовых банков CV для UTAU с
 dl_title: "Скачать Utaun",
 btn_zip: "Скачать ZIP",
 btn_installer: "Скачать установщик",
+btn_readme: "Скачать README (RU)",
 badge_platform: "Только для Windows",
 about_title: "Что такое Utaun?",
 about_text: "Программа для Windows, генерирующая голосовые банки CV для UTAU исключительно за счет неодушевленного моделирования составных синусоид (CSM-синтез).",
@@ -745,6 +754,7 @@ hero_desc: "Gerador de bancos de voz CV para UTAU usando modelagem de ondas seno
 dl_title: "Baixar Utaun",
 btn_zip: "Baixar ZIP",
 btn_installer: "Baixar Instalador",
+btn_readme: "Baixar README",
 badge_platform: "Apenas para Windows",
 about_title: "O que é o Utaun?",
 about_text: "Software para Windows que gera bancos de voz CV para UTAU exclusivamente através de modelagem de ondas senoidais compostas inanimadas (síntese CSM).",
@@ -779,6 +789,7 @@ hero_desc: "Generador de bancos de voz CV para UTAU usando modelado de ondas sen
 dl_title: "Descargar Utaun",
 btn_zip: "Descargar ZIP",
 btn_installer: "Descargar Instalador",
+btn_readme: "Descargar README",
 badge_platform: "Solo para Windows",
 about_title: "¿Qué es Utaun?",
 about_text: "Software de Windows que genera bancos de voz CV para UTAU exclusivamente mediante modelado de ondas senoidales compuestas inanimadas (síntesis CSM).",
@@ -813,6 +824,7 @@ hero_desc: "Générateur de banques de voix CV pour UTAU utilisant la modélisat
 dl_title: "Télécharger Utaun",
 btn_zip: "Télécharger ZIP",
 btn_installer: "Télécharger l'installateur",
+btn_readme: "Télécharger README",
 badge_platform: "Windows uniquement",
 about_title: "Qu'est-ce qu'Utaun ?",
 about_text: "Un logiciel Windows qui génère des banques de voix CV UTAU uniquement par modélisation d'ondes sinusoïdales composites inanimées (synthèse CSM).",
@@ -847,6 +859,7 @@ hero_desc: "Generatore di banchi vocali CV per UTAU tramite modellazione di onde
 dl_title: "Scarica Utaun",
 btn_zip: "Scarica ZIP",
 btn_installer: "Scarica Programma di installazione",
+btn_readme: "Scarica README",
 badge_platform: "Solo per Windows",
 about_title: "Cos'è Utaun?",
 about_text: "Un software per Windows che genera banchi vocali CV per UTAU esclusivamente tramite modellazione di onde sinusoidali composite inanimate (sintesi CSM).",
@@ -881,6 +894,7 @@ hero_desc: "CV-Voicebank-Generator für UTAU unter Verwendung lebloser zusammeng
 dl_title: "Utaun herunterladen",
 btn_zip: "ZIP-Version herunterladen",
 btn_installer: "Installer herunterladen",
+btn_readme: "README herunterladen",
 badge_platform: "Nur für Windows",
 about_title: "Was ist Utaun?",
 about_text: "Eine Windows-Software, die UTAU-CV-Voicebanks ausschließlich durch leblose zusammengesetzte Sinuswellen-Modellierung (CSM-Synthese) generiert.",
@@ -915,6 +929,7 @@ hero_desc: "Generator banków głosów CV dla UTAU przy użyciu nieożywionego m
 dl_title: "Pobierz Utaun",
 btn_zip: "Pobierz wersję ZIP",
 btn_installer: "Pobierz instalator",
+btn_readme: "Pobierz README",
 badge_platform: "Tylko dla systemu Windows",
 about_title: "Czym jest Utaun?",
 about_text: "Oprogramowanie dla systemu Windows generujące banki głosów CV dla UTAU wyłącznie poprzez nieożywione modelowanie złożonych fal sinusoidalnych (synteza CSM).",
@@ -949,6 +964,7 @@ hero_desc: "Cansız bileşik sinüs dalgası modellemesi (CSM sentezi) kullanara
 dl_title: "Utaun'u İndir",
 btn_zip: "ZIP Sürümünü İndir",
 btn_installer: "Yükleyici Sürümünü İndir",
+btn_readme: "README'yi İndir",
 badge_platform: "Yalnızca Windows",
 about_title: "Utaun Nedir?",
 about_text: "Yalnızca cansız bileşik sinüs dalgası modellemesi (CSM sentezi) ile UTAU için CV ses bankaları oluşturan bir Windows yazılımıdır.",
@@ -962,7 +978,7 @@ uc_5: "ZIP'i açıp doğrudan insansı Vocaloid materyali olarak kullanma",
 uc_6: "OtoMAD / YTPMV gibi içerikler için malzeme olarak kullanma",
 manual_title: "Utaun Nasıl Kullanılır?",
 step_1: "Tercih ettiğiniz 'Installer' veya 'ZIP' sürümünü indirin.",
-step_2_installer: "<strong>[Yükleyici sürümü için]</strong> Yükleyiciyi çalıştırın ve talimatları izleyin.",
+step_2_installer: "<strong>[Yükleyici sürümü için]</strong> Yükleyiciyi çalıştırın و talimatları izleyin.",
 step_2_zip: "<strong>[ZIP sürümü için]</strong> '子音部・濁音部フォルダ' ve <code>oto.ini</code> dosyasını doğrudan 'Belgeler' klasörünüze yerleştirin.",
 step_3: "Utaun'u başlatın ve ses bankanızı oluşturmak için ekrandaki talimatları izleyin.",
 step_4: "ZIP çıktısı veya UTAU ile OpenUTAU'ya doğrudan klasör dışa aktarımı arasında seçim yapın.",
@@ -983,6 +999,7 @@ hero_desc: "Trình tạo ngân hàng giọng nói CV cho UTAU sử dụng mô h�
 dl_title: "Tải xuống Utaun",
 btn_zip: "Tải bản ZIP",
 btn_installer: "Tải bản cài đặt",
+btn_readme: "Tải README",
 badge_platform: "Chỉ dành cho Windows",
 about_title: "Utaun là gì?",
 about_text: "Phần mềm Windows tạo ngân hàng giọng nói CV cho UTAU thông qua mô hình sóng sin tổng hợp vô tri vô giác (CSM).",
@@ -1017,6 +1034,7 @@ hero_desc: "CV voicebank generator para sa UTAU gamit ang inanimate composite si
 dl_title: "I-download ang Utaun",
 btn_zip: "I-download ang ZIP",
 btn_installer: "I-download ang Installer",
+btn_readme: "I-download ang README",
 badge_platform: "Windows Lamang",
 about_title: "Ano ang Utaun?",
 about_text: "Isang software para sa Windows na lumilikha ng UTAU CV voicebanks sa pamamagitan lamang ng inanimate composite sine wave modeling (CSM synthesis).",
@@ -1051,12 +1069,13 @@ hero_desc: "โปรแกรมสร้างคลังเสียง CV �
 dl_title: "ดาวน์โหลด Utaun",
 btn_zip: "ดาวน์โหลดเวอร์ชัน ZIP",
 btn_installer: "ดาวน์โหลดตัวติดตั้ง",
+btn_readme: "ดาวน์โหลด README",
 badge_platform: "สำหรับ Windows เท่านั้น",
 about_title: "Utaun คืออะไร?",
 about_text: "ซอฟต์แวร์ Windows ที่สร้างคลังเสียง CV สำหรับ UTAU ผ่านการจำลองคลื่นไซน์คอมโพสิตแบบไม่มีชีวิต (CSM synthesis) เท่านั้น",
 adachi_box: '<strong>💡 เกี่ยวกับการสังเคราะห์เสียง CSM เช่นเดียวกับ <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>วิธีการสังเคราะห์เสียงที่รวมองค์ประกอบคลื่นเพื่อสร้างเสียงร้องจากวัสดุไร้ชีวิต',
 usecase_title: "การใช้งานที่รองรับ",
-uc_1: "เมื่อคุณต้องการคลังเสียง UTAU แบบไร้ชีวิต",
+uc_1: "When you want an UTAU voicebank with an inanimate voice",
 uc_2: "การสร้างคลังเสียงสำหรับผู้ที่ไม่สะดวกบันทึกเสียงตัวเอง",
 uc_3: "การวิจัยวัสดุการจำลองคลื่นไซน์คอมโพสิต (CSM)",
 uc_4: "การสร้างต้นแบบคลังเสียงแบบกำหนดเอง",
@@ -1078,6 +1097,13 @@ terms_body_4: "[เกี่ยวกับผลลัพธ์ที่สร�
 terms_body_5: "(คลังเสียง, wav, icon.jpg / icon.bmp, <code>oto.ini</code> ฯลฯ)<br>คุณสามารถกำหนดเงื่อนไขใน <code>readme.txt</code>",
 mirror_title: "", mirror_desc: "", m_1: "", m_2: "", m_3: "", m_4: "", m_5: ""
 }
+};
+
+// 各言語ごとのREADMEのファイル名（必要に応じてパスやファイル名を変更してください）
+const readmeFiles = {
+"zh-cn": "./READMEmirror/README_zh_cn.md", // 簡体字用
+"zh-hk": "./READMEmirror/README_zh_hk.md", // 広東語・繁体字用
+"ru":    "./READMEmirror/README_ru.md"     // ロシア語用
 };
 
 function changeLanguage(lang) {
@@ -1102,6 +1128,20 @@ if (['ru', 'zh-cn', 'zh-hk'].includes(targetLang) && t.mirror_title) {
 mirrorBox.style.display = 'block';
 } else {
 mirrorBox.style.display = 'none';
+}
+}
+
+// READMEダウンロードボタンの表示切替とリンクの動的変更
+const readmeDlBtn = document.getElementById('readme-dl-btn');
+if (readmeDlBtn) {
+if (['zh-cn', 'zh-hk', 'ru'].includes(targetLang)) {
+readmeDlBtn.style.display = 'inline-block';
+// 言語に応じたファイルパスに書き換え
+const fileName = readmeFiles[targetLang] || "./README.md";
+readmeDlBtn.setAttribute('href', fileName);
+readmeDlBtn.setAttribute('download', fileName.split('/').pop());
+} else {
+readmeDlBtn.style.display = 'none';
 }
 }
 
