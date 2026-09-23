@@ -9,10 +9,9 @@
             --bg: #ffffff;
             --text-main: #1e293b;
             --text-sub: #64748b;
-            /* アイコンの背景色・文字色に完全に合わせたカラーパレット */
-            --accent: #38bdf8;        /* アイコン背景のスカイブルー */
-            --accent-hover: #0ea5e9;  /* 少し濃いめのホバー用 */
-            --logo-blue: #3b82f6;     /* アイコン内のUtaun文字の青 */
+            /* 指定いただいた正確な水色カラーコード */
+            --accent: #09A3F2;
+            --accent-hover: #0285c7;
             --border: #e2e8f0;
             --box-bg: #f8fafc;
         }
@@ -26,13 +25,13 @@
             line-height: 1.8;
         }
 
-        /* 画面上部に広がるスカイブルーのメニューバー */
+        /* 画面上部に広がるメニューバー */
         header.site-header {
             background-color: var(--accent);
             color: white;
             width: 100%;
             margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+            box-shadow: 0 4px 12px rgba(9, 163, 242, 0.25);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -135,7 +134,7 @@
             padding: 3rem 2rem;
             text-align: center;
             margin-bottom: 3.5rem;
-            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.1);
+            box-shadow: 0 4px 20px rgba(9, 163, 242, 0.1);
         }
 
         .download-hero h2 {
@@ -159,13 +158,13 @@
             border-radius: 9999px;
             text-decoration: none;
             transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 6px 20px rgba(9, 163, 242, 0.35);
         }
 
         .dl-btn:hover {
             background-color: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+            box-shadow: 0 8px 25px rgba(9, 163, 242, 0.45);
         }
 
         .platform-badge {
@@ -304,7 +303,7 @@
     <header class="site-header">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <img src="Image/IMG_5139.jpeg" alt="Utaun Icon" class="nav-logo-img" onerror="this.style.display='none'">
+                <img src="image.png" alt="Utaun Icon" class="nav-logo-img" onerror="this.style.display='none'">
                 Utaun
             </a>
             <ul class="nav-links">
@@ -329,6 +328,7 @@
         <!-- ダウンロードエリア -->
         <div class="download-hero">
             <h2>Utaunをダウンロード</h2>
+            <p>最新バージョンをGitHub Releasesから取得できます。</p>
             <a href="https://github.com/SiveProjectOfficial/Utaun/releases" class="dl-btn" target="_blank">ダウンロード</a>
             <div>
                 <span class="platform-badge">Windows 専用ソフト</span>
