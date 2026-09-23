@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utaun - 公式サイト</title>
+    <style>
+        :root {
+            --primary-color: #38bdf8; /* ロゴに合わせた爽やかな水色 */
+            --primary-hover: #0ea5e9;
+            --bg-color: #f0f9ff;     /* ごく薄い水色の背景 */
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #475569;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 2px solid #e0f2fe;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-area {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 1rem;
+            border-radius: 20px;
+        }
+
+        h1 {
+            color: var(--primary-hover);
+            margin: 0 0 0.5rem 0;
+            font-size: 2.2rem;
+        }
+
+        .tagline {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e0f2fe;
+        }
+
+        h2 {
+            color: var(--text-main);
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+            color: var(--text-sub);
+        }
+
+        /* 変更・翻訳したくない固有名詞の強調スタイル */
+        .tech-term {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .download-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(56, 189, 248, 0.4);
+            transition: background-color 0.2s, transform 0.1s;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- ロゴ画像（同じ階層に image.png として置く想定） -->
+        <img src="image.png" alt="Utaun ロゴ" class="logo-area">
+        <h1>Utaun</h1>
+        <p class="tagline">完全無生物の複合正弦波モデリング（CSM音声合成）によるCV音源生成ソフト</p>
+    </header>
+
+    <main>
+        <!-- Utaunとは？ -->
+        <div class="card">
+            <h2>【Utaunとは？】</h2>
+            <p>
+                完全無生物の複合正弦波モデリング（CSM音声合成）だけで UTAU 用の CV 音源を生成する Windows ソフトです。<br>
+                ドキュメントへの ZIP 自動生成や、各 UTAU 関連ソフトへの直接エクスポートに対応しています。
+            </p>
+        </div>
+
+        <!-- 特徴 -->
+        <div class="card">
+            <h2>【特徴】</h2>
+            <ul>
+                <li>実行するとドキュメントに音源 ZIP を自動生成、または各ソフトへ直接エクスポート</li>
+                <li>完全無生物の複合正弦波モデリング（CSM音声合成）による母音生成（あ・い・う・え・お・ん）</li>
+                <li>同梱されている <span class="tech-term">子音部・濁音部フォルダ</span> をドキュメントにセットして CV 音源を生成</li>
+                <li>m / n / y / w 行をプログラム内で自動生成</li>
+                <li>ひらがなエイリアス + 英語ローマ字エイリアスに対応（発音はすべて日本語）</li>
+                <li><span class="tech-term">oto.ini</span> / <span class="tech-term">character.txt</span> / <span class="tech-term">readme.txt</span> を自動生成します</li>
+                <li>PNG 画像を JPG と BMP に同時変換します（※ <span class="tech-term">character.txt</span> に使用されるのは JPG です）</li>
+                <li><span class="tech-term">readme.txt</span> と <span class="tech-term">character.txt</span> のエンコードは <span class="tech-term">Shift-JIS（ANSI）</span> と <span class="tech-term">UTF-8</span> を選択可能（※ UTF-8 は OpenUTAU 等で互換性があります）</li>
+                <li>基本周波数（声の高さ）を変更できます</li>
+                <li>音源名（キャラクター名）を自由に設定できます</li>
+                <li>ライトモードとダークモードに対応</li>
+                <li>エクスポート先の選択が可能</li>
+            </ul>
+
+            <div class="btn-container">
+                <a href="https://github.com/SiveProjectOfficial/Utaun/releases" class="download-btn" target="_blank">GitHubからダウンロード</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; SiveProjectOfficial / Utaun All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
