@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utaun - Open-source UTAU CV voicebank generator</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #111827;
+            --text-secondary: #4b5563;
+            --border: #e5e7eb;
+            --accent: #0284c7;
+            --accent-hover: #0369a1;
+            --code-bg: #f3f4f6;
+            --code-text: #0369a1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* ヘッダー（OpenUTAU風のミニマルなトップ） */
+        header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-img {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+
+        .header-titles h1 {
+            font-size: 2rem;
+            margin: 0 0 0.25rem 0;
+            letter-spacing: -0.02em;
+        }
+
+        .header-titles p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* メインコンテンツエリア */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem 1.5rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-top: 0;
+        }
+
+        /* ダウンロードボタンエリア */
+        .download-section {
+            background-color: var(--code-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .download-info h3 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1.1rem;
+        }
+
+        .download-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: background-color 0.15s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* リストスタイル */
+        ul {
+            padding-left: 1.25rem;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+            color: var(--text-secondary);
+        }
+
+        /* 固有名詞のハイライト（フラット仕様） */
+        .tech-term {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 0.1rem 0.35rem;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+
+        /* フッター */
+        footer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-top: 2rem;
+            }
+            .download-section {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="image.png" alt="Utaun Logo" class="logo-img">
+        <div class="header-titles">
+            <h1>Utaun</h1>
+            <p>完全無生物の複合正弦波モデリング（CSM音声合成）によるCV音源生成ソフトウェア</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- クイックダウンロードバナー -->
+        <div class="download-section">
+            <div class="download-info">
+                <h3>最新バージョンをダウンロード</h3>
+                <p>Windows対応 / オープンソース</p>
+            </div>
+            <a href="https://github.com/SiveProjectOfficial/Utaun/releases" class="btn" target="_blank">GitHubから取得</a>
+        </div>
+
+        <!-- 概要 -->
+        <section>
+            <h2>概要</h2>
+            <p>
+                完全無生物の複合正弦波モデリング（CSM音声合成）だけで UTAU 用の CV 音源を生成する Windows ソフトです。<br>
+                ドキュメントへの ZIP 自動生成や、各 UTAU 関連ソフトへの直接エクスポートに対応しています。
+            </p>
+        </section>
+
+        <!-- 主な特徴 -->
+        <section>
+            <h2>主な特徴</h2>
+            <ul>
+                <li>実行するとドキュメントに音源 ZIP を自動生成、または各ソフトへ直接エクスポート</li>
+                <li>完全無生物の複合正弦波モデリング（CSM音声合成）による母音生成（あ・い・う・え・お・ん）</li>
+                <li>同梱されている <span class="tech-term">子音部・濁音部フォルダ</span> をドキュメントにセットして CV 音源を生成</li>
+                <li>m / n / y / w 行をプログラム内で自動生成</li>
+                <li>ひらがなエイリアス + 英語ローマ字エイリアスに対応（発音はすべて日本語）</li>
+                <li><span class="tech-term">oto.ini</span> / <span class="tech-term">character.txt</span> / <span class="tech-term">readme.txt</span> を自動生成します</li>
+                <li>PNG 画像を JPG と BMP に同時変換します（※ <span class="tech-term">character.txt</span> に使用されるのは JPG です）</li>
+                <li><span class="tech-term">readme.txt</span> と <span class="tech-term">character.txt</span> のエンコードは <span class="tech-term">Shift-JIS（ANSI）</span> と <span class="tech-term">UTF-8</span> を選択可能（※ UTF-8 は OpenUTAU 等で互換性があります）</li>
+                <li>基本周波数（声の高さ）を変更できます</li>
+                <li>音源名（キャラクター名）を自由に設定できます</li>
+                <li>ライトモードとダークモードに対応</li>
+                <li>エクスポート先の選択が可能</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Utaun </p>
+    </footer>
+
+</body>
+</html>
