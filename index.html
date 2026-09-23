@@ -160,7 +160,7 @@
             padding: 1.5rem;
             background-color: #ffffff;
             overflow-y: auto;
-            word-break: break-word; /* 長い単語がはみ出さないように折り返しを強制 */
+            word-break: break-word;
         }
 
         .hero-header {
@@ -346,7 +346,7 @@
             <div class="toolbar-row">
                 <ul class="nav-links">
                     <li><a href="#" class="active" data-i18n="nav-home">ホーム</a></li>
-                    <li><a href="#" data-i18n="nav-guide">使い方</a></li>
+                    <li><a href="#" data-i18n="nav-guide">UI画面</a></li>
                     <li><a href="#" data-i18n="nav-history">履歴</a></li>
                 </ul>
                 <select class="lang-select" id="langSelect">
@@ -462,7 +462,7 @@
         const translations = {
             ja: {
                 title: "Utaun - Windows用CV音源生成ソフトウェア",
-                navHome: "ホーム", navGuide: "使い方", navHistory: "履歴",
+                navHome: "ホーム", navGuide: "UI画面", navHistory: "履歴",
                 heroDesc: "完全無生物の複合正弦波モデリング（CSM音声合成）によるCV音源生成ソフトウェア",
                 dlTitle: "Utaunをダウンロード",
                 btnZip: "ZIP版をDL",
@@ -470,7 +470,7 @@
                 badgePlatform: "Windows 専用ソフト",
                 aboutTitle: "Utaunとは？",
                 aboutText: "完全無生物の複合正弦波モデリング（CSM音声合成）だけで UTAU 用の CV 音源を生成する Windows ソフトです。<br>ドキュメントへの ZIP 自動生成や、各 UTAU 関連ソフトへの直接エクスポートに対応しています。",
-                adachiBox: '<strong>💡 <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a>と同じ手法（CSM音声合成）について</strong><br>人間の声の代わりに波の成分（サイン波）を組み合わせて機械や無生物の素材から歌声を作り出す音声合成の仕組みです（「<a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a>」のUTAU音源と同じ手法です）。人間の声を録音しなくても、ユニークなUTAU音源を手軽に作ることができます！',
+                adachiBox: '<strong>💡 <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a>と同じ手法（CSM音声合成）について</strong><br>人間の声の代わりに波の成分（サイン波）を組み合わせて機械や無生物の素材から歌声を作り出す音声合成の仕組みです（ファイルの構成などは「<a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a>」のUTAU音源と同じ手法です）。人間の声を録音しなくても、ユニークなUTAU音源を手軽に作ることができます！',
                 usecaseTitle: "想定用途",
                 uc1: "無生物の声で UTAU 音源を作りたい時",
                 uc2: "地声で録音するのが苦手な人向けの音源制作",
@@ -488,7 +488,7 @@
             },
             en: {
                 title: "Utaun - CV Voicebank Generator for Windows",
-                navHome: "Home", navGuide: "Guide", navHistory: "History",
+                navHome: "Home", navGuide: "UI Screen", navHistory: "History",
                 heroDesc: "CV voicebank generator for UTAU using inanimate composite sine wave modeling (CSM synthesis).",
                 dlTitle: "Download Utaun",
                 btnZip: "Download ZIP",
@@ -496,7 +496,7 @@
                 badgePlatform: "Windows Only",
                 aboutTitle: "What is Utaun?",
                 aboutText: "A Windows software that generates UTAU CV voicebanks solely through inanimate composite sine wave modeling (CSM synthesis). Supports automatic ZIP generation and direct export to UTAU-related software.",
-                adachiBox: '<strong>💡 About the same CSM synthesis method as <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a></strong><br>A voice synthesis method that combines wave components (sine waves) instead of human voices to create singing voices from machinery or inanimate materials (the same method used for Adachi Rei\'s UTAU voicebank). You can easily create unique UTAU voicebanks without recording human voices!',
+                adachiBox: '<strong>💡 About the same CSM synthesis method as <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>A voice synthesis method that combines wave components (sine waves) instead of human voices to create singing voices from machinery or inanimate materials (the same method used for 足立レイ\'s UTAU voicebank). You can easily create unique UTAU voicebanks without recording human voices!',
                 usecaseTitle: "Use Cases",
                 uc1: "When you want an UTAU voicebank with an inanimate voice",
                 uc2: "Voicebank creation for those uncomfortable with self-recording",
@@ -507,14 +507,14 @@
                 manualTitle: "How to Use Utaun",
                 step1: "Download your preferred 'Installer' or 'ZIP' version.",
                 step2Installer: "<strong>[For Installer version]</strong> Launch the installer and follow the on-screen instructions to automatically place files in the correct location.",
-                step2Zip: "<strong>[For ZIP version]</strong> Place the 'consonant/voiced sound folders' and 'oto.ini' directly inside your 'Documents' folder (OneDrive documents are also fine).",
+                step2Zip: "<strong>[For ZIP version]</strong> Place the '子音部・濁音部フォルダ' and 'oto.ini' directly inside your 'Documents' folder (OneDrive documents are also fine).",
                 step3: "Launch Utaun and follow the on-screen instructions to create your voicebank.",
                 step4: "Choose between ZIP output or direct folder export to UTAU and OpenUTAU.",
                 step4Note: "* Auto-update features will be available in future versions."
             },
             ko: {
                 title: "Utaun - Windows용 CV 음원 생성 소프트웨어",
-                navHome: "홈", navGuide: "사용법", navHistory: "내역",
+                navHome: "홈", navGuide: "UI 화면", navHistory: "내역",
                 heroDesc: "완전 무생물의 복합 정현파 모델링(CSM 음성 합성)을 통한 CV 음원 생성 소프트웨어",
                 dlTitle: "Utaun 다운로드",
                 btnZip: "ZIP 버전 다운로드",
@@ -522,7 +522,7 @@
                 badgePlatform: "Windows 전용 소프트",
                 aboutTitle: "Utaun이란?",
                 aboutText: "완전 무생물의 복합 정현파 모델링(CSM 음성 합성)만으로 UTAU용 CV 음원을 생성하는 Windows 소프트웨어입니다.",
-                adachiBox: '<strong>💡 <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">아다치 레이</a>와 같은 방식(CSM 음성 합성)에 관하여</strong><br>사람 목소리 대신 파동 성분(사인파)을 조합해 기계나 무생물 소재로 노랫소리를 만드는 음성 합성 메커니즘입니다.',
+                adachiBox: '<strong>💡 <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a>와 같은 방식(CSM 음성 합성)에 관하여</strong><br>사람 목소리 대신 파동 성분(사인파)을 조합해 기계나 무생물 소재로 노랫소리를 만드는 음성 합성 메커니즘입니다.',
                 usecaseTitle: "예상 용도",
                 uc1: "무생물의 목소리로 UTAU 음원을 만들고 싶을 때",
                 uc2: "육성 녹음이 부담스러운 사람을 위한 음원 제작",
@@ -533,14 +533,14 @@
                 manualTitle: "Utaun 사용 방법",
                 step1: "선호하는 '설치 버전' 또는 'ZIP 버전'을 다운로드합니다.",
                 step2Installer: "<strong>[설치 버전의 경우]</strong> 설치 프로그램을 실행하고 화면 지침에 따라 진행합니다.",
-                step2Zip: "<strong>[ZIP 버전의 경우]</strong> 압축 해제된 폴더 내의 자음/탁음 폴더와 'oto.ini'를 '문서' 폴더에 직접 넣습니다.",
+                step2Zip: "<strong>[ZIP 버전의 경우]</strong> 압축 해제된 폴더 내의 '子音部・濁音部フォルダ'와 'oto.ini'를 '문서' 폴더에 직접 넣습니다.",
                 step3: "Utaun을 실행하고 화면 안내에 따라 음원을 생성합니다.",
                 step4: "ZIP 출력 외에도 UTAU 및 OpenUTAU로의 직접 폴더 내보내기가 가능합니다.",
                 step4Note: "* 향후 버전부터 자동 업데이트 기능을 이용할 수 있습니다."
             },
             "zh-cn": {
                 title: "Utaun - Windows CV 语音库生成软件",
-                navHome: "首页", navGuide: "指南", navHistory: "历史",
+                navHome: "首页", navGuide: "UI界面", navHistory: "历史",
                 heroDesc: "通过完全无生命的复合正弦波建模（CSM语音合成）生成CV语音库的Windows软件",
                 dlTitle: "下载 Utaun",
                 btnZip: "下载 ZIP 版",
@@ -559,14 +559,14 @@
                 manualTitle: "Utaun 使用方法",
                 step1: "下载您喜欢的“安装程序版”或“ZIP版”。",
                 step2Installer: "<strong>【安装程序版】</strong> 启动安装程序并按照提示操作，文件将自动放置在正确位置。",
-                step2Zip: "<strong>【ZIP版】</strong> 将解压文件夹中的子音/浊音文件夹和 'oto.ini' 直接放入“文档”文件夹中。",
+                step2Zip: "<strong>【ZIP版】</strong> 将解压文件夹中的 '子音部・濁音部フォルダ' 和 'oto.ini' 直接放入“文档”文件夹中。",
                 step3: "启动 Utaun 并按提示创建语音库。",
                 step4: "除 ZIP 输出外，还可选择直接导出到 UTAU 和 OpenUTAU 文件夹。",
                 step4Note: "※ 后续版本将支持自动更新功能。"
             },
             "zh-tw": {
                 title: "Utaun - Windows 專用 CV 語音庫生成軟體",
-                navHome: "首頁", navGuide: "指南", navHistory: "歷史",
+                navHome: "首頁", navGuide: "UI介面", navHistory: "歷史",
                 heroDesc: "透過完全無生命的複合正弦波建模（CSM語音合成）生成 CV 語音庫的 Windows 軟體",
                 dlTitle: "下載 Utaun",
                 btnZip: "下載 ZIP 版",
@@ -585,14 +585,14 @@
                 manualTitle: "Utaun 使用方法",
                 step1: "下載您喜歡的「安裝程式版」或「ZIP版」。",
                 step2Installer: "<strong>【安裝程式版】</strong> 啟動安裝程式並依照指示完成安裝。",
-                step2Zip: "<strong>【ZIP版】</strong> 將解壓後的資料夾內的子音/濁音資料夾與 'oto.ini' 直接放入「文件」資料夾中。",
+                step2Zip: "<strong>【ZIP版】</strong> 將解壓後的資料夾內的 '子音部・濁音部フォルダ' 與 'oto.ini' 直接放入「文件」資料夾中。",
                 step3: "啟動 Utaun 並依照畫面指示建立語音庫。",
                 step4: "除 ZIP 輸出外，還可選擇直接匯出至 UTAU 與 OpenUTAU 資料夾。",
                 step4Note: "※ 未來版本將提供自動更新功能。"
             },
             "zh-hk": {
                 title: "Utaun - Windows 專用 CV 語音庫生成軟件",
-                navHome: "主頁", navGuide: "指南", navHistory: "歷史",
+                navHome: "主頁", navGuide: "UI介面", navHistory: "歷史",
                 heroDesc: "透過完全無生命嘅複合正弦波建模（CSM語音合成）嚟生成 CV 語音庫嘅 Windows 軟件",
                 dlTitle: "下載 Utaun",
                 btnZip: "下載 ZIP 版",
@@ -611,14 +611,14 @@
                 manualTitle: "Utaun 使用方法",
                 step1: "下載你鍾意嘅「安裝程式版」或「ZIP版」。",
                 step2Installer: "<strong>【安裝程式版】</strong> 啟動安裝程式並跟住指示安装。",
-                step2Zip: "<strong>【ZIP版】</strong> 將解壓後嘅資料夾入面嘅子音/濁音資料夾同 'oto.ini' 直接放入「文件」資料夾度。",
+                step2Zip: "<strong>【ZIP版】</strong> 將解壓後嘅資料夾入面嘅 '子音部・濁音部フォルダ' 同 'oto.ini' 直接放入「文件」資料夾度。",
                 step3: "啟動 Utaun 並跟住畫面指示建立語音庫。",
                 step4: "除咗 ZIP 輸出之外，仲可以選擇直接匯出到 UTAU 同 OpenUTAU 資料夾。",
                 step4Note: "※ 未來版本將會提供自動更新功能。"
             },
             ru: {
                 title: "Utaun - Генератор голосовых банков CV для Windows",
-                navHome: "Главная", navGuide: "Руководство", navHistory: "История",
+                navHome: "Главная", navGuide: "Интерфейс", navHistory: "История",
                 heroDesc: "Генератор голосовых банков CV для UTAU с использованием неодушевленного моделирования составных синусоид (CSM-синтез).",
                 dlTitle: "Скачать Utaun",
                 btnZip: "Скачать ZIP",
@@ -626,7 +626,7 @@
                 badgePlatform: "Только для Windows",
                 aboutTitle: "Что такое Utaun?",
                 aboutText: "Программа для Windows, генерирующая голосовые банки CV для UTAU исключительно за счет неодушевленного моделирования составных синусоид (CSM-синтез).",
-                adachiBox: '<strong>💡 О том же методе CSM-синтеза, что и у <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a></strong><br>Метод синтеза речи из неживых материалов.',
+                adachiBox: '<strong>💡 О том же методе CSM-синтеза, что и у <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>Метод синтеза речи из неживых материалов.',
                 usecaseTitle: "Варианты использования",
                 uc1: "Когда нужен голосовой банк с неживым голосом",
                 uc2: "Создание банков для тех, кто не записывает свой голос",
@@ -637,14 +637,14 @@
                 manualTitle: "Как использовать Utaun",
                 step1: "Скачайте версию 'Установщик' или 'ZIP'.",
                 step2Installer: "<strong>[Установщик]</strong> Запустите установщик и следуйте инструкциям.",
-                step2Zip: "<strong>[ZIP]</strong> Поместите папки и 'oto.ini' прямо в папку 'Documents'.",
+                step2Zip: "<strong>[ZIP]</strong> Поместите '子音部・濁音部フォルダ' и 'oto.ini' прямо в папку 'Documents'.",
                 step3: "Запустите Utaun и следуйте инструкциям.",
                 step4: "Выберите экспорт в ZIP или прямо в UTAU / OpenUTAU.",
                 step4Note: "* Функция автообновления появится в будущих версиях."
             },
             pt: {
                 title: "Utaun - Gerador de Banco de Voz CV para Windows",
-                navHome: "Início", navGuide: "Guia", navHistory: "Histórico",
+                navHome: "Início", navGuide: "Interface", navHistory: "Histórico",
                 heroDesc: "Gerador de bancos de voz CV para UTAU usando modelagem de ondas senoidais compostas inanimadas (síntese CSM).",
                 dlTitle: "Baixar Utaun",
                 btnZip: "Baixar ZIP",
@@ -652,7 +652,7 @@
                 badgePlatform: "Apenas para Windows",
                 aboutTitle: "O que é o Utaun?",
                 aboutText: "Software para Windows que gera bancos de voz CV para UTAU exclusivamente através de modelagem de ondas senoidais compostas inanimadas (síntese CSM).",
-                adachiBox: '<strong>💡 Sobre o mesmo método de síntese CSM de <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a></strong><br>Método de síntese que combina ondas para criar vozes a partir de materiais inanimados.',
+                adachiBox: '<strong>💡 Sobre o mesmo método de síntese CSM de <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>Método de síntese que combina ondas para criar vozes a partir de materiais inanimados.',
                 usecaseTitle: "Casos de Uso",
                 uc1: "Quando você deseja um banco de voz inanimado",
                 uc2: "Criação de bancos de voz para quem não grava a própria voz",
@@ -663,14 +663,14 @@
                 manualTitle: "Como Usar o Utaun",
                 step1: "Baixe a versão 'Instalador' ou 'ZIP'.",
                 step2Installer: "<strong>[Versão Instalador]</strong> Execute o instalador e siga as instruções.",
-                step2Zip: "<strong>[Versão ZIP]</strong> Coloque as pastas e o 'oto.ini' diretamente na pasta 'Documentos'.",
+                step2Zip: "<strong>[Versão ZIP]</strong> Coloque '子音部・濁音部フォルダ' e 'oto.ini' diretamente na pasta 'Documentos'.",
                 step3: "Inicie o Utaun e siga as instruções para criar seu banco de voz.",
                 step4: "Escolha entre saída ZIP ou exportação direta para UTAU e OpenUTAU.",
                 step4Note: "* O recurso de atualização automática estará disponível em versões futuras."
             },
             es: {
                 title: "Utaun - Generador de bancos de voz CV para Windows",
-                navHome: "Inicio", navGuide: "Guía", navHistory: "Historial",
+                navHome: "Inicio", navGuide: "Interfaz", navHistory: "Historial",
                 heroDesc: "Generador de bancos de voz CV para UTAU usando modelado de ondas senoidales compuestas inanimadas (síntesis CSM).",
                 dlTitle: "Descargar Utaun",
                 btnZip: "Descargar ZIP",
@@ -678,7 +678,7 @@
                 badgePlatform: "Solo para Windows",
                 aboutTitle: "¿Qué es Utaun?",
                 aboutText: "Software de Windows que genera bancos de voz CV para UTAU exclusivamente mediante modelado de ondas senoidales compuestas inanimadas (síntesis CSM).",
-                adachiBox: '<strong>💡 Sobre el mismo método de síntesis CSM que <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a></strong><br>Método de síntesis que combina ondas (senoidales) en lugar de voz humana para crear voces cantadas a partir de materiales inanimados.',
+                adachiBox: '<strong>💡 Sobre el mismo método de síntesis CSM que <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>Método de síntesis que combina ondas (senoidales) en lugar de voz humana para crear voces cantadas a partir de materiales inanimados.',
                 usecaseTitle: "Casos de Uso",
                 uc1: "Cuando quieres un banco de voz inanimado",
                 uc2: "Creación de bancos de voz para quienes no graban su propia voz",
@@ -689,14 +689,14 @@
                 manualTitle: "Cómo Usar Utaun",
                 step1: "Descarga la versión 'Instalador' o 'ZIP'.",
                 step2Installer: "<strong>[Versión Instalador]</strong> Ejecuta el instalador y sigue las instrucciones.",
-                step2Zip: "<strong>[Versión ZIP]</strong> Coloca las carpetas y 'oto.ini' directamente en tu carpeta de 'Documentos'.",
+                step2Zip: "<strong>[Versión ZIP]</strong> Coloca '子音部・濁音部フォルダ' y 'oto.ini' directamente en tu carpeta de 'Documentos'.",
                 step3: "Inicia Utaun y sigue las instrucciones para crear tu banco de voz.",
                 step4: "Elige salida ZIP o exportación directa a UTAU y OpenUTAU.",
                 step4Note: "* Las funciones de actualización automática estarán disponibles próximamente."
             },
             fr: {
                 title: "Utaun - Générateur de banques de voix CV pour Windows",
-                navHome: "Accueil", navGuide: "Guide", navHistory: "Historique",
+                navHome: "Accueil", navGuide: "Interface", navHistory: "Historique",
                 heroDesc: "Générateur de banques de voix CV pour UTAU utilisant la modélisation d'ondes sinusoïdales composites inanimées (synthèse CSM).",
                 dlTitle: "Télécharger Utaun",
                 btnZip: "Télécharger ZIP",
@@ -704,7 +704,7 @@
                 badgePlatform: "Windows uniquement",
                 aboutTitle: "Qu'est-ce qu'Utaun ?",
                 aboutText: "Un logiciel Windows qui génère des banques de voix CV UTAU uniquement par modélisation d'ondes sinusoïdales composites inanimées (synthèse CSM).",
-                adachiBox: '<strong>💡 À propos de la méthode de synthèse CSM similaire à <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a></strong><br>Une méthode de synthèse vocale combinant des ondes pour créer des voix à partir de matériaux inanimés.',
+                adachiBox: '<strong>💡 À propos de la méthode de synthèse CSM similaire à <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>Une méthode de synthèse vocale combinant des ondes pour créer des voix à partir de matériaux inanimés.',
                 usecaseTitle: "Cas d'utilisation",
                 uc1: "Quand vous voulez une banque de voix inanimée UTAU",
                 uc2: "Création de banques de voix pour ceux qui n'enregistrent pas leur propre voix",
@@ -715,14 +715,14 @@
                 manualTitle: "Comment utiliser Utaun",
                 step1: "Téléchargez la version 'Installateur' ou 'ZIP'.",
                 step2Installer: "<strong>[Version Installateur]</strong> Lancez l'installateur et suivez les instructions.",
-                step2Zip: "<strong>[Version ZIP]</strong> Placez les dossiers et 'oto.ini' directement dans votre dossier 'Documents'.",
+                step2Zip: "<strong>[Version ZIP]</strong> Placez '子音部・濁音部フォルダ' et 'oto.ini' directement dans votre dossier 'Documents'.",
                 step3: "Lancez Utaun et suivez les instructions pour créer votre banque de voix.",
                 step4: "Choisissez la sortie ZIP ou l'exportation directe de dossiers vers UTAU et OpenUTAU.",
                 step4Note: "* Les fonctions de mise à jour automatique seront bientôt disponibles."
             },
             it: {
                 title: "Utaun - Generatore di banchi vocali CV per Windows",
-                navHome: "Home", navGuide: "Guida", navHistory: "Cronologia",
+                navHome: "Home", navGuide: "Interfaccia", navHistory: "Cronologia",
                 heroDesc: "Generatore di banchi vocali CV per UTAU tramite modellazione di onde sinusoidali composite inanimate (sintesi CSM).",
                 dlTitle: "Scarica Utaun",
                 btnZip: "Scarica ZIP",
@@ -730,7 +730,7 @@
                 badgePlatform: "Solo per Windows",
                 aboutTitle: "Cos'è Utaun?",
                 aboutText: "Un software per Windows che genera banchi vocali CV per UTAU esclusivamente tramite modellazione di onde sinusoidali composite inanimate (sintesi CSM).",
-                adachiBox: '<strong>💡 Informazioni sul metodo di sintesi CSM di <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a></strong><br>Un metodo di sintesi che combina onde per creare voci da materiali inanimati.',
+                adachiBox: '<strong>💡 Informazioni sul metodo di sintesi CSM di <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>Un metodo di sintesi che combina onde per creare voci da materiali inanimati.',
                 usecaseTitle: "Casi d'uso",
                 uc1: "Quando desideri un banco vocale UTAU inanimato",
                 uc2: "Creazione di banchi vocali per chi non registra la propria voce",
@@ -741,14 +741,14 @@
                 manualTitle: "Come usare Utaun",
                 step1: "Scarica la versione 'Installer' o 'ZIP'.",
                 step2Installer: "<strong>[Versione Installer]</strong> Avvia il programma di installazione e segui le istruzioni.",
-                step2Zip: "<strong>[Versione ZIP]</strong> Posiziona le cartelle e 'oto.ini' direttamente nella cartella 'Documenti'.",
+                step2Zip: "<strong>[Versione ZIP]</strong> Posiziona '子音部・濁音部フォルダ' e 'oto.ini' direttamente nella cartella 'Documenti'.",
                 step3: "Avvia Utaun e segui le istruzioni per creare il tuo banco vocale.",
                 step4: "Scegli tra l'output ZIP o l'esportazione diretta in UTAU e OpenUTAU.",
                 step4Note: "* Le funzioni di aggiornamento automatico saranno disponibili nelle versioni future."
             },
             de: {
                 title: "Utaun - CV-Voicebank-Generator für Windows",
-                navHome: "Startseite", navGuide: "Anleitung", navHistory: "Verlauf",
+                navHome: "Startseite", navGuide: "Benutzeroberfläche", navHistory: "Verlauf",
                 heroDesc: "CV-Voicebank-Generator für UTAU unter Verwendung lebloser zusammengesetzter Sinuswellen-Modellierung (CSM-Synthese).",
                 dlTitle: "Utaun herunterladen",
                 btnZip: "ZIP-Version herunterladen",
@@ -756,7 +756,7 @@
                 badgePlatform: "Nur für Windows",
                 aboutTitle: "Was ist Utaun?",
                 aboutText: "Eine Windows-Software, die UTAU-CV-Voicebanks ausschließlich durch leblose zusammengesetzte Sinuswellen-Modellierung (CSM-Synthese) generiert.",
-                adachiBox: '<strong>💡 Über die gleiche CSM-Synthesemethode wie <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a></strong><br>Eine Sprachsynthesemethode, die Wellenkomponenten kombiniert, um Gesang aus unbelebten Materialien zu erzeugen.',
+                adachiBox: '<strong>💡 Über die gleiche CSM-Synthesemethode wie <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>Eine Sprachsynthesemethode, die Wellenkomponenten kombiniert, um Gesang aus unbelebten Materialien zu erzeugen.',
                 usecaseTitle: "Anwendungsfälle",
                 uc1: "Wenn Sie eine leblose UTAU-Voicebank wünschen",
                 uc2: "Voicebank-Erstellung für Personen, die sich ungern selbst aufnehmen",
@@ -767,14 +767,14 @@
                 manualTitle: "Wie man Utaun benutzt",
                 step1: "Laden Sie die 'Installer'- oder 'ZIP'-Version herunter.",
                 step2Installer: "<strong>[Installer-Version]</strong> Starten Sie den Installer und folgen Sie den Anweisungen.",
-                step2Zip: "<strong>[ZIP-Version]</strong> Legen Sie die Ordner und 'oto.ini' direkt in Ihren 'Dokumente'-Ordner.",
+                step2Zip: "<strong>[ZIP-Version]</strong> Legen Sie '子音部・濁音部フォルダ' und 'oto.ini' direkt in Ihren 'Dokumente'-Ordner.",
                 step3: "Starten Sie Utaun und folgen Sie den Anweisungen zur Erstellung Ihrer Voicebank.",
                 step4: "Wählen Sie zwischen ZIP-Ausgabe und direktem Ordner-Export für UTAU und OpenUTAU.",
                 step4Note: "* Automatische Update-Funktionen werden in zukünftigen Versionen verfügbar sein."
             },
             pl: {
                 title: "Utaun - Generator banków głosów CV dla Windows",
-                navHome: "Strona główna", navGuide: "Przewodnik", navHistory: "Historia",
+                navHome: "Strona główna", navGuide: "Interfejs", navHistory: "Historia",
                 heroDesc: "Generator banków głosów CV dla UTAU przy użyciu nieożywionego modelowania złożonych fal sinusoidalnych (synteza CSM).",
                 dlTitle: "Pobierz Utaun",
                 btnZip: "Pobierz wersję ZIP",
@@ -782,7 +782,7 @@
                 badgePlatform: "Tylko dla systemu Windows",
                 aboutTitle: "Czym jest Utaun?",
                 aboutText: "Oprogramowanie dla systemu Windows generujące banki głosów CV dla UTAU wyłącznie poprzez nieożywione modelowanie złożonych fal sinusoidalnych (synteza CSM).",
-                adachiBox: '<strong>💡 O tej samej metodzie syntezy CSM co u <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a></strong><br>Metoda syntezy mowy łącząca fale w celu uzyskania śpiewu z martwych materiałów.',
+                adachiBox: '<strong>💡 O tej samej metodzie syntezy CSM co u <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>Metoda syntezy mowy łącząca fale w celu uzyskania śpiewu z martwych materiałów.',
                 usecaseTitle: "Zastosowania",
                 uc1: "Gdy chcesz mieć nieożywiony bank głosów UTAU",
                 uc2: "Tworzenie banków głosów dla osób nie lubiących nagrywać siebie",
@@ -793,14 +793,14 @@
                 manualTitle: "Jak używać Utaun",
                 step1: "Pobierz wersję 'Installer' lub 'ZIP'.",
                 step2Installer: "<strong>[Wersja Installer]</strong> Uruchom instalator i postępuj zgodnie z instrukcjami.",
-                step2Zip: "<strong>[Wersja ZIP]</strong> Umieść foldery i 'oto.ini' bezpośrednio w folderze 'Dokumenty'.",
+                step2Zip: "<strong>[Wersja ZIP]</strong> Umieść '子音部・濁音部フォルダ' i 'oto.ini' bezpośrednio w folderze 'Dokumenty'.",
                 step3: "Uruchom Utaun i postępuj zgodnie z instrukcjami, aby utworzyć bank głosów.",
                 step4: "Wybierz eksport do ZIP lub bezpośredni eksport folderu do UTAU i OpenUTAU.",
                 step4Note: "* Funkcje automatycznej aktualizacji pojawią się w przyszłych wersjach."
             },
             tr: {
                 title: "Utaun - Windows için CV Ses Bankası Oluşturucu",
-                navHome: "Ana Sayfa", navGuide: "Kılavuz", navHistory: "Geçmiş",
+                navHome: "Ana Sayfa", navGuide: "Arayüz", navHistory: "Geçmiş",
                 heroDesc: "Cansız bileşik sinüs dalgası modellemesi (CSM sentezi) kullanarak UTAU için CV ses bankası oluşturucu.",
                 dlTitle: "Utaun'u İndir",
                 btnZip: "ZIP Sürümünü İndir",
@@ -808,7 +808,7 @@
                 badgePlatform: "Yalnızca Windows",
                 aboutTitle: "Utaun Nedir?",
                 aboutText: "Yalnızca cansız bileşik sinüs dalgası modellemesi (CSM sentezi) ile UTAU için CV ses bankaları oluşturan bir Windows yazılımıdır.",
-                adachiBox: '<strong>💡 <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a> ile aynı CSM sentez yöntemi hakkında</strong><br>İnsan sesleri yerine dalga bileşenlerini birleştirerek cansız malzemelerden şarkı sesi üreten bir sentez mekanizması.',
+                adachiBox: '<strong>💡 <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a> ile aynı CSM sentez yöntemi hakkında</strong><br>İnsan sesleri yerine dalga bileşenlerini birleştirerek cansız malzemelerden şarkı sesi üreten bir sentez mekanizması.',
                 usecaseTitle: "Kullanım Alanları",
                 uc1: "Cansız sesli bir UTAU ses bankası istediğinizde",
                 uc2: "Kendi sesini kaydetmekten hoşlanmayanlar için ses bankası üretimi",
@@ -819,14 +819,14 @@
                 manualTitle: "Utaun Nasıl Kullanılır?",
                 step1: "Tercih ettiğiniz 'Installer' veya 'ZIP' sürümünü indirin.",
                 step2Installer: "<strong>[Yükleyici sürümü için]</strong> Yükleyiciyi çalıştırın ve talimatları izleyin.",
-                step2Zip: "<strong>[ZIP sürümü için]</strong> Klasörleri and 'oto.ini' dosyasını doğrudan 'Belgeler' (Documents) klasörünüze yerleştirin.",
+                step2Zip: "<strong>[ZIP sürümü için]</strong> '子音部・濁音部フォルダ' ve 'oto.ini' dosyasını doğrudan 'Belgeler' (Documents) klasörünüze yerleştirin.",
                 step3: "Utaun'u başlatın ve ses bankanızı oluşturmak için ekrandaki talimatları izleyin.",
                 step4: "ZIP çıktısı veya UTAU ile OpenUTAU'ya doğrudan klasör dışa aktarımı arasında seçim yapın.",
                 step4Note: "* Otomatik güncelleme özellikleri sonraki sürümlerde sunulacaktır."
             },
             vi: {
                 title: "Utaun - Trình tạo ngân hàng giọng nói CV cho Windows",
-                navHome: "Trang chủ", navGuide: "Hướng dẫn", navHistory: "Lịch sử",
+                navHome: "Trang chủ", navGuide: "Giao diện", navHistory: "Lịch sử",
                 heroDesc: "Trình tạo ngân hàng giọng nói CV cho UTAU sử dụng mô hình sóng sin tổng hợp vô tri vô giác (tổng hợp CSM).",
                 dlTitle: "Tải xuống Utaun",
                 btnZip: "Tải bản ZIP",
@@ -834,7 +834,7 @@
                 badgePlatform: "Chỉ dành cho Windows",
                 aboutTitle: "Utaun là gì?",
                 aboutText: "Phần mềm Windows tạo ngân hàng giọng nói CV cho UTAU thông qua mô hình sóng sin tổng hợp vô tri vô giác (CSM).",
-                adachiBox: '<strong>💡 Về phương pháp tổng hợp CSM giống như <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a></strong><br>Phương pháp tạo giọng hát từ vật liệu vô cơ.',
+                adachiBox: '<strong>💡 Về phương pháp tổng hợp CSM giống như <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>Phương pháp tạo giọng hát từ vật liệu vô cơ.',
                 usecaseTitle: "Trường hợp sử dụng",
                 uc1: "Khi bạn muốn tạo giọng UTAU vô tri vô giác",
                 uc2: "Tạo ngân hàng giọng nói cho người ngại tự ghi âm",
@@ -845,14 +845,14 @@
                 manualTitle: "Cách sử dụng Utaun",
                 step1: "Tải phiên bản 'Cài đặt' hoặc 'ZIP' mà bạn muốn.",
                 step2Installer: "<strong>[Bản cài đặt]</strong> Chạy trình cài đặt và làm theo hướng dẫn.",
-                step2Zip: "<strong>[Bản ZIP]</strong> Đặt các thư mục và 'oto.ini' trực tiếp vào thư mục 'Documents'.",
+                step2Zip: "<strong>[Bản ZIP]</strong> Đặt '子音部・濁音部フォルダ' và 'oto.ini' trực tiếp vào thư mục 'Documents'.",
                 step3: "Khởi chạy Utaun và làm theo hướng dẫn để tạo ngân hàng giọng nói.",
                 step4: "Chọn xuất ZIP hoặc xuất trực tiếp sang UTAU và OpenUTAU.",
                 step4Note: "* Tính năng tự động cập nhật sẽ có trong các phiên bản sau."
             },
             fil: {
                 title: "Utaun - CV Voicebank Generator para sa Windows",
-                navHome: "Tahanan", navGuide: "Gabay", navHistory: "Kasaysayan",
+                navHome: "Tahanan", navGuide: "UI Screen", navHistory: "Kasaysayan",
                 heroDesc: "CV voicebank generator para sa UTAU gamit ang inanimate composite sine wave modeling (CSM synthesis).",
                 dlTitle: "I-download ang Utaun",
                 btnZip: "I-download ang ZIP",
@@ -860,7 +860,7 @@
                 badgePlatform: "Windows Lamang",
                 aboutTitle: "Ano ang Utaun?",
                 aboutText: "Isang software para sa Windows na lumilikha ng UTAU CV voicebanks sa pamamagitan lamang ng inanimate composite sine wave modeling (CSM synthesis).",
-                adachiBox: '<strong>💡 Tungkol sa parehong paraan ng CSM synthesis tulad ng kay <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a></strong><br>Isang paraan ng synthesis na pinagsasama ang mga alon upang lumikha ng boses mula sa mga walang buhay na materyales.',
+                adachiBox: '<strong>💡 Tungkol sa parehong paraan ng CSM synthesis tulad ng kay <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>Isang paraan ng synthesis na pinagsasama ang mga alon upang lumikha ng boses mula sa mga walang buhay na materyales.',
                 usecaseTitle: "Mga Gamit",
                 uc1: "Kapag gusto mo ng voicebank na may walang buhay na boses",
                 uc2: "Paggawa ng voicebank para sa mga ayaw mag-record ng sarili",
@@ -871,14 +871,14 @@
                 manualTitle: "Paano Gamitin ang Utaun",
                 step1: "I-download ang 'Installer' o 'ZIP' na bersyon.",
                 step2Installer: "<strong>[Para sa Installer]</strong> Patakbuhin ang installer at sundin ang mga tagubilin.",
-                step2Zip: "<strong>[Para sa ZIP]</strong> Ilagay ang mga folder at 'oto.ini' nang direkta sa iyong folder na 'Documents'.",
+                step2Zip: "<strong>[Para sa ZIP]</strong> Ilagay ang '子音部・濁音部フォルダ' at 'oto.ini' nang direkta sa iyong folder na 'Documents'.",
                 step3: "Ilunsad ang Utaun at sundin ang mga tagubilin upang lumikha ng voicebank.",
                 step4: "Pumili sa pagitan ng ZIP output o direktang pag-export ng folder sa UTAU at OpenUTAU.",
                 step4Note: "* Magiging available ang auto-update sa mga susunod na bersyon."
             },
             th: {
                 title: "Utaun - โปรแกรมสร้างคลังเสียง CV สำหรับ Windows",
-                navHome: "หน้าแรก", navGuide: "คู่มือ", navHistory: "ประวัติ",
+                navHome: "หน้าแรก", navGuide: "หน้าจอ UI", navHistory: "ประวัติ",
                 heroDesc: "โปรแกรมสร้างคลังเสียง CV สำหรับ UTAU โดยใช้การจำลองคลื่นไซน์คอมโพสิตแบบไม่มีชีวิต (CSM synthesis)",
                 dlTitle: "ดาวน์โหลด Utaun",
                 btnZip: "ดาวน์โหลดเวอร์ชัน ZIP",
@@ -886,7 +886,7 @@
                 badgePlatform: "สำหรับ Windows เท่านั้น",
                 aboutTitle: "Utaun คืออะไร?",
                 aboutText: "ซอฟต์แวร์ Windows ที่สร้างคลังเสียง CV สำหรับ UTAU ผ่านการจำลองคลื่นไซน์คอมโพสิตแบบไม่มีชีวิต (CSM synthesis) เท่านั้น",
-                adachiBox: '<strong>💡 เกี่ยวกับการสังเคราะห์เสียง CSM เช่นเดียวกับ <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">Adachi Rei</a></strong><br>วิธีการสังเคราะห์เสียงที่รวมองค์ประกอบคลื่นเพื่อสร้างเสียงร้องจากวัสดุไร้ชีวิต',
+                adachiBox: '<strong>💡 เกี่ยวกับการสังเคราะห์เสียง CSM เช่นเดียวกับ <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: #026ca7; text-decoration: underline;">足立レイ</a></strong><br>วิธีการสังเคราะห์เสียงที่รวมองค์ประกอบคลื่นเพื่อสร้างเสียงร้องจากวัสดุไร้ชีวิต',
                 usecaseTitle: "การใช้งานที่รองรับ",
                 uc1: "เมื่อคุณต้องการคลังเสียง UTAU แบบไร้ชีวิต",
                 uc2: "การสร้างคลังเสียงสำหรับผู้ที่ไม่สะดวกบันทึกเสียงตัวเอง",
@@ -897,46 +897,46 @@
                 manualTitle: "วิธีใช้งาน Utaun",
                 step1: "ดาวน์โหลดเวอร์ชัน 'ตัวติดตั้ง' หรือ 'ZIP' ที่คุณต้องการ",
                 step2Installer: "<strong>[สำหรับตัวติดตั้ง]</strong> เปิดตัวติดตั้งและทำตามคำแนะนำบนหน้าจอ",
-                step2Zip: "<strong>[สำหรับเวอร์ชัน ZIP]</strong> วางโฟลเดอร์และไฟล์ 'oto.ini' ไว้ในโฟลเดอร์ 'Documents' ของคุณโดยตรง",
+                step2Zip: "<strong>[สำหรับเวอร์ชัน ZIP]</strong> วาง '子音部・濁音部フォルダ' และไฟล์ 'oto.ini' ไว้ในโฟลเดอร์ 'Documents' ของคุณโดยตรง",
                 step3: "เปิด Utaun และทำตามคำแนะนำเพื่อสร้างคลังเสียง",
                 step4: "เลือกการส่งออกเป็น ZIP หรือส่งออกโฟลเดอร์ไปยัง UTAU และ OpenUTAU โดยตรง",
                 step4Note: "* คุณสมบัติอัปเดตอัตโนมัติจะมีให้ใช้งานในเวอร์ชันถัดไป"
             }
         };
+
         const langSelect = document.getElementById('langSelect');
-                langSelect.addEventListener('change', (e) => {
-                    const lang = e.target.value;
-                    // 'en-us' が選ばれた場合は 'en' のデータを流用するフォールバック処理を追加
-                    const targetLang = (lang === 'en-us') ? 'en' : lang;
-                    const t = translations[targetLang] || translations['ja'];
-        
-                    document.getElementById('page-title').innerText = t.title;
-                    document.querySelector('[data-i18n="nav-home"]').innerText = t.navHome;
-                    document.querySelector('[data-i18n="nav-guide"]').innerText = t.navGuide;
-                    document.querySelector('[data-i18n="nav-history"]').innerText = t.navHistory;
-                    document.querySelector('[data-i18n="hero_desc"]').innerText = t.heroDesc;
-                    document.querySelector('[data-i18n="dl_title"]').innerText = t.dlTitle;
-                    document.querySelector('[data-i18n="btn_zip"]').innerText = t.btnZip;
-                    document.querySelector('[data-i18n="btn_installer"]').innerText = t.btnInstaller;
-                    document.querySelector('[data-i18n="badge_platform"]').innerText = t.badgePlatform;
-                    document.querySelector('[data-i18n="about_title"]').innerText = t.aboutTitle;
-                    document.querySelector('[data-i18n="about_text"]').innerHTML = t.aboutText;
-                    document.querySelector('[data-i18n="adachi_box"]').innerHTML = t.adachiBox;
-                    document.querySelector('[data-i18n="usecase_title"]').innerText = t.usecaseTitle;
-                    document.querySelector('[data-i18n="uc_1"]').innerText = t.uc1;
-                    document.querySelector('[data-i18n="uc_2"]').innerText = t.uc2;
-                    document.querySelector('[data-i18n="uc_3"]').innerText = t.uc3;
-                    document.querySelector('[data-i18n="uc_4"]').innerText = t.uc4;
-                    document.querySelector('[data-i18n="uc_5"]').innerText = t.uc5;
-                    document.querySelector('[data-i18n="uc_6"]').innerText = t.uc6;
-                    document.querySelector('[data-i18n="manual_title"]').innerText = t.manualTitle;
-                    document.querySelector('[data-i18n="step_1"]').innerText = t.step1;
-                    document.querySelector('[data-i18n="step_2_installer"]').innerHTML = t.step2Installer;
-                    document.querySelector('[data-i18n="step_2_zip"]').innerHTML = t.step2Zip;
-                    document.querySelector('[data-i18n="step_3"]').innerText = t.step3;
-                    document.querySelector('[data-i18n="step_4"]').innerText = t.step4;
-                    document.querySelector('[data-i18n="step_4_note"]').innerText = t.step4Note;
-                });
-        
+        langSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            const targetLang = (lang === 'en-us') ? 'en' : lang;
+            const t = translations[targetLang] || translations['ja'];
+
+            document.getElementById('page-title').innerText = t.title;
+            document.querySelector('[data-i18n="nav-home"]').innerText = t.navHome;
+            document.querySelector('[data-i18n="nav-guide"]').innerText = t.navGuide;
+            document.querySelector('[data-i18n="nav-history"]').innerText = t.navHistory;
+            document.querySelector('[data-i18n="hero_desc"]').innerText = t.heroDesc;
+            document.querySelector('[data-i18n="dl_title"]').innerText = t.dlTitle;
+            document.querySelector('[data-i18n="btn_zip"]').innerText = t.btnZip;
+            document.querySelector('[data-i18n="btn_installer"]').innerText = t.btnInstaller;
+            document.querySelector('[data-i18n="badge_platform"]').innerText = t.badgePlatform;
+            document.querySelector('[data-i18n="about_title"]').innerText = t.aboutTitle;
+            document.querySelector('[data-i18n="about_text"]').innerHTML = t.aboutText;
+            document.querySelector('[data-i18n="adachi_box"]').innerHTML = t.adachiBox;
+            document.querySelector('[data-i18n="usecase_title"]').innerText = t.usecaseTitle;
+            document.querySelector('[data-i18n="uc_1"]').innerText = t.uc1;
+            document.querySelector('[data-i18n="uc_2"]').innerText = t.uc2;
+            document.querySelector('[data-i18n="uc_3"]').innerText = t.uc3;
+            document.querySelector('[data-i18n="uc_4"]').innerText = t.uc4;
+            document.querySelector('[data-i18n="uc_5"]').innerText = t.uc5;
+            document.querySelector('[data-i18n="uc_6"]').innerText = t.uc6;
+            document.querySelector('[data-i18n="manual_title"]').innerText = t.manualTitle;
+            document.querySelector('[data-i18n="step_1"]').innerText = t.step1;
+            document.querySelector('[data-i18n="step_2_installer"]').innerHTML = t.step2Installer;
+            document.querySelector('[data-i18n="step_2_zip"]').innerHTML = t.step2Zip;
+            document.querySelector('[data-i18n="step_3"]').innerText = t.step3;
+            document.querySelector('[data-i18n="step_4"]').innerText = t.step4;
+            document.querySelector('[data-i18n="step_4_note"]').innerText = t.step4Note;
+        });
     </script>
 </body>
+</html>
