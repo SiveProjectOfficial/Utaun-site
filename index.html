@@ -6,13 +6,20 @@
     <title>Utaun - Windows用CV音源生成ソフトウェア</title>
     <style>
         :root {
-            --bg: #ffffff;
+            --win-bg: #ece9d8;
+            --win-border-light: #ffffff;
+            --win-border-dark: #dfdfdf;
+            --win-border-shadow: #7f7f7f;
+            --win-title-bg: linear-gradient(90deg, #0a246a, #a6caf0);
+            --win-title-text: #ffffff;
+            
+            --bg: #f4f6f9;
             --text-main: #1e293b;
             --text-sub: #64748b;
             --accent: #09A3F2;
             --accent-hover: #0285c7;
-            --border: #e2e8f0;
-            --box-bg: #f8fafc;
+            --border: #cbd5e1;
+            --box-bg: #ffffff;
         }
 
         body {
@@ -20,61 +27,91 @@
             background-color: var(--bg);
             color: var(--text-main);
             margin: 0;
-            padding: 0;
+            padding: 2rem 1rem;
             line-height: 1.8;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
         }
 
-        /* 画面上部に広がるメニューバー */
-        header.site-header {
-            background-color: var(--accent);
-            color: white;
+        /* 90年代〜2000年代初頭のブラウザ／ウィンドウ風フレーム */
+        .retro-window {
             width: 100%;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 12px rgba(9, 163, 242, 0.25);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            max-width: 840px;
+            background-color: var(--box-bg);
+            border: 2px solid;
+            border-color: var(--win-border-light) var(--win-border-shadow) var(--win-border-shadow) var(--win-border-light);
+            box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
-        .nav-container {
-            max-width: 840px;
-            margin: 0 auto;
-            padding: 0.75rem 1rem;
+        /* ウィンドウのタイトルバー */
+        .window-header {
+            background: var(--win-title-bg);
+            color: var(--win-title-text);
+            padding: 6px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 0.03em;
+        }
+
+        .window-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .window-title img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 3px;
+        }
+
+        .win-btn {
+            width: 16px;
+            height: 16px;
+            background-color: #d4d0c8;
+            border: 1px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            font-size: 10px;
+            line-height: 12px;
+            text-align: center;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Netscape/IE風のツールバー・アドレスバーエリア */
+        .browser-toolbar {
+            background-color: #ece9d8;
+            border-bottom: 1px solid var(--border);
+            padding: 6px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .toolbar-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: white;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .nav-logo-img {
-            width: 28px;
-            height: 28px;
-            border-radius: 6px;
-            object-fit: cover;
-            background: white;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+            gap: 8px;
         }
 
         .nav-links {
             display: flex;
-            gap: 0.2rem;
+            gap: 4px;
             list-style: none;
             margin: 0;
             padding: 0;
@@ -82,69 +119,81 @@
 
         .nav-links a {
             text-decoration: none;
-            color: white;
+            color: var(--text-main);
             font-size: 0.8rem;
             font-weight: 500;
-            padding: 0.35rem 0.5rem;
-            border-radius: 6px;
-            transition: background-color 0.15s ease;
-            white-space: nowrap;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            transition: all 0.1s ease;
         }
 
         .nav-links a:hover, .nav-links a.active {
-            background-color: rgba(255, 255, 255, 0.25);
-            font-weight: 600;
+            background-color: rgba(9, 163, 242, 0.15);
+            border-color: var(--accent);
+            color: var(--accent-hover);
         }
 
-        /* 国旗付き言語選択プルダウンのスタイル */
+        /* アドレスバー風 */
+        .address-bar {
+            background: white;
+            border: 1px solid;
+            border-color: #7f7f7f #dfdfdf #dfdfdf #7f7f7f;
+            padding: 3px 8px;
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .address-bar span {
+            color: #008000;
+            font-weight: bold;
+        }
+
+        /* 国旗付き言語選択プルダウン */
         .lang-select {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 0.3rem 0.5rem;
-            border-radius: 6px;
+            background-color: white;
+            color: var(--text-main);
+            border: 1px solid;
+            border-color: #7f7f7f #dfdfdf #dfdfdf #7f7f7f;
+            padding: 3px 6px;
+            border-radius: 2px;
             font-size: 0.78rem;
-            font-weight: 500;
             cursor: pointer;
             outline: none;
-            transition: background-color 0.15s ease;
         }
 
-        .lang-select option {
-            color: var(--text-main);
-            background-color: white;
-        }
-
-        .lang-select:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        /* メインコンテンツ用のコンテナ */
+        /* メインコンテンツ領域 */
         .container {
-            max-width: 840px;
-            margin: 0 auto;
-            padding: 0 1.5rem 5rem 1.5rem;
+            padding: 2rem 2.5rem 3rem 2.5rem;
+            background-color: white;
+            overflow-y: auto;
         }
 
         /* ヘッダービジュアル */
         .hero-header {
             display: flex;
             align-items: center;
-            gap: 1.75rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .logo-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 18px;
+            width: 72px;
+            height: 72px;
+            border-radius: 12px;
             object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.05);
         }
 
         .hero-titles h1 {
-            font-size: 2.5rem;
-            margin: 0 0 0.3rem 0;
+            font-size: 2.2rem;
+            margin: 0 0 0.2rem 0;
             letter-spacing: -0.02em;
             color: var(--text-main);
         }
@@ -152,30 +201,29 @@
         .hero-titles p {
             margin: 0;
             color: var(--text-sub);
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
 
         /* ダウンロードセクション */
         .download-hero {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            background-color: var(--box-bg);
             border: 1px solid #bae6fd;
-            border-radius: 20px;
-            padding: 3rem 2rem;
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
             text-align: center;
-            margin-bottom: 3.5rem;
-            box-shadow: 0 4px 20px rgba(9, 163, 242, 0.1);
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 15px rgba(9, 163, 242, 0.08);
         }
 
         .download-hero h2 {
             margin-top: 0;
-            font-size: 1.65rem;
+            font-size: 1.5rem;
             color: var(--text-main);
         }
 
         .download-hero p {
             color: var(--text-sub);
-            margin-bottom: 1.75rem;
+            margin-bottom: 1.5rem;
         }
 
         .dl-buttons {
@@ -191,36 +239,36 @@
             background-color: var(--accent);
             color: white;
             font-weight: 700;
-            font-size: 1.05rem;
-            padding: 0.85rem 2.2rem;
+            font-size: 1rem;
+            padding: 0.75rem 2rem;
             border-radius: 9999px;
             text-decoration: none;
             transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-            box-shadow: 0 4px 15px rgba(9, 163, 242, 0.3);
+            box-shadow: 0 4px 12px rgba(9, 163, 242, 0.25);
         }
 
         .dl-btn:hover {
             background-color: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(9, 163, 242, 0.4);
+            box-shadow: 0 6px 16px rgba(9, 163, 242, 0.35);
         }
 
         .dl-btn.zip-btn {
             background-color: #64748b;
-            box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3);
+            box-shadow: 0 4px 12px rgba(100, 116, 139, 0.25);
         }
 
         .dl-btn.zip-btn:hover {
             background-color: #475569;
-            box-shadow: 0 6px 20px rgba(100, 116, 139, 0.4);
+            box-shadow: 0 6px 16px rgba(100, 116, 139, 0.35);
         }
 
         .platform-badge {
             display: inline-block;
-            margin-top: 0.75rem;
-            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
             background: #bae6fd;
-            padding: 0.25rem 0.85rem;
+            padding: 0.2rem 0.75rem;
             border-radius: 99px;
             color: #0369a1;
             font-weight: 600;
@@ -228,14 +276,14 @@
 
         /* セクション共通 */
         section {
-            margin-bottom: 3.5rem;
+            margin-bottom: 3rem;
         }
 
         h3 {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             color: var(--text-main);
             border-bottom: 2px solid var(--border);
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.4rem;
             margin-bottom: 1.25rem;
         }
 
@@ -246,16 +294,16 @@
         /* 用途グリッドカード */
         .usecase-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 1rem;
             margin-top: 1rem;
         }
 
         .usecase-card {
-            background-color: var(--box-bg);
+            background-color: #f8fafc;
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
             transition: border-color 0.15s ease, transform 0.15s ease;
         }
 
@@ -266,7 +314,7 @@
 
         .usecase-card p {
             margin: 0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-main);
             font-weight: 500;
         }
@@ -282,10 +330,10 @@
         }
 
         .steps-list li {
-            background-color: var(--box-bg);
+            background-color: #f8fafc;
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.1rem 1.25rem;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
             display: flex;
             gap: 1rem;
             align-items: flex-start;
@@ -295,9 +343,9 @@
             background-color: var(--accent);
             color: white;
             font-weight: 700;
-            font-size: 0.85rem;
-            width: 24px;
-            height: 24px;
+            font-size: 0.8rem;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -308,12 +356,12 @@
 
         .step-text {
             margin: 0;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-main);
         }
 
         .note {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-sub);
             margin-top: 0.3rem;
             display: block;
@@ -322,39 +370,49 @@
         /* フッター */
         footer {
             border-top: 1px solid var(--border);
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             text-align: center;
             color: var(--text-sub);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
-        /* レスポンシブ調整 */
         @media (max-width: 640px) {
-            .nav-links a {
-                font-size: 0.72rem;
-                padding: 0.3rem 0.35rem;
+            body {
+                padding: 0;
+            }
+            .retro-window {
+                border: none;
+                box-shadow: none;
+            }
+            .container {
+                padding: 1.5rem 1rem;
             }
             .hero-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1rem;
             }
-            .hero-titles h1 {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- 画面上部に広がるメニューバー -->
-    <header class="site-header">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="Image/IMG_5139.jpeg" alt="Utaun Icon" class="nav-logo-img" onerror="this.style.display='none'">
-                Utaun
-            </a>
-            <div class="nav-right">
+    <!-- Netscape/レトロウィンドウフレーム -->
+    <div class="retro-window">
+        <div class="window-header">
+            <div class="window-title">
+                <img src="Image/IMG_5139.jpeg" alt="Icon" onerror="this.style.display='none'">
+                Netscape Navigator - [Utaun Official Web Site]
+            </div>
+            <div class="window-controls">
+                <div class="win-btn">_</div>
+                <div class="win-btn">□</div>
+                <div class="win-btn">×</div>
+            </div>
+        </div>
+
+        <div class="browser-toolbar">
+            <div class="toolbar-row">
                 <ul class="nav-links">
                     <li><a href="index.html" class="active" data-i18n="nav_home">ホーム</a></li>
                     <li><a href="gallery.html" data-i18n="nav_gallery">ギャラリー</a></li>
@@ -381,92 +439,97 @@
                     <option value="th">🇹🇭 ไทย</option>
                 </select>
             </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <!-- メインビジュアル -->
-        <div class="hero-header">
-            <img src="image.png" alt="Utaun Logo" class="logo-img" onerror="this.style.display='none'">
-            <div class="hero-titles">
-                <h1>Utaun</h1>
-                <p data-i18n="hero_desc">完全無生物の複合正弦波モデリング（CSM音声合成）によるCV音源生成ソフトウェア</p>
+            <div class="toolbar-row">
+                <div class="address-bar">
+                    <span>Location:</span> ./Utaun/index.html
+                </div>
             </div>
         </div>
 
-        <!-- ダウンロードエリア -->
-        <div class="download-hero">
-            <h2 data-i18n="dl_title">Utaunをダウンロード</h2>
-            <p data-i18n="dl_subtitle">最新バージョンをGitHub Releasesから取得できます。</p>
-            <div class="dl-buttons">
-                <a href="./Utaun/Utaun_1.0.7_Installer.exe" class="dl-btn" target="_blank" data-i18n="btn_installer">インストーラー版をDL</a>
-                <a href="./Utaun/Utaun.ver-1.0.7.zip" class="dl-btn zip-btn" target="_blank" data-i18n="btn_zip">ZIP版をDL</a>
+        <div class="container">
+            <!-- メインビジュアル -->
+            <div class="hero-header">
+                <img src="image.png" alt="Utaun Logo" class="logo-img" onerror="this.style.display='none'">
+                <div class="hero-titles">
+                    <h1>Utaun</h1>
+                    <p data-i18n="hero_desc">完全無生物の複合正弦波モデリング（CSM音声合成）によるCV音源生成ソフトウェア</p>
+                </div>
             </div>
-            <div>
-                <span class="platform-badge" data-i18n="badge_platform">Windows 専用ソフト</span>
-            </div>
-        </div>
 
-        <!-- Utaunとは？ -->
-        <section>
-            <h3 data-i18n="about_title">Utaunとは？</h3>
-            <p data-i18n="about_text">
-                完全無生物の複合正弦波モデリング（CSM音声合成）だけで UTAU 用の CV 音源を生成する Windows ソフトです。<br>
-                ドキュメントへの ZIP 自動生成や、各 UTAU 関連ソフトへの直接エクスポートに対応しています。
-            </p>
-            <div style="background-color: var(--box-bg); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 12px 12px 0; margin-top: 1rem;">
-                <p style="margin: 0; font-size: 0.9rem; color: var(--text-main);" data-i18n="adachi_box">
-                    <strong>💡 <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: var(--accent); text-decoration: underline;">足立レイ</a>と同じ手法（CSM音声合成）について</strong><br>
-                    人間の声の代わりに波の成分（サイン波）を組み合わせて機械や無生物の素材から歌声を作り出す音声合成の仕組みです（「<a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: var(--accent); text-decoration: underline;">足立レイ</a>」のUTAU音源と同じ手法です）。人間の声を録音しなくても、ユニークなUTAU音源を手軽に作ることができます！
+            <!-- ダウンロードエリア -->
+            <div class="download-hero">
+                <h2 data-i18n="dl_title">Utaunをダウンロード</h2>
+                <p data-i18n="dl_subtitle">最新のインストーラー版およびZIP版を直接取得できます。</p>
+                <div class="dl-buttons">
+                    <a href="https://raw.githubusercontent.com/SiveProjectOfficial/Utaun-site/refs/heads/main/Utaun/Utaun_1.0.7_Installer.exe" class="dl-btn" data-i18n="btn_installer" download>インストーラー版をDL</a>
+                    <a href="./Utaun/Utaun ver-1.0.7" class="dl-btn zip-btn" data-i18n="btn_zip" download>ZIP版をDL</a>
+                </div>
+                <div>
+                    <span class="platform-badge" data-i18n="badge_platform">Windows 専用ソフト</span>
+                </div>
+            </div>
+
+            <!-- Utaunとは？ -->
+            <section>
+                <h3 data-i18n="about_title">Utaunとは？</h3>
+                <p data-i18n="about_text">
+                    完全無生物の複合正弦波モデリング（CSM音声合成）だけで UTAU 用の CV 音源を生成する Windows ソフトです。<br>
+                    ドキュメントへの ZIP 自動生成や、各 UTAU 関連ソフトへの直接エクスポートに対応しています。
                 </p>
-            </div>
-        </section>
+                <div style="background-color: #f8fafc; border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem; border: 1px solid var(--border); border-left-width: 4px;">
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-main);" data-i18n="adachi_box">
+                        <strong>💡 <a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: var(--accent); text-decoration: underline;">足立レイ</a>と同じ手法（CSM音声合成）について</strong><br>
+                        人間の声の代わりに波の成分（サイン波）を組み合わせて機械や無生物の素材から歌声を作り出す音声合成の仕組みです（「<a href="https://mechanicalgirl.jp/adachi-rei/" target="_blank" style="color: var(--accent); text-decoration: underline;">足立レイ</a>」のUTAU音源と同じ手法です）。人間の声を録音しなくても、ユニークなUTAU音源を手軽に作ることができます！
+                    </p>
+                </div>
+            </section>
 
-        <!-- 想定用途 -->
-        <section>
-            <h3 data-i18n="usecase_title">想定用途</h3>
-            <div class="usecase-grid">
-                <div class="usecase-card"><p data-i18n="uc_1">無生物の声で UTAU 音源を作りたい時</p></div>
-                <div class="usecase-card"><p data-i18n="uc_2">地声で録音するのが苦手な人向けの音源制作</p></div>
-                <div class="usecase-card"><p data-i18n="uc_3">複合正弦波モデリング（CSM音声合成）の素材研究</p></div>
-                <div class="usecase-card"><p data-i18n="uc_4">自作音源のプロトタイピング</p></div>
-                <div class="usecase-card"><p data-i18n="uc_5">ZIP を解凍して、そのまま人力ボカロ素材として使う用途</p></div>
-                <div class="usecase-card"><p data-i18n="uc_6">音MAD・YTPMV などの素材としての用途</p></div>
-            </div>
-        </section>
+            <!-- 想定用途 -->
+            <section>
+                <h3 data-i18n="usecase_title">想定用途</h3>
+                <div class="usecase-grid">
+                    <div class="usecase-card"><p data-i18n="uc_1">無生物の声で UTAU 音源を作りたい時</p></div>
+                    <div class="usecase-card"><p data-i18n="uc_2">地声で録音するのが苦手な人向けの音源制作</p></div>
+                    <div class="usecase-card"><p data-i18n="uc_3">複合正弦波モデリング（CSM音声合成）の素材研究</p></div>
+                    <div class="usecase-card"><p data-i18n="uc_4">自作音源のプロトタイピング</p></div>
+                    <div class="usecase-card"><p data-i18n="uc_5">ZIP を解凍して、そのまま人力ボカロ素材として使う用途</p></div>
+                    <div class="usecase-card"><p data-i18n="uc_6">音MAD・YTPMV などの素材としての用途</p></div>
+                </div>
+            </section>
 
-        <!-- Utaunの使用方法 -->
-        <section>
-            <h3 data-i18n="manual_title">Utaunの使用方法</h3>
-            <ul class="steps-list">
-                <li>
-                    <span class="step-num">1</span>
-                    <p class="step-text" data-i18n="step_1">GitHub Releasesから、お好みの「インストーラー版」または「ZIP版」をダウンロードします。</p>
-                </li>
-                <li>
-                    <span class="step-num">2</span>
-                    <div>
-                        <p class="step-text" data-i18n="step_2_installer"><strong>【インストーラー版の場合】</strong> インストーラーを起動し、画面の指示に従ってインストールを進めると必要なファイルが自動で適切な場所に配置されます。</p>
-                        <p class="step-text" style="margin-top: 0.5rem;" data-i18n="step_2_zip"><strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と「oto.ini」を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。</p>
-                    </div>
-                </li>
-                <li>
-                    <span class="step-num">3</span>
-                    <p class="step-text" data-i18n="step_3">Utaun を起動し、画面の指示に従って音源を作成します。</p>
-                </li>
-                <li>
-                    <span class="step-num">4</span>
-                    <div>
-                        <p class="step-text" data-i18n="step_4">データの保存先として、ZIP出力のほか、UTAUとOpenUTAUへのフォルダ状態での直接エクスポートが選択できます。</p>
-                        <span class="note" data-i18n="step_4_note">※ 今後のバージョンからは自動アップデート機能がご利用いただけます。</span>
-                    </div>
-                </li>
-            </ul>
-        </section>
+            <!-- Utaunの使用方法 -->
+            <section>
+                <h3 data-i18n="manual_title">Utaunの使用方法</h3>
+                <ul class="steps-list">
+                    <li>
+                        <span class="step-num">1</span>
+                        <p class="step-text" data-i18n="step_1">お好みの「インストーラー版」または「ZIP版」をダウンロードします。</p>
+                    </li>
+                    <li>
+                        <span class="step-num">2</span>
+                        <div>
+                            <p class="step-text" data-i18n="step_2_installer"><strong>【インストーラー版の場合】</strong> インストーラーを起動し、画面の指示に従ってインストールを進めると必要なファイルが自動で適切な場所に配置されます。</p>
+                            <p class="step-text" style="margin-top: 0.5rem;" data-i18n="step_2_zip"><strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と「oto.ini」を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="step-num">3</span>
+                        <p class="step-text" data-i18n="step_3">Utaun を起動し、画面の指示に従って音源を作成します。</p>
+                    </li>
+                    <li>
+                        <span class="step-num">4</span>
+                        <div>
+                            <p class="step-text" data-i18n="step_4">データの保存先として、ZIP出力のほか、UTAUとOpenUTAUへのフォルダ状態での直接エクスポートが選択できます。</p>
+                            <span class="note" data-i18n="step_4_note">※ 今後のバージョンからは自動アップデート機能がご利用いただけます。</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-        <footer>
-            <p>&copy;Sive All Rights Reserved.</p>
-        </footer>
+            <footer>
+                <p>&copy;Sive All Rights Reserved.</p>
+            </footer>
+        </div>
     </div>
 
     <script>
@@ -477,7 +540,7 @@
             ja: {
                 nav_home: "ホーム", nav_gallery: "ギャラリー", nav_changelog: "バージョン履歴",
                 hero_desc: "完全無生物の複合正弦波モデリング（CSM音声合成）によるCV音源生成ソフトウェア",
-                dl_title: "Utaunをダウンロード", dl_subtitle: "最新バージョンをGitHub Releasesから取得できます。",
+                dl_title: "Utaunをダウンロード", dl_subtitle: "最新のインストーラー版およびZIP版を直接取得できます。",
                 btn_installer: "インストーラー版をDL", btn_zip: "ZIP版をDL", badge_platform: "Windows 専用ソフト",
                 about_title: "Utaunとは？",
                 about_text: "完全無生物の複合正弦波モデリング（CSM音声合成）だけで UTAU 用の CV 音源を生成する Windows ソフトです。<br>ドキュメントへの ZIP 自動生成や、各 UTAU 関連ソフトへの直接エクスポートに対応しています。",
@@ -487,7 +550,7 @@
                 uc_3: "複合正弦波モデリング（CSM音声合成）の素材研究", uc_4: "自作音源のプロトタイピング",
                 uc_5: "ZIP を解凍して、そのまま人力ボカロ素材として使う用途", uc_6: "音MAD・YTPMV などの素材としての用途",
                 manual_title: "Utaunの使用方法",
-                step_1: "GitHub Releasesから、お好みの「インストーラー版」または「ZIP版」をダウンロードします。",
+                step_1: "お好みの「インストーラー版」または「ZIP版」をダウンロードします。",
                 step_2_installer: "<strong>【インストーラー版の場合】</strong> インストーラーを起動し、画面の指示に従ってインストールを進めると必要なファイルが自動で適切な場所に配置されます。",
                 step_2_zip: "<strong>【ZIP版の場合】</strong> 展開したフォルダ内にある「子音部・濁音部フォルダ」と「oto.ini」を、「ドキュメント」フォルダ（OneDrive内のドキュメントでもOK）の中に直接置いてください。",
                 step_3: "Utaun を起動し、画面の指示に従って音源を作成します。",
@@ -497,7 +560,7 @@
             en_gb: {
                 nav_home: "Home", nav_gallery: "Gallery", nav_changelog: "Changelog",
                 hero_desc: "CV voicebank generation software using purely inanimate complex sinusoidal modeling (CSM voice synthesis)",
-                dl_title: "Download Utaun", dl_subtitle: "Get the latest version from GitHub Releases.",
+                dl_title: "Download Utaun", dl_subtitle: "Get the latest installer and ZIP versions directly.",
                 btn_installer: "Download Installer", btn_zip: "Download ZIP", badge_platform: "Windows Only",
                 about_title: "What is Utaun?",
                 about_text: "A Windows software that generates CV voicebanks for UTAU using only inanimate complex sinusoidal modeling (CSM voice synthesis).<br>Supports automatic ZIP generation to Documents and direct export to various UTAU-compatible software.",
@@ -507,7 +570,7 @@
                 uc_3: "Material research on complex sinusoidal modeling (CSM voice synthesis)", uc_4: "Prototyping self-made voicebanks",
                 uc_5: "Extracting ZIP files to use directly as human-made Vocaloiding materials", uc_6: "Using as material for Otomad and YTPMV",
                 manual_title: "How to Use Utaun",
-                step_1: "Download your preferred 'Installer version' or 'ZIP version' from GitHub Releases.",
+                step_1: "Download your preferred 'Installer version' or 'ZIP version'.",
                 step_2_installer: "<strong>[For Installer Version]</strong> Launch the installer and follow the on-screen instructions to automatically place the required files in the correct location.",
                 step_2_zip: "<strong>[For ZIP Version]</strong> Place the '子音部・濁音部フォルダ' and 'oto.ini' located inside the extracted folder directly into your 'Documents' folder (OneDrive Documents are also supported).",
                 step_3: "Launch Utaun and follow the on-screen instructions to create your voicebank.",
@@ -517,7 +580,7 @@
             en_us: {
                 nav_home: "Home", nav_gallery: "Gallery", nav_changelog: "Changelog",
                 hero_desc: "CV voicebank generation software using purely inanimate complex sinusoidal modeling (CSM voice synthesis)",
-                dl_title: "Download Utaun", dl_subtitle: "Get the latest version from GitHub Releases.",
+                dl_title: "Download Utaun", dl_subtitle: "Get the latest installer and ZIP versions directly.",
                 btn_installer: "Download Installer", btn_zip: "Download ZIP", badge_platform: "Windows Only",
                 about_title: "What is Utaun?",
                 about_text: "A Windows software that generates CV voicebanks for UTAU using only inanimate complex sinusoidal modeling (CSM voice synthesis).<br>Supports automatic ZIP generation to Documents and direct export to various UTAU-compatible software.",
@@ -527,7 +590,7 @@
                 uc_3: "Material research on complex sinusoidal modeling (CSM voice synthesis)", uc_4: "Prototyping self-made voicebanks",
                 uc_5: "Extracting ZIP files to use directly as human-made Vocaloiding materials", uc_6: "Using as material for Otomad and YTPMV",
                 manual_title: "How to Use Utaun",
-                step_1: "Download your preferred 'Installer version' or 'ZIP version' from GitHub Releases.",
+                step_1: "Download your preferred 'Installer version' or 'ZIP version'.",
                 step_2_installer: "<strong>[For Installer Version]</strong> Launch the installer and follow the on-screen instructions to automatically place the required files in the correct location.",
                 step_2_zip: "<strong>[For ZIP Version]</strong> Place the '子音部・濁音部フォルダ' and 'oto.ini' located inside the extracted folder directly into your 'Documents' folder (OneDrive Documents are also supported).",
                 step_3: "Launch Utaun and follow the on-screen instructions to create your voicebank.",
@@ -537,7 +600,7 @@
             ko: {
                 nav_home: "홈", nav_gallery: "갤러리", nav_changelog: "버전 기록",
                 hero_desc: "완전 무생물의 복합 정현파 모델링(CSM 음성 합성)을 이용한 CV 음원 생성 소프트웨어",
-                dl_title: "Utaun 다운로드", dl_subtitle: "GitHub Releases에서 최신 버전을 다운로드할 수 있습니다.",
+                dl_title: "Utaun 다운로드", dl_subtitle: "최신 설치 프로그램 및 ZIP 버전을 직접 다운로드할 수 있습니다.",
                 btn_installer: "설치 프로그램 다운로드", btn_zip: "ZIP 버전 다운로드", badge_platform: "Windows 전용 소프트",
                 about_title: "Utaun이란?",
                 about_text: "완전 무생물의 복합 정현파 모델링(CSM 음성 합성)만으로 UTAU용 CV 음원을 생성하는 Windows 소프트웨어입니다.<br>문서 폴더로의 ZIP 자동 생성 및 각 UTAU 관련 소프트웨어로의 직접 내보내기를 지원합니다.",
@@ -547,7 +610,7 @@
                 uc_3: "복합 정현파 모델링(CSM 음성 합성) 소재 연구", uc_4: "자작 음원 프로토타이핑",
                 uc_5: "ZIP을 해제하여 인력 보컬oid 소재로 사용하는 용도", uc_6: "음MAD, YTPMV 등의 소재로 활용",
                 manual_title: "Utaun 사용 방법",
-                step_1: "GitHub Releases에서 원하는 '설치 프로그램 버전' 또는 'ZIP 버전'을 다운로드합니다.",
+                step_1: "원하는 '설치 프로그램 버전' 또는 'ZIP 버전'을 다운로드합니다.",
                 step_2_installer: "<strong>[설치 프로그램 버전의 경우]</strong> 설치 프로그램을 실행하고 화면 지침에 따라 진행하면 필요한 파일이 올바른 위치에 자동으로 배치됩니다.",
                 step_2_zip: "<strong>[ZIP 버전의 경우]</strong> 압축 해제된 폴더 내의 '子音部・濁音部フォルダ'와 'oto.ini'를 '문서' 폴더(OneDrive 문서도 가능)에 직접 넣어주세요.",
                 step_3: "Utaun을 실행하고 화면 안내에 따라 음원을 생성합니다.",
@@ -557,7 +620,7 @@
             zh_cn: {
                 nav_home: "首页", nav_gallery: "画廊", nav_changelog: "版本历史",
                 hero_desc: "使用纯无生命复合正弦波建模（CSM语音合成）生成CV音源的软件",
-                dl_title: "下载 Utaun", dl_subtitle: "可从 GitHub Releases 获取最新版本。",
+                dl_title: "下载 Utaun", dl_subtitle: "可直接获取最新的安装程序版和 ZIP 版。",
                 btn_installer: "下载安装程序版", btn_zip: "下载 ZIP 版", badge_platform: "Windows 专用软件",
                 about_title: "什么是 Utaun？",
                 about_text: "一款仅通过无生命复合正弦波建模（CSM语音合成）为 UTAU 生成 CV 音源的 Windows 软件。<br>支持向文档自动生成 ZIP 以及直接导出到各 UTAU 相关软件。",
@@ -567,7 +630,7 @@
                 uc_3: "复合正弦波建模（CSM语音合成）的素材研究", uc_4: "自制音源的原型设计",
                 uc_5: "解压 ZIP 后直接作为人力 Vocaloid 素材使用", uc_6: "用作 音MAD、YTPMV 等的素材",
                 manual_title: "Utaun 使用方法",
-                step_1: "从 GitHub Releases 下载您喜欢的“安装程序版”或“ZIP版”。",
+                step_1: "下载您喜欢的“安装程序版”或“ZIP版”。",
                 step_2_installer: "<strong>【安装程序版】</strong> 启动安装程序并按照屏幕提示进行操作，所需文件将自动放置在正确的位置。",
                 step_2_zip: "<strong>【ZIP版】</strong> 请将解压后文件夹中的 '子音部・濁音部フォルダ' 和 'oto.ini' 直接放入“文档”文件夹（OneDrive 中的文档也可以）。",
                 step_3: "启动 Utaun，并按照屏幕指示创建音源。",
@@ -577,7 +640,7 @@
             zh_tw: {
                 nav_home: "首頁", nav_gallery: "畫廊", nav_changelog: "版本歷史",
                 hero_desc: "透過純無生命複合正弦波建模（CSM語音合成）產生 CV 音源的軟體",
-                dl_title: "下載 Utaun", dl_subtitle: "可從 GitHub Releases 取得最新版本。",
+                dl_title: "下載 Utaun", dl_subtitle: "可直接取得最新的安裝程式版與 ZIP 版。",
                 btn_installer: "下載安裝程式版", btn_zip: "下載 ZIP 版", badge_platform: "Windows 專用軟體",
                 about_title: "什麼是 Utaun？",
                 about_text: "一款僅透過無生命複合正弦波建模（CSM語音合成）為 UTAU 生成 CV 音源的 Windows 軟體。<br>支援向文件自動產生 ZIP 以及直接匯出至各 UTAU 相關軟體。",
@@ -587,7 +650,7 @@
                 uc_3: "複合正弦波建模（CSM語音合成）的素材研究", uc_4: "自製音源的原型設計",
                 uc_5: "解壓縮 ZIP 後直接作為人力 Vocaloid 素材使用", uc_6: "用作 音MAD、YTPMV 等的素材",
                 manual_title: "Utaun 使用方法",
-                step_1: "從 GitHub Releases 下載您喜歡的「安裝程式版」或「ZIP版」。",
+                step_1: "下載您喜歡的「安裝程式版」或「ZIP版」。",
                 step_2_installer: "<strong>【安裝程式版】</strong> 啟動安裝程式並依照畫面指示進行操作，所需檔案將自動放置在正確的位置。",
                 step_2_zip: "<strong>【ZIP版】</strong> 請將解壓縮後資料夾中的 '子音部・濁音部フォルダ' 與 'oto.ini' 直接放入「文件」資料夾（OneDrive 中的文件也可以）。",
                 step_3: "啟動 Utaun，並依照畫面指示建立音源。",
@@ -597,7 +660,7 @@
             zh_hk: {
                 nav_home: "首頁", nav_gallery: "畫廊", nav_changelog: "版本歷史",
                 hero_desc: "透過純無生命複合正弦波建模（CSM語音合成）生成 CV 音源嘅軟體",
-                dl_title: "下載 Utaun", dl_subtitle: "可以喺 GitHub Releases 取得最新版本。",
+                dl_title: "下載 Utaun", dl_subtitle: "可以直接取得最新嘅安裝程式版同 ZIP 版。",
                 btn_installer: "下載安裝程式版", btn_zip: "下載 ZIP 版", badge_platform: "Windows 專用軟體",
                 about_title: "咩係 Utaun？",
                 about_text: "一款只透過無生命複合正弦波建模（CSM語音合成）為 UTAU 生成 CV 音源嘅 Windows 軟體。<br>支援向文件自動生成 ZIP 同埋直接匯出去各 UTAU 相關軟體。",
@@ -607,17 +670,17 @@
                 uc_3: "複合正弦波建模（CSM語音合成）嘅素材研究", uc_4: "自製音源嘅原型設計",
                 uc_5: "解壓 ZIP 後直接作為人力 Vocaloid 素材使用", uc_6: "用作 音MAD、YTPMV 等嘅素材",
                 manual_title: "Utaun 使用方法",
-                step_1: "喺 GitHub Releases 下載你鍾意嘅「安裝程式版」或者「ZIP版」。",
+                step_1: "下載你鍾意嘅「安裝程式版」或者「ZIP版」。",
                 step_2_installer: "<strong>【安裝程式版】</strong> 啟動安裝程式並按照畫面指示進行操作，所需檔案會自動擺喺正確嘅位置。",
                 step_2_zip: "<strong>【ZIP版】</strong> 請將解壓後資料夾入面嘅 '子音部・濁音部フォルダ' 同 'oto.ini' 直接放喺「文件」資料夾（OneDrive 入面嘅文件都得）。",
                 step_3: "啟動 Utaun，並按照畫面指示建立音源。",
-                step_4: "儲存路徑方面，除咗 ZIP 輸出外，仲可以選擇以資料夾狀態直接匯出去 UTAU 同 OpenUTAU。",
+                step_4: "儲存路徑方面，除咗 ZIP 輸出外，仲可以選擇以資料夾狀態直接匯出去 UTAU 和 OpenUTAU。",
                 step_4_note: "※ 未來版本將會提供自動更新功能。"
             },
             ru: {
                 nav_home: "Главная", nav_gallery: "Галерея", nav_changelog: "История версий",
                 hero_desc: "Программа для генерации CV-голосовых баз с использованием неодушевленного комплексного синусоидального моделирования (CSM)",
-                dl_title: "Скачать Utaun", dl_subtitle: "Получите последнюю версию на GitHub Releases.",
+                dl_title: "Скачать Utaun", dl_subtitle: "Получите последние версии установщика и ZIP напрямую.",
                 btn_installer: "Скачать установщик", btn_zip: "Скачать ZIP", badge_platform: "Только для Windows",
                 about_title: "Что такое Utaun?",
                 about_text: "Программа для Windows, создающая CV-голосовые базы для UTAU исключительно на основе комплексного синусоидального моделирования (CSM).<br>Поддерживает автоматическое создание ZIP в Документах и прямой экспорт в софт для UTAU.",
@@ -627,7 +690,7 @@
                 uc_3: "Исследование материалов по комплексному синусоидальному моделированию (CSM)", uc_4: "Прототипирование собственных голосовых баз",
                 uc_5: "Распаковка ZIP для использования в качестве человеческого вокалоидного материала", uc_6: "Использование в качестве материала для Otomad и YTPMV",
                 manual_title: "Как использовать Utaun",
-                step_1: "Скачайте желаемую версию («Установщик» или «ZIP») с GitHub Releases.",
+                step_1: "Скачайте желаемую «версию установщика» или «версию ZIP».",
                 step_2_installer: "<strong>[Для установщика]</strong> Запустите установщик и следуйте инструкциям на экране, чтобы файлы автоматически поместились в нужную папку.",
                 step_2_zip: "<strong>[Для ZIP]</strong> Поместите '子音部・濁音部フォルダ' и 'oto.ini' из распакованной папки прямо в папку «Документы» (поддерживаются и документы OneDrive).",
                 step_3: "Запустите Utaun и следуйте инструкциям на экране для создания базы.",
@@ -637,7 +700,7 @@
             pt: {
                 nav_home: "Início", nav_gallery: "Galeria", nav_changelog: "Histórico",
                 hero_desc: "Software de geração de bancos de voz CV usando modelagem senoidal complexa inanimada (síntese de voz CSM)",
-                dl_title: "Baixar Utaun", dl_subtitle: "Obtenha a versão mais recente no GitHub Releases.",
+                dl_title: "Baixar Utaun", dl_subtitle: "Obtenha as versões de instalador e ZIP mais recentes diretamente.",
                 btn_installer: "Baixar Instalador", btn_zip: "Baixar ZIP", badge_platform: "Apenas para Windows",
                 about_title: "O que é o Utaun?",
                 about_text: "Um software para Windows que gera bancos de voz CV para UTAU usando apenas modelagem senoidal complexa inanimada (síntese de voz CSM).<br>Suporta a criação automática de ZIP em Documentos e exportação direta para softwares compatíveis com UTAU.",
@@ -647,7 +710,7 @@
                 uc_3: "Pesquisa de materiais sobre modelagem senoidal complexa (síntese CSM)", uc_4: "Prototipagem de bancos de voz próprios",
                 uc_5: "Extrair arquivos ZIP para usar diretamente como material de Vocaloiding humano", uc_6: "Uso como material para Otomad e YTPMV",
                 manual_title: "Como Usar o Utaun",
-                step_1: "Baixe a 'Versão do Instalador' ou a 'Versão ZIP' de sua preferência no GitHub Releases.",
+                step_1: "Baixe a 'Versão do Instalador' ou a 'Versão ZIP' de sua preferência.",
                 step_2_installer: "<strong>[Para a Versão do Instalador]</strong> Inicie o instalador e siga as instruções na tela para colocar automaticamente os arquivos necessários no local correto.",
                 step_2_zip: "<strong>[Para a Versão ZIP]</strong> Coloque a '子音部・濁音部フォルダ' e o 'oto.ini' localizados dentro da pasta extraída diretamente na sua pasta 'Documentos' (Documentos do OneDrive também são aceitos).",
                 step_3: "Inicie o Utaun e siga as instruções na tela para criar seu banco de voz.",
@@ -657,7 +720,7 @@
             es: {
                 nav_home: "Inicio", nav_gallery: "Galería", nav_changelog: "Historial",
                 hero_desc: "Software de generación de bancos de voz CV mediante modelado sinusoidal complejo inanimado (síntesis de voz CSM)",
-                dl_title: "Descargar Utaun", dl_subtitle: "Obtén la última versión desde GitHub Releases.",
+                dl_title: "Descargar Utaun", dl_subtitle: "Obtén las versiones de instalador y ZIP más recientes directamente.",
                 btn_installer: "Descargar Instalador", btn_zip: "Descargar ZIP", badge_platform: "Solo para Windows",
                 about_title: "¿Qué es Utaun?",
                 about_text: "Un software para Windows que genera bancos de voz CV para UTAU usando únicamente modelado sinusoidal complejo inanimado (síntesis de voz CSM).<br>Permite la generación automática de ZIP en Documentos y la exportación directa a programas compatibles con UTAU.",
@@ -667,7 +730,7 @@
                 uc_3: "Investigación de materiales sobre modelado sinusoidal complejo (síntesis CSM)", uc_4: "Prototipado de bancos de voz propios",
                 uc_5: "Extraer archivos ZIP para usarlos directamente como material de Vocaloiding humano", uc_6: "Uso como material para Otomad y YTPMV",
                 manual_title: "Cómo Usar Utaun",
-                step_1: "Descarga la 'Versión Instalador' o la 'Versión ZIP' de tu preferencia desde GitHub Releases.",
+                step_1: "Descarga la 'Versión Instalador' o la 'Versión ZIP' de tu preferencia.",
                 step_2_installer: "<strong>[Para la versión de instalación]</strong> Inicia el instalador y sigue las instrucciones en pantalla para colocar automáticamente los archivos necesarios en la ubicación correcta.",
                 step_2_zip: "<strong>[Para la versión ZIP]</strong> Coloca la '子音部・濁音部フォルダ' y el 'oto.ini' ubicados dentro de la carpeta extraída directamente en tu carpeta 'Documentos' (también se admiten documentos de OneDrive).",
                 step_3: "Inicia Utaun y sigue las instrucciones en pantalla para crear tu banco de voz.",
@@ -677,7 +740,7 @@
             fr: {
                 nav_home: "Accueil", nav_gallery: "Galerie", nav_changelog: "Historique",
                 hero_desc: "Logiciel de génération de banques vocales CV utilisant la modélisation sinusoïdale complexe inanimée (synthèse vocale CSM)",
-                dl_title: "Télécharger Utaun", dl_subtitle: "Obtenez la dernière version sur GitHub Releases.",
+                dl_title: "Télécharger Utaun", dl_subtitle: "Obtenez directement les versions installateur et ZIP les plus récentes.",
                 btn_installer: "Télécharger l'installateur", btn_zip: "Télécharger ZIP", badge_platform: "Windows Uniquement",
                 about_title: "Qu'est-ce que Utaun ?",
                 about_text: "Un logiciel Windows qui génère des banques vocales CV pour UTAU en utilisant uniquement la modélisation sinusoïdale complexe inanimée (synthèse vocale CSM).<br>Prend en charge la création automatique de ZIP dans Documents et l'exportation directe vers les logiciels compatibles UTAU.",
@@ -687,7 +750,7 @@
                 uc_3: "Recherche de matériaux sur la modélisation sinusoïdale complexe (synthèse CSM)", uc_4: "Prototypage de banques vocales personnelles",
                 uc_5: "Extraire les fichiers ZIP pour les utiliser directement comme matériel de Vocaloiding humain", uc_6: "Utilisation comme matériel pour Otomad et YTPMV",
                 manual_title: "Comment Utiliser Utaun",
-                step_1: "Téléchargez la « Version installateur » ou la « Version ZIP » de votre choix depuis GitHub Releases.",
+                step_1: "Téléchargez la « Version installateur » ou la « Version ZIP » de votre choix.",
                 step_2_installer: "<strong>[Pour la version installateur]</strong> Lancez l'installateur et suivez les instructions à l'écran pour placer automatiquement les fichiers requis au bon endroit.",
                 step_2_zip: "<strong>[Pour la version ZIP]</strong> Placez la '子音部・濁音部フォルダ' et le 'oto.ini' situés dans le dossier extrait directement dans votre dossier « Documents » (les documents OneDrive sont également pris en charge).",
                 step_3: "Lancez Utaun et suivez les instructions à l'écran pour créer votre banque vocale.",
@@ -697,7 +760,7 @@
             it: {
                 nav_home: "Home", nav_gallery: "Galleria", nav_changelog: "Cronologia",
                 hero_desc: "Software di generazione di banchi vocali CV tramite modellazione sinusoidale complessa inanimata (sintesi vocale CSM)",
-                dl_title: "Scarica Utaun", dl_subtitle: "Scarica l'ultima versione da GitHub Releases.",
+                dl_title: "Scarica Utaun", dl_subtitle: "Scarica direttamente le versioni installer e ZIP più recenti.",
                 btn_installer: "Scarica Installatore", btn_zip: "Scarica ZIP", badge_platform: "Solo Windows",
                 about_title: "Cos'è Utaun?",
                 about_text: "Un software per Windows che genera banchi vocali CV per UTAU utilizzando esclusivamente la modellazione sinusoidale complessa inanimata (sintesi vocale CSM).<br>Supporta la generazione automatica di file ZIP in Documenti e l'esportazione diretta verso i software compatibili con UTAU.",
@@ -707,7 +770,7 @@
                 uc_3: "Ricerca di materiali sulla modellazione sinusoidale complessa (sintesi CSM)", uc_4: "Prototipazione di banchi vocali personali",
                 uc_5: "Estrarre i file ZIP da usare direttamente come materiale per Vocaloid umano", uc_6: "Utilizzo come materiale per Otomad e YTPMV",
                 manual_title: "Come Usare Utaun",
-                step_1: "Scarica la 'Versione Installatore' o la 'Versione ZIP' che preferisci da GitHub Releases.",
+                step_1: "Scarica la 'Versione Installatore' o la 'Versione ZIP' che preferisci.",
                 step_2_installer: "<strong>[Per la versione installatore]</strong> Avvia l'installatore e segui le istruzioni a schermo per posizionare automaticamente i file necessari nella cartella corretta.",
                 step_2_zip: "<strong>[Per la versione ZIP]</strong> Posiziona la '子音部・濁音部フォルダ' e il file 'oto.ini' presenti nella cartella estratta direttamente nella tua cartella 'Documenti' (sono supportati anche i documenti di OneDrive).",
                 step_3: "Avvia Utaun e segui le istruzioni a schermo per creare il tuo banco vocale.",
@@ -717,7 +780,7 @@
             de: {
                 nav_home: "Startseite", nav_gallery: "Galerie", nav_changelog: "Änderungsprotokoll",
                 hero_desc: "CV-Voicebank-Generierungssoftware unter Verwendung rein unbelebter komplexer Sinusmodellierung (CSM-Sprachsynthese)",
-                dl_title: "Utaun herunterladen", dl_subtitle: "Holen Sie sich die neueste Version von GitHub Releases.",
+                dl_title: "Utaun herunterladen", dl_subtitle: "Laden Sie die neuesten Installer- und ZIP-Versionen direkt herunter.",
                 btn_installer: "Installer herunterladen", btn_zip: "ZIP herunterladen", badge_platform: "Nur für Windows",
                 about_title: "Was ist Utaun?",
                 about_text: "Eine Windows-Software, die CV-Voicebanks für UTAU ausschließlich durch unbelebte komplexe Sinusmodellierung (CSM-Sprachsynthese) generiert.<br>Unterstützt die automatische ZIP-Generierung im Dokumente-Ordner und den direkten Export in UTAU-kompatible Software.",
@@ -727,7 +790,7 @@
                 uc_3: "Materialforschung zur komplexen Sinusmodellierung (CSM-Sprachsynthese)", uc_4: "Prototyping selbstgemachter Voicebanks",
                 uc_5: "Extrahieren von ZIP-Dateien zur direkten Verwendung als menschliches Vocaloid-Material", uc_6: "Verwendung als Material für Otomad und YTPMV",
                 manual_title: "Wie man Utaun benutzt",
-                step_1: "Laden Sie Ihre bevorzugte 'Installer-Version' oder 'ZIP-Version' von GitHub Releases herunter.",
+                step_1: "Laden Sie Ihre bevorzugte 'Installer-Version' oder 'ZIP-Version' herunter.",
                 step_2_installer: "<strong>[Für die Installer-Version]</strong> Starten Sie den Installer und folgen Sie den Anweisungen auf dem Bildschirm, um die erforderlichen Dateien automatisch am richtigen Ort zu platzieren.",
                 step_2_zip: "<strong>[Für die ZIP-Version]</strong> Legen Sie die '子音部・濁音部フォルダ' und die 'oto.ini' aus dem entpackten Ordner direkt in Ihren 'Dokumente'-Ordner (OneDrive-Dokumente werden ebenfalls unterstützt).",
                 step_3: "Starten Sie Utaun und folgen Sie den Anweisungen auf dem Bildschirm, um Ihre Voicebank zu erstellen.",
@@ -737,7 +800,7 @@
             pl: {
                 nav_home: "Strona główna", nav_gallery: "Galeria", nav_changelog: "Historia wersji",
                 hero_desc: "Oprogramowanie do generowania banków głosowych CV przy użyciu złożonego modelowania sinusoidalnego (synteza mowy CSM)",
-                dl_title: "Pobierz Utaun", dl_subtitle: "Pobierz najnowszą wersję z GitHub Releases.",
+                dl_title: "Pobierz Utaun", dl_subtitle: "Pobierz bezpośrednio najnowsze wersje instalatora i ZIP.",
                 btn_installer: "Pobierz instalator", btn_zip: "Pobierz ZIP", badge_platform: "Tylko dla systemu Windows",
                 about_title: "Czym jest Utaun?",
                 about_text: "Oprogramowanie dla systemu Windows generujące banki głosowe CV dla UTAU przy użyciu wyłącznie martwego modelowania sinusoidalnego (synteza mowy CSM).<br>Obsługuje automatyczne tworzenie pliku ZIP w Dokumentach oraz bezpośredni eksport do oprogramowania zgodnego z UTAU.",
@@ -747,7 +810,7 @@
                 uc_3: "Badania nad materiałami z wykorzystaniem złożonego modelowania sinusoidalnego (synteza CSM)", uc_4: "Prototypowanie własnych banków głosowych",
                 uc_5: "Rozpakowanie pliku ZIP do bezpośredniego użycia jako materiał do ludzkiego Vocaloidingu", uc_6: "Użycie jako materiał do Otomad i YTPMV",
                 manual_title: "Jak korzystać z Utaun",
-                step_1: "Pobierz wybraną „Wersję instalatora” lub „Wersję ZIP” z GitHub Releases.",
+                step_1: "Pobierz wybraną „Wersję instalatora” lub „Wersję ZIP”.",
                 step_2_installer: "<strong>[Dla wersji instalatora]</strong> Uruchom instalator i postępuj zgodnie z instrukcjami ekranowymi, aby wymagane pliki zostały automatycznie umieszczone we właściwym miejscu.",
                 step_2_zip: "<strong>[Dla wersji ZIP]</strong> Umieść '子音部・濁音部フォルダ' oraz 'oto.ini' znajdujące się w rozpakowanym folderze bezpośrednio w folderze „Dokumenty” (obsługiwane są również Dokumenty OneDrive).",
                 step_3: "Uruchom Utaun i postępuj zgodnie z instrukcjami ekranowymi, aby utworzyć bank głosowy.",
@@ -757,7 +820,7 @@
             tr: {
                 nav_home: "Ana Sayfa", nav_gallery: "Galeri", nav_changelog: "Sürüm Geçmişi",
                 hero_desc: "Tamamen cansız karmaşık sinüsoidal modelleme (CSM ses sentezi) kullanarak CV ses bankası oluşturan yazılım",
-                dl_title: "Utaun'u İndir", dl_subtitle: "En son sürümü GitHub Releases üzerinden edinebilirsiniz.",
+                dl_title: "Utaun'u İndir", dl_subtitle: "En son yükleyici ve ZIP sürümlerini doğrudan edinebilirsiniz.",
                 btn_installer: "Yükleyiciyi İndir", btn_zip: "ZIP'i İndir", badge_platform: "Yalnızca Windows",
                 about_title: "Utaun Nedir?",
                 about_text: "Yalnızca cansız karmaşık sinüsoidal modelleme (CSM ses sentezi) ile UTAU için CV ses bankaları oluşturan bir Windows yazılımıdır.<br>Belgelere otomatik ZIP oluşturmayı ve çeşitli UTAU uyumlu yazılımlara doğrudan dışa aktarmayı destekler.",
@@ -767,7 +830,7 @@
                 uc_3: "Karmaşık sinüsoidal modelleme (CSM ses sentezi) malzeme araştırması", uc_4: "Kendi yaptığınız ses bankalarının prototipini üretme",
                 uc_5: "İnsan yapımı Vocaloid materyali olarak doğrudan kullanmak için ZIP'i açma", uc_6: "Otomad ve YTPMV gibi içerikler için materyal olarak kullanma",
                 manual_title: "Utaun Nasıl Kullanılır?",
-                step_1: "GitHub Releases'den tercih ettiğiniz 'Yükleyici sürümü' veya 'ZIP sürümü'nü indirin.",
+                step_1: "Tercih ettiğiniz 'Yükleyici sürümü' veya 'ZIP sürümü'nü indirin.",
                 step_2_installer: "<strong>[Yükleyici Sürümü İçin]</strong> Yükleyiciyi başlatın ve gerekli dosyaların doğru konuma otomatik olarak yerleştirilmesi için ekrandaki talimatları izleyin.",
                 step_2_zip: "<strong>[ZIP Sürümü İçin]</strong> Ayıklanan klasörün içindeki '子音部・濁音部フォルダ' ve 'oto.ini' dosyalarını doğrudan 'Belgeler' klasörünün içine yerleştirin (OneDrive içindeki Belgeler de kullanılabilir).",
                 step_3: "Utaun'u başlatın ve ses bankanızı oluşturmak için ekrandaki yönergeleri takip edin.",
@@ -777,7 +840,7 @@
             vi: {
                 nav_home: "Trang chủ", nav_gallery: "Thư viện", nav_changelog: "Lịch sử phiên bản",
                 hero_desc: "Phần mềm tạo ngân hàng giọng hát CV sử dụng mô hình hình sin phức tạp vô tri giác (tổng hợp giọng nói CSM)",
-                dl_title: "Tải xuống Utaun", dl_subtitle: "Lấy phiên bản mới nhất từ GitHub Releases.",
+                dl_title: "Tải xuống Utaun", dl_subtitle: "Tải trực tiếp bản cài đặt và bản ZIP mới nhất.",
                 btn_installer: "Tải bản Cài đặt", btn_zip: "Tải bản ZIP", badge_platform: "Chỉ dành cho Windows",
                 about_title: "Utaun là gì?",
                 about_text: "Một phần mềm Windows tạo ra các ngân hàng giọng hát CV cho UTAU chỉ bằng mô hình hình sin phức tạp vô tri giác (tổng hợp giọng nói CSM).<br>Hỗ trợ tự động tạo ZIP vào mục Tài liệu và xuất trực tiếp sang các phần mềm tương thích với UTAU.",
@@ -787,7 +850,7 @@
                 uc_3: "Nghiên cứu tài liệu về mô hình hình sin phức tạp (tổng hợp giọng nói CSM)", uc_4: "Làm mẫu (prototyping) cho ngân hàng giọng tự làm",
                 uc_5: "Giải nén ZIP để sử dụng trực tiếp làm nguyên liệu Vocaloid do con người làm", uc_6: "Sử dụng làm nguyên liệu cho Otomad và YTPMV",
                 manual_title: "Cách sử dụng Utaun",
-                step_1: "Tải xuống 'Bản cài đặt' hoặc 'Bản ZIP' ưa thích của bạn từ GitHub Releases.",
+                step_1: "Tải xuống 'Bản cài đặt' hoặc 'Bản ZIP' mà bạn muốn.",
                 step_2_installer: "<strong>[Đối với bản cài đặt]</strong> Khởi chạy trình cài đặt và làm theo hướng dẫn trên màn hình để các tệp cần thiết tự động được đặt đúng vị trí.",
                 step_2_zip: "<strong>[Đối với bản ZIP]</strong> Vui lòng đặt '子音部・濁音部フォルダ' và 'oto.ini' nằm bên trong thư mục đã giải nén trực tiếp vào thư mục 'Documents' (Tài liệu) của bạn (Tài liệu trong OneDrive cũng được chấp nhận).",
                 step_3: "Khởi động Utaun và làm theo hướng dẫn trên màn hình để tạo ngân hàng giọng hát.",
@@ -797,7 +860,7 @@
             fil: {
                 nav_home: "Tahanan", nav_gallery: "Gallery", nav_changelog: "Kasaysayan ng Bersyon",
                 hero_desc: "Software sa pagbuo ng CV voicebank gamit ang walang buhay na complex sinusoidal modeling (CSM voice synthesis)",
-                dl_title: "I-download ang Utaun", dl_subtitle: "Kunin ang pinakabagong bersyon mula sa GitHub Releases.",
+                dl_title: "I-download ang Utaun", dl_subtitle: "Direktang kunin ang pinakabagong installer at ZIP versions.",
                 btn_installer: "I-download ang Installer", btn_zip: "I-download ang ZIP", badge_platform: "Windows Lamang",
                 about_title: "Ano ang Utaun?",
                 about_text: "Isang software para sa Windows na lumilikha ng mga CV voicebank para sa UTAU gamit lamang ang walang buhay na complex sinusoidal modeling (CSM voice synthesis).<br>Sinusuportahan ang awtomatikong paggawa ng ZIP sa Documents at direktang pag-export sa iba't ibang software na compatible sa UTAU.",
@@ -807,7 +870,7 @@
                 uc_3: "Pananaliksik sa materyal ng complex sinusoidal modeling (CSM voice synthesis)", uc_4: "Prototyping ng mga sariling gawang voicebank",
                 uc_5: "Pag-extract ng ZIP file para direktang magamit bilang materyal sa gawang-taong Vocaloiding", uc_6: "Paggamit bilang materyal para sa Otomad at YTPMV",
                 manual_title: "Paano Gamitin ang Utaun",
-                step_1: "I-download ang iyong gustong 'Installer version' o 'ZIP version' mula sa GitHub Releases.",
+                step_1: "I-download ang iyong gustong 'Installer version' o 'ZIP version'.",
                 step_2_installer: "<strong>[Para sa Installer Version]</strong> Ilunsad ang installer at sundin ang mga tagubilin sa screen upang awtomatikong mailagay ang mga kinakailangang file sa tamang lokasyon.",
                 step_2_zip: "<strong>[Para sa ZIP Version]</strong> Ilagay ang '子音部・濁音部フォルダ' at 'oto.ini' na nasa loob ng extracted folder nang direktang sa iyong 'Documents' folder (suportado rin ang OneDrive Documents).",
                 step_3: "Ilunsad ang Utaun at sundin ang mga tagubilin sa screen upang lumikha ng voicebank.",
@@ -817,17 +880,17 @@
             th: {
                 nav_home: "หน้าแรก", nav_gallery: "แกลเลอรี", nav_changelog: "ประวัติเวอร์ชัน",
                 hero_desc: "ซอฟต์แวร์สร้างเสียงร้อง CV โดยใช้การจำลองคลื่นไซน์คอมเพล็กซ์แบบไร้ชีวิต (การสังเคราะห์เสียง CSM)",
-                dl_title: "ดาวน์โหลด Utaun", dl_subtitle: "รับเวอร์ชันล่าสุดได้จาก GitHub Releases",
+                dl_title: "ดาวน์โหลด Utaun", dl_subtitle: "รับรุ่นตัวติดตั้งและรุ่น ZIP ล่าสุดได้โดยตรง",
                 btn_installer: "ดาวน์โหลดตัวติดตั้ง", btn_zip: "ดาวน์โหลดไฟล์ ZIP", badge_platform: "สำหรับ Windows เท่านั้น",
                 about_title: "Utaun คืออะไร?",
                 about_text: "ซอฟต์แวร์สำหรับ Windows ที่สร้างเสียงร้อง CV สำหรับ UTAU โดยใช้การจำลองคลื่นไซน์คอมเพล็กซ์แบบไร้ชีวิต (การสังเคราะห์เสียง CSM) เท่านั้น<br>รองรับการสร้างไฟล์ ZIP อัตโนมัติในโฟลเดอร์เอกสารและการส่งออกโดยตรงไปยังซอฟต์แวร์ที่รองรับ UTAU",
                 adachi_box: adachiHtml + ' (การสังเคราะห์เสียง CSM)</strong><br>เป็นกลไกการสังเคราะห์เสียงที่ผสมผสานองค์ประกอบของคลื่น (คลื่นไซน์) แทนเสียงของมนุษย์ เพื่อสร้างเสียงร้องจากวัสดุเครื่องจักรหรือวัตถุไร้ชีวิต (วิธีเดียวกับเสียงร้อง UTAU ของ ' + adachiHtml2 + ') คุณสามารถสร้างเสียงร้อง UTAU ที่เป็นเอกลักษณ์ได้อย่างง่ายดายโดยไม่ต้องบันทึกเสียงมนุษย์!',
                 usecase_title: "การใช้งานที่คาดหวัง",
-                uc_1: "เมื่อคุณต้องการสร้างเสียงร้อง UTAU ด้วยเสียงจากวัตถุไร้ชีวิต", uc_2: "การผลิตเสียงร้องสำหรับผู้ที่ไม่ถนัดในการบันทึกเสียงของตนเอง",
+                uc_1: "When you want to create a UTAU voicebank with inanimate sounds", uc_2: "การผลิตเสียงร้องสำหรับผู้ที่ไม่ถนัดในการบันทึกเสียงของตนเอง",
                 uc_3: "การวิจัยวัสดุเกี่ยวกับการจำลองคลื่นไซน์คอมเพล็กซ์ (การสังเคราะห์เสียง CSM)", uc_4: "การสร้างต้นแบบเสียงร้องที่ทำขึ้นเอง",
                 uc_5: "คลายซิปไฟล์ ZIP เพื่อนำไปใช้เป็นวัสดุทำ Vocaloid มนุษย์ทำเองโดยตรง", uc_6: "ใช้เป็นวัสดุสำหรับ Otomad และ YTPMV เป็นต้น",
                 manual_title: "วิธีใช้งาน Utaun",
-                step_1: "ดาวน์โหลด 'รุ่นตัวติดตั้ง' หรือ 'รุ่น ZIP' ที่คุณชื่นชอบจาก GitHub Releases",
+                step_1: "ดาวน์โหลด 'รุ่นตัวติดตั้ง' หรือ 'รุ่น ZIP' ที่คุณต้องการ",
                 step_2_installer: "<strong>[กรณีใช้รุ่นตัวติดตั้ง]</strong> เปิดตัวติดตั้งและทำตามคำแนะนำบนหน้าจอเพื่อวางไฟล์ที่จำเป็นลงในตำแหน่งที่ถูกต้องโดยอัตโนมัติ",
                 step_2_zip: "<strong>[กรณีใช้รุ่น ZIP]</strong> โปรดวาง '子音部・濁音部フォルダ' และ 'oto.ini' ที่อยู่ในโฟลเดอร์ที่แตกไฟล์แล้วลงในโฟลเดอร์ 'Documents' (เอกสาร) โดยตรง (สามารถใช้โฟลเดอร์เอกสารใน OneDrive ได้เช่นกัน)",
                 step_3: "เปิดใช้งาน Utaun และทำตามคำแนะนำบนหน้าจอเพื่อสร้างเสียงร้อง",
