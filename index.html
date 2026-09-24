@@ -1099,11 +1099,11 @@ mirror_title: "", mirror_desc: "", m_1: "", m_2: "", m_3: "", m_4: "", m_5: ""
 }
 };
 
-// 各言語ごとのREADMEのファイル名（必要に応じてパスやファイル名を変更してください）
+// 各言語ごとのREADMEミラー用ファイルパスの設定
 const readmeFiles = {
-"zh-cn": "./READMEmirror/README_zh_cn.md", // 簡体字用
-"zh-hk": "./READMEmirror/README_zh_hk.md", // 広東語・繁体字用
-"ru":    "./READMEmirror/README_ru.md"     // ロシア語用
+    "zh-cn": "./READMEmirror/README_MIRROR_cn.md",
+    "zh-hk": "./READMEmirror/README_MIRROR_hk.md",
+    "ru":    "./READMEmirror/README_MIRROR_ru.md"
 };
 
 function changeLanguage(lang) {
@@ -1137,9 +1137,9 @@ if (readmeDlBtn) {
 if (['zh-cn', 'zh-hk', 'ru'].includes(targetLang)) {
 readmeDlBtn.style.display = 'inline-block';
 // 言語に応じたファイルパスに書き換え
-const fileName = readmeFiles[targetLang] || "./README.md";
-readmeDlBtn.setAttribute('href', fileName);
-readmeDlBtn.setAttribute('download', fileName.split('/').pop());
+const filePath = readmeFiles[targetLang] || "./README.md";
+readmeDlBtn.setAttribute('href', filePath);
+readmeDlBtn.setAttribute('download', filePath.split('/').pop());
 } else {
 readmeDlBtn.style.display = 'none';
 }
