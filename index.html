@@ -6,26 +6,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Utaun - Windows用CV音源生成ソフトウェア</title>
 <!-- レトロ日本語ドットフォント（DotGothic16）をGoogle Fontsから読み込み -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
-<style>
-/* すべての要素でレトロドットフォントを強制＆アンチエイリアスを完全にオフ */
-/* すべての要素でレトロドットフォントを強制＆アンチエイリアスを完全にオフ */
-/* すべての要素でレトロドットフォントを強制＆アンチエイリアスを完全にオフ */
-body, * {
-    font-family: "DotGothic16", "MS Gothic", "MS UI Gothic", monospace, sans-serif !important;
-    
-    -webkit-font-smoothing: none !important;
-    -moz-osx-font-smoothing: none !important;
-    font-smooth: never !important;
-    image-rendering: pixelated !important;
-    text-rendering: optimizeSpeed !important;
-    
-    /* ブラウザのサブピクセル描画を無理やり誤魔化してドット感を出す裏技 */
-    transform: translateZ(0);
-}
+  <!-- 1. JSDelivr公式が推奨する、中身のデータまで直通している完全なインポート形式 -->
+  <style>
+    @import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
 
+    body, body * {
+      /* 日本語・中国語・英語・韓国語すべての文字データが、この名前でiPhoneに適用されます */
+      font-family: "Galmuri11", "Galmuri9", monospace !important;
+      
+      /* iPhone（Safari）でピンチアウト拡大しても、文字が滑らかに戻らずドットエッジを維持する命令 */
+      image-rendering: pixelated !important;
+      image-rendering: crisp-edges !important;
+      -webkit-font-smoothing: none !important;
+      font-smooth: never !important;
+
+      /* スマホ画面でドット線が消えてツルツルに化けるのを防ぐ、クッキリ浮き立たせ補正 */
+      -webkit-text-stroke: 0.1px currentColor !important;
+      text-stroke: 0.1px currentColor !important;
+    }
 body {
 background-color: #ffffff;
 color: #000000;
