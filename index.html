@@ -1,28 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="HR5duaG7kJc7cPypTsmMkbR114Klfllj53-V0vN2vKE" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Utaun - Windows用CV音源生成ソフトウェア</title>
 
-<!-- 🌟15言語すべてをカバーするGoogle Webフォントを完璧にロード -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://googleapis.com" rel="stylesheet">
+<!-- 🌟【超重要】15言語すべてをカバーするGoogle Webフォントを完璧にロード -->
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=DotGothic16&family=Noto+Sans+CJK+JP:wght@700&family=Noto+Sans+CJK+KR:wght@700&family=Noto+Sans+CJK+TC:wght@700&family=Noto+Sans+Thai:wght@700&family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
 
 <style>
 /* 🌟すべての要素でレトロドットフォントのフォールバックを再定義し、アンチエイリアスを完全にオフ */
 body, * {
-    /* 英語・欧州・ロシア・タイ・日中韓の順番で適合するフォントを自動適用 */
+    /* 英語・欧州・ロシア・タイ・日中韓の順番で適合するドット化フォントを自動適用 */
     font-family: "FusionPixel", "DotGothic16", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans CJK TC", "Noto Sans Thai", "Noto Sans", "MS Gothic", "MS UI Gothic", "Fixedsys", monospace, sans-serif !important;
-    font-weight: 700 !important; /* ドットの視認性を極限まで高めるため太字を強制 */
+    font-weight: 700 !important; /* 💡アンチエイリアスOFF時の文字擦れを防ぎ、ファミコン風のクッキリ感を出すため太字を強制 */
     
-    /* ⚠️ブラウザの文字ぼかし機能を完全に無効化する設定 */
     -webkit-font-smoothing: none !important;
     -moz-osx-font-smoothing: none !important;
-    font-smoothing: none !important;
-    text-rendering: optimizeSpeed !important;
+    font-smoothing: none !important; /* 💡非標準のfont-smoothではなく現代の標準プロパティを指定 */
     image-rendering: pixelated !important;
-    image-rendering: crisp-edges !important;
+    text-rendering: optimizeSpeed !important;
+    
+    /* ブラウザのサブピクセル描画を無理やり誤魔化してドット感を出す裏技 */
+    transform: translateZ(0);
 }
 
 body {
@@ -30,7 +33,7 @@ background-color: #ffffff;
 color: #000000;
 margin: 0;
 padding: 1rem;
-line-height: 1.8 !important; /* タイ語やベトナム語の上下記号が潰れないように少し広めへ調整 */
+line-height: 1.8 !important; /* 💡タイ語やベトナム語の上下記号が潰れたり重なったりしないように少し広めへ調整 */
 display: flex;
 justify-content: center;
 min-height: 100vh;
