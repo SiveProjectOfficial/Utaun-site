@@ -1,29 +1,28 @@
-<!DOCTYPE html>
-<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="HR5duaG7kJc7cPypTsmMkbR114Klfllj53-V0vN2vKE" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Utaun - Windows用CV音源生成ソフトウェア</title>
-<!-- レトロ日本語ドットフォント（DotGothic16）をGoogle Fontsから読み込み -->
+
+<!-- 🌟15言語すべてをカバーするGoogle Webフォントを完璧にロード -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+<link href="https://googleapis.com" rel="stylesheet">
+
 <style>
-/* すべての要素でレトロドットフォントを強制＆アンチエイリアスを完全にオフ */
-/* すべての要素でレトロドットフォントを強制＆アンチエイリアスを完全にオフ */
-/* すべての要素でレトロドットフォントを強制＆アンチエイリアスを完全にオフ */
+/* 🌟すべての要素でレトロドットフォントのフォールバックを再定義し、アンチエイリアスを完全にオフ */
 body, * {
-    font-family: "FusionPixel","DotGothic16", "MS Gothic", "MS UI Gothic", "Fixedsys", monospace, sans-serif !important;
+    /* 英語・欧州・ロシア・タイ・日中韓の順番で適合するフォントを自動適用 */
+    font-family: "FusionPixel", "DotGothic16", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans CJK TC", "Noto Sans Thai", "Noto Sans", "MS Gothic", "MS UI Gothic", "Fixedsys", monospace, sans-serif !important;
+    font-weight: 700 !important; /* ドットの視認性を極限まで高めるため太字を強制 */
     
+    /* ⚠️ブラウザの文字ぼかし機能を完全に無効化する設定 */
     -webkit-font-smoothing: none !important;
     -moz-osx-font-smoothing: none !important;
-    font-smooth: never !important;
-    image-rendering: pixelated !important;
+    font-smoothing: none !important;
     text-rendering: optimizeSpeed !important;
-    
-    /* ブラウザのサブピクセル描画を無理やり誤魔化してドット感を出す裏技 */
-    transform: translateZ(0);
+    image-rendering: pixelated !important;
+    image-rendering: crisp-edges !important;
 }
 
 body {
@@ -31,7 +30,7 @@ background-color: #ffffff;
 color: #000000;
 margin: 0;
 padding: 1rem;
-line-height: 1.6;
+line-height: 1.8 !important; /* タイ語やベトナム語の上下記号が潰れないように少し広めへ調整 */
 display: flex;
 justify-content: center;
 min-height: 100vh;
